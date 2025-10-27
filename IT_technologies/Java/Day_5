@@ -1,0 +1,101 @@
+JIT Compiler (Just-In-Time Compiler)
+Part of the JVM execution engine.
+Purpose: Improve performance of Java programs at runtime.
+🔹 How JVM works without JIT:
+JVM uses an interpreter, which executes bytecode line by line.
+This makes execution slow.
+🔹 How JIT works:
+JIT compiles frequently used methods/instructions (called hotspots) into native machine code.
+Instead of interpreting repeatedly, the JIT compiler stores compiled machine code.
+At execution time, JVM directly executes the native machine code → faster performance.
+Variable in Java
+A variable is a name given for a memory location.
+It can hold some meaningful value within its range.
+A variable’s value can change during program execution.
+Example:
+int x = 10;
+int y = 20;
+x = x + y;
+Memory Representation (RAM Example):
+x → stores value at address (e.g., 1002).
+
+y → stores value at address (e.g., 1006).
+Word Breakdown:
+Variable = “Vary + able” → changeable.
+✅ Key Points:
+
+JIT Compiler = improves performance by compiling bytecode into machine code at runtime.
+Variable = named memory location whose value can change during execution.
+🔹 Drawbacks of an Ordinary Variable
+A variable can store only one value at a time.
+int x = 12, 90; // Invalid
+
+Stored in random memory location.
+Volatile → when program ends, variable’s value is deleted from memory.
+👉 To store permanently, we use File Handling.
+🔹 What is Data Type?
+Definition: Specifies the type of data a variable can store.
+Describes:
+Size — memory required in RAM.
+Range — values it can hold. (Example: byte → -128 to 127).
+operations — allowed operations (addition, string concatenation, etc.).
+🔹 Types of Data in Java
+Java has 2 main categories:
+
+1. Primitive Data Type
+Also called: primary, predefined, basic, fundamental, atomic, intrinsic.
+
+Total: 8 types
+Numeric/Integral
+byte (8 bits)
+short (16 bits)
+int (32 bits)
+long (64 bits)
+Decimal
+float (32 bits)
+double (64 bits)
+Non-Numeric
+char (16 bits)
+boolean (1 bit or depends on JVM)
+2. Reference Data Type
+Examples: class, array, interface, enum, record, etc.
+
+✅ Summary:
+
+Ordinary variables → store only one value, temporary.
+Data type → defines size, range, and operations of data.
+Java has 8 primitive data types and reference data types.
+🔹 Statically Typed vs Dynamically Typed Languages
+Statically Typed Language
+Data type must be declared before using a variable.
+Once declared, the variable holds the same type of value till program ends.
+Example: C, C++, Java (JSE), C#
+👉 Example in Java:
+
+int x = 10;  // must declare int
+x = "Hello"; // ❌ not allowed
+Dynamically Typed Language
+Data type not required when declaring variables.
+Variable can hold different types of values during execution.
+Exaple: Python, JavaScript, Visual Basic
+👉 Example in Python:
+
+x = 10
+x = "Hello"  # ✅ allowed
+🔹 Comments in Java
+Used to make code readable.
+Ignored by the compiler.
+Types of Comments:
+Single-line Comment
+// This is a single-line comment
+
+Multi-line Comment
+/* This is a multi-line comment */
+Documentation Comment (for projects & APIs)
+/** * Name of Project: Online Shopping * Modules: 70 * Project Date: 12th March 2024 * Last Modified: 9th Sep 2025 * Author: James Goling and his friends */
+
+✅ Summary:
+
+Statically typed → type fixed (C, Java).
+Dynamically typed → type flexible (Python, JavaScript).
+Comments → make code readable (3 types: single, multi, documentation).
