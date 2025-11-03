@@ -1,0 +1,62 @@
+# What is a Language?
+
+A language is a medium of communication through which humans can express and understand ideas.
+
+# What is a Programming Language?
+
+A programming language is a medium through which a user communicates with a computer system.
+It allows us to submit instructions to get the desired output.
+
+Characteristics of a Programming Language
+
+1. Syntax → The rules defined by that language
+
+2. Semantics → The meaning / structure conveyed by the code
+
+Example (English):
+
+Syntax Rule: Subject + Verb + Object
+
+✅ He is a boy. (Valid)
+
+❌ He is a box. (Invalid in meaning)
+
+# Security in Java Programming
+
+Java provides two levels of verification:
+
+1. Compiler Level — — — Checks syntax (rules).
+
+Reports syntax errors but does not care about execution meaning.
+
+2. Execution Level (Runtime Environment) — — — Checks semantics (meaning).
+
+If code is meaningless, throws Runtime Error.
+
+👉 Final Conclusion:
+Compiler → verifies Syntax
+
+Runtime Environment (JVM) → verifies Semantics
+
+— — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+What is Java?
+Java is a high-level, platform-independent, secure, robust, multithreaded, object-oriented programming language.
+
+Developed By: Sun Microsystems (1995)
+
+First Release: JDK 1.0 on 23rd January 1996
+
+Acquired By: Oracle Corporation (2010)
+
+— -
+
+Applications of Java
+
+By using Java, we can build:
+a) Stand-alone Applications (Desktop / Software)
+b) Web Applications (Websites)
+c) Enterprise Applications
+d) Gaming Applications (using Multithreading)
+e) Mobile Applications
+f) Distributed Applications
