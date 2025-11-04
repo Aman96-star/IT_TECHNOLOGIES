@@ -1,0 +1,117 @@
+# Pass Parameters to a Function?
+
+We pass parameters (arguments) to functions in order to provide complete information required by the function to perform its task.
+
+👉 If we don’t pass parameters, the function may not have enough data to work with (incomplete / partial information).
+
+Examples in Java:
+
+public void doSum(int x, int y) // x and y are parameters
+public void deposit(double amount) // amount is parameter
+public void sleep(int hours) // hours is parameter
+
+Here, each function requires external data to work properly.
+
+— -
+
+# Why Functions are Called Methods in Java?
+In C and C++, functions can be written:
+
+Inside a class
+
+Outside a class (using scope resolution operator ::)
+
+Example in C++:
+
+class Test {
+void m1(); // Function declaration inside class
+};
+
+void Test::m1() {
+// Function definition outside class using ::
+}
+
+👉 But in Java, every function must be written inside a class.
+That’s why functions are called Methods in Java.
+Example in Java:
+
+class Test {
+public void m1() {
+System.out.println(“This is a method in Java”);
+}
+}
+
+So, in Java there is no concept of global functions outside classes.
+
+— -
+
+What is Platform Independence in Java?
+C / C++ Case (Platform Dependent)
+
+A program compiled on one machine may not run on another machine with different configuration.
+Example:
+
+Demo.c → Compiled → Demo.exe (Windows 32-bit)
+
+This .exe may not run on Windows 64-bit or Linux.
+
+This happens because .exe files are machine code generated for a specific OS and hardware.
+
+— -
+
+Java Case (Platform Independent)
+1. Write Program: Test.java (Source Code)
+
+2. Compile Program (javac): Generates Test.class (Bytecode)
+
+Compiler checks syntax
+
+Ensures compatibility (LHS = RHS type checks)
+
+Converts source code → Bytecode
+
+3. Execute with JVM:
+
+Test.class is submitted to Java Virtual Machine (JVM)
+
+JVM interprets bytecode line by line into machine instructions
+
+Each OS has its own JVM implementation:
+
+Windows JVM
+
+Linux JVM
+
+Mac JVM
+
+👉 Conclusion:
+Java Language = Platform Independent (because bytecode can run anywhere).
+
+JVM = Platform Dependent (each OS has its own JVM implementation).
+
+— -
+
+Flow of Execution in Java
+
+Java Source Code (.java)
+|
+v
+Java Compiler (javac)
+|
+v
+Bytecode (.class file)
+|
+v
+JVM (Platform-specific)
+|
+v
+Machine Code → Output
+
+— -
+
+⚡ Key Points to Remember:
+C/C++ → Compiled into machine code → Platform Dependent
+
+Java → Compiled into Bytecode → Runs on JVM → Platform Independent
+
+JVM is written in C language, and it contains an interpreter for executing bytecode.
