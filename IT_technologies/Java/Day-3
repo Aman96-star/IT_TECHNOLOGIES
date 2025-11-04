@@ -1,0 +1,89 @@
+Bit Code vs Byte Code
+Press enter or click to view image in full size
+
+🔹 JDK vs JRE vs JVM vs Compiler
+1. JDK (Java Development Kit)
+Developer version (for writing + compiling + running Java programs).
+
+Includes:
+
+Compiler (javac) → Converts source code → bytecode
+
+Java launcher (java) → Runs bytecode
+
+Debugger, Profiler, Documentation tools, etc.
+
+Contains JRE inside it.
+
+— -
+
+2. JRE (Java Runtime Environment)
+Press enter or click to view image in full size
+
+Client version (only for running Java programs, not for development).
+
+Includes:
+
+JVM
+
+Class libraries (e.g., java.lang, java.util)
+
+Does not include compiler (javac).
+
+From Java 11 onwards, JRE folder is removed (JDK is enough).
+
+— -
+
+3. JVM (Java Virtual Machine)
+
+Software engine that executes Java bytecode.
+
+Platform-dependent (Windows JVM, Linux JVM, etc.) but bytecode is platform-independent.
+
+Responsibilities:
+
+Class loading
+
+Bytecode verification
+
+Memory allocation
+
+Garbage collection
+
+Security
+
+— -
+
+4. Compiler (javac) vs Interpreter (inside JVM)
+
+Feature Compiler (javac) Interpreter (JVM)
+
+Input Java Source Code (.java) Bytecode (.class)
+Output Bytecode (.class) Machine Code
+Execution Style Translates entire program once. Executes line-by-line (bytecode → native).
+Speed Compilation is slower, but execution is faster. Execution is slower (line-by-line).
+Errors Shows all errors at once (compile-time). Shows one error at runtime.
+Portability Depends on JVM later. Directly OS dependent (through JVM).
+
+🔹 Note: Java uses both:
+
+Compiler (javac) → source → bytecode
+
+Interpreter (JVM) → bytecode → machine code
+
+Modern JVMs also use JIT (Just-In-Time) Compiler for faster execution (it converts frequently used bytecode into native machine code at runtime).
+
+— -
+
+✅ Quick Example:
+
+// Source Code
+public class Demo {
+public static void main(String[] args) {
+System.out.println(“Hello, Welcome to Java!”);
+}
+}
+
+Execution steps:
+1. javac Demo.java → Demo.class (Bytecode)
+2. java Demo → JVM interprets bytecode → Native machine code → Output.
