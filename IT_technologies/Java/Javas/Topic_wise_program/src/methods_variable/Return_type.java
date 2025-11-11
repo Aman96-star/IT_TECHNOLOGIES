@@ -1,0 +1,10 @@
+package methods_variable;
+
+public class Return_type {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
