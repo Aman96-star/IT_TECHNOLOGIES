@@ -1,0 +1,305 @@
+INSERTION OPERATION :
+=====================
+
+Que 1 : [Inserting Single Element by Copying array logic]
+==========================================================
+
+package com.nit.batch51;
+
+import java.util.Arrays;
+
+public class Test {
+	
+	public static int[] insertEle(int arr[],int ele)
+	{
+		int brr[]=new int[arr.length+1];
+		for(int i=0;i<arr.length;i++)
+		{
+			brr[i]=arr[i]; //[1,2,3,4,5,0]
+		}
+		brr[brr.length-1]=ele;
+		return brr;
+	}
+	public static void main(String[] args) {
+		
+		int arr[]= {1,2,3,4,5}; //1000x
+		int ele=100;
+		System.out.println("Before : "+Arrays.toString(arr));
+		arr = insertEle(arr, ele);
+		System.out.println("After : "+Arrays.toString(arr));
+	}
+
+}
+------------------------------
+
+Que 2 : [Inserting Multiple Element by Copying array logic]
+============================================================
+
+package com.nit.batch51;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Test {
+	
+	public static int[] insertEle(int arr[],int ele)
+	{
+		int brr[]=new int[arr.length+1];
+		for(int i=0;i<arr.length;i++)
+		{
+			brr[i]=arr[i]; //[1,2,3,4,5,0]
+		}
+		brr[brr.length-1]=ele;
+		return brr;
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int arr[]= {1,2,3,4,5}; //1000x
+		System.out.println("How many elements you wants to insert?");
+		int n=sc.nextInt(); //3
+		System.out.println("Before : "+Arrays.toString(arr));
+		
+		for(int i=1;i<=n;i++)
+		{
+			int x=sc.nextInt();
+			arr = insertEle(arr, x);
+		}
+	
+		System.out.println("After : "+Arrays.toString(arr));
+	}
+
+}
+--------------------------------
+
+Que 3 : [Inserting Multiple Element by Arrays.copyOf() Method]
+===============================================================
+package com.nit.batch51;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Test {
+
+	public static int[] insertEle(int arr[], int ele) {
+		int[] brr = Arrays.copyOf(arr, arr.length + 1);
+		brr[brr.length - 1] = ele;
+		return brr;
+
+	}
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int arr[] = { 1, 2, 3, 4, 5 };
+		System.out.println("How many elements you wants to insert?");
+		int n = sc.nextInt();
+
+		System.out.println("Before :" + Arrays.toString(arr));
+		for (int i = 1; i <= n; i++) {
+			arr = insertEle(arr, sc.nextInt());
+		}
+
+		System.out.println("After : " + Arrays.toString(arr));
+	}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+DELETION OPERATION :
+====================
+
+-> We can perform deletion operation by using two ways.
+
+1) delete element by copying one array to another array by skiping deleting element.
+2) deleting element by shifting logic. (not recommended to use... taking more time to shift(time complexity is more))
+
+Que 1 : [Delete Element By Copying One Array To Another Array.]
+==========================================================================================
+
+package com.nit.batch51;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Test {
+	
+	public static int[] deleteEle(int arr[],int ele)
+	{
+		
+		int c=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]==ele)
+			{
+				c++;
+			}
+		}
+		int brr[]=new int[arr.length-c];
+		int x=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]!=ele)
+			{
+				brr[x++]=arr[i]; //[]
+			}
+		}
+		return brr;
+	}
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int arr[] = { 1, 2, 3, 4, 5, 3, 5, 3 }; //[1,2,4,5,5]
+		System.out.println("Before: "+Arrays.toString(arr));
+		arr=deleteEle(arr, 3);
+		System.out.println("After: "+Arrays.toString(arr));
+
+	}
+
+}
+----------------------------------------
+
+Que 2. [Deleting Element By Shifting Logic]
+===========================================
+
+package com.nit.batch51;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Test {
+
+	public static int[] deleteEle(int arr[], int ele) {
+		int l = arr.length;
+		for (int i = 0; i < l; i++) {
+			if (arr[i] == ele) {
+				for (int j = i; j < l - 1; j++) {
+					arr[j] = arr[j + 1];
+				}
+				l--;
+				i--;
+			}
+
+		}
+
+		return Arrays.copyOf(arr, l);
+
+	}
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int arr[] = { 1, 2, 3, 3, 3, 4, 5, 3, 5, 3 }; // [1,2,4,5,5]
+		System.out.println("Before: " + Arrays.toString(arr));
+		arr = deleteEle(arr, 3);
+		System.out.println("After :" + Arrays.toString(arr));
+
+	}
+
+}
+---------------------------------
+
+Que 3 : [Shifting Elements To Right]
+======================================
+
+package com.nit.batch51;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		int arr[]= {1,2,3,4,5,6,7,8}; //[4,5,6,7,8,1,2,3]
+		
+		System.out.println(Arrays.toString(arr));
+		
+		for(int k=1;k<=3;k++)
+		{
+			int x=arr[0]; //1
+			for(int i=0;i<arr.length-1;i++)
+			{
+				arr[i]=arr[i+1];
+			}
+			arr[arr.length-1]=x;
+		}
+		System.out.println(Arrays.toString(arr));
+
+	}
+
+}
+--------------------------------------
+
+Que 3 : [Missing Elemets From Array]
+=====================================
+
+package com.nit.batch51;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		int arr[]= {2,10,9,5}; // 3 4 6 7 8 
+		Arrays.sort(arr); //[2,5,9,10]
+		
+		for(int i=0;i<arr.length-1;i++)
+		{
+			for(int j=arr[i]+1;j<arr[i+1];j++)
+			{
+				System.out.print(j+" ");//3 4 6 7 8
+			}
+		}
+		
+	}
+
+}
+--------------------------------------------
+
+Que 4 :[Working With Arrays.hashCode(),Arrays.equals() methods]
+================================================================
+package com.nit.batch51;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int arr[] = { 1, 2, 3, 4, 5 };
+		int brr[] = { 1, 2, 3, 4, 5 };
+
+		System.out.println(arr == brr); 
+
+		System.out.println(Arrays.hashCode(arr));
+		System.out.println(Arrays.hashCode(brr));
+
+		System.out.println(arr.hashCode());
+		System.out.println(brr.hashCode());
+
+		System.out.println(System.identityHashCode(arr));
+		System.out.println(System.identityHashCode(brr));
+
+		System.out.println(Arrays.equals(arr, brr));
+		
+
+	}
+
+}
+
+-----------------------------------------
