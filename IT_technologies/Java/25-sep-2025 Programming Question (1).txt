@@ -1,0 +1,50 @@
+___________________________
+Programming Questions
+___________________________
+
+Assignment 01
+-------------
+Write a java program to covert string to double using parseDouble() and multiply two decimal Numbers and display the result by taking input from the command line argument?
+
+java MultiplyDecimals 12.5 3.2  
+Output : Multiplication Result: 40.0  
+
+----------------------------
+Assignment 02
+-------------
+Program to find sum of the number from Command Line Argument.
+
+java SumOfNumbers 10 20 30 40  
+Output : 100  
+
+----------------------------
+Assignment 03
+-------------
+Program to Concatenate Strings from Command Line Argument.
+
+java ConcatStrings Java is platform independent  
+
+Output : Concatenated String: Java is platform independent [Space should be in the output]  
+
+------------------------------------------------------
+Assignment -04
+------------------------------------------------------
+Write a Java program that performs different operations based on the number of arguments passed through the command-line arguments based on different criteria :
+
+  a) It should print "No arguments provided!", If argument length is 0  
+  b) It should print square of the given number, If argument length is 1  
+  c) It should print sum and product of the given numbers, If argument length is 2  
+  d) It should print the sum of all the numbers if argument length is more than 2.  
+
+java CommandLineOperations  
+Output : No arguments provided!  
+
+java CommandLineOperations 5  
+Output : Square of 5 = 25  
+
+java CommandLineOperations 4 6  
+Output : Sum = 10  
+         Product = 24  
+
+java CommandLineOperations 1 2 3 4  
+Output : Sum of all numbers = 10
