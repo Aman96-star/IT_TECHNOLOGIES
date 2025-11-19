@@ -1,0 +1,249 @@
+1. Which of these is long data type literal?
+a) 0x99fffL
+b) ABCDEFG
+c) 0x99fffa
+d) 99671246
+
+
+2. Which of the following is a valid integer literal in Java?
+a) 075
+b) 0x75
+c) 75L
+d) All of the above
+
+
+3. What will be the output of the following code?
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+        int a = 012;  
+        System.out.println(a);
+    }
+}
+a) 12
+b) 10
+c) 8
+d) Compilation error
+
+
+4. Which of the following is an invalid literal in Java?
+a) 0b1010 // binary
+b) 0x1F // hexadecimal
+c) 078 // octal
+d) 123_456 // underscores allowed
+
+
+5. Which literal represents a Unicode character?
+a) 'A'
+b) '\u0041'
+c) 65
+d) All of the above
+
+
+6. What is the type of the literal 3.14 in Java by default?
+a) float
+b) double
+c) Decimal
+d) long double
+
+
+
+7. Which of the following boolean literals are valid in Java?
+a) 0 and 1
+b) true and false
+c) TRUE and FALSE
+d) Yes and No
+
+
+8. Which of the following is a valid binary literal in Java (Java 7+)?
+a) 0b1010
+b) 0B1010
+c) Both a and b
+d) None
+
+
+9. Which of the following literals is invalid?
+a) 0x1A
+b) 0_52
+c) 1_00_000
+d) 1_2_3_
+
+
+
+10. What will be the output of the following Java code?
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+        int x = 0b1010;
+        System.out.println(x);
+    }
+}
+
+a) 2
+b) 5
+c) 10
+d) 1010
+
+
+11. Which of the following is a valid float literal?
+a) 3.14
+b) 3.14F
+c) 2.0d
+d) 1.23L
+
+
+12. Which of the following assignments is valid?
+a) char c = 'AB';
+b) char c = 'A';
+c) char c = 65;
+d) Both b and c
+
+
+13.Which of the following is not a valid character literal?
+a) 'A'
+b) '\n'
+c) '\u0041'
+d) ''
+
+
+14.Which of the following is not a valid String literal?
+a) "Hello"
+b) "Java\nWorld"
+c) "A" + "B"
+d) 'Hello'
+
+
+15.Which of the following is a valid long literal?
+a) 10
+b) 10.9
+c) 9999999999
+d) 9999999999L
+
+
+16.Which of the following is not a literal in Java?
+a) true
+b) "Hello"
+c) 123.45
+d) variable
+
+
+17. Which of the following is valid?
+a) int x = 0x1A;
+b) int x = 1_000_000;
+c) int x = 07;
+d) All of the above
+
+
+18. What is the output of this code?
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+        System.out.println(10 + 020 + 0x10);
+    }
+}
+
+
+
+19.Which literal is used to denote the absence of a value?
+a) 0
+b) false
+c) null
+d) NaN
+
+
+
+20. Which of the following will cause a compilation error?
+a) double d = 1.2e3;
+b) float f = 3.14;
+c) long l = 1234567890L;
+d) int i = 0xFF;
+
+
+
+
+21. What is the output of this code.
+public class IntegerLiterals 
+{
+    public static void main(String[] args)
+    {
+        int dec = 25;       
+        int oct = 031;      
+        int hex = 0x19;    
+        int bin = 0b11001;  
+
+        System.out.println("Decimal: " + dec);
+        System.out.println("Octal: " + oct);
+        System.out.println("Hexadecimal: " + hex);
+        System.out.println("Binary: " + bin);
+    }
+}
+
+
+22. What is the output of this code.
+public class FloatingLiterals 
+{
+    public static void main(String[] args) 
+    {
+        double d1 = 3.14159;   
+        double d2 = 1.2e3;     
+        float f1 = 2.5f;      
+
+        System.out.println("Double: " + d1);
+        System.out.println("Scientific: " + d2);
+        System.out.println("Float: " + f1);
+    }
+}
+
+
+23. What is the output of this code.
+public class CharLiterals {
+    public static void main(String[] args) 
+    {
+        char c1 = 'A';        
+        char c2 = 65;         
+        char c3 = '\u0041';   
+        char c4 = '\n';       
+
+        System.out.println("c1 = " + c1);
+        System.out.println("c2 = " + c2);
+        System.out.println("c3 = " + c3);
+        System.out.println("c4 shows newline above");
+    }
+}
+
+
+24. What is the output of this code.
+public class BooleanLiterals 
+{
+    public static void main(String[] args) 
+    {
+        boolean b1 = true;
+        boolean b2 = false;
+
+        System.out.println("b1 = " + b1);
+        System.out.println("b2 = " + b2);
+
+        if (b1)
+	{
+            System.out.println("This runs because b1 is true");
+        }
+    }
+}
+
+
+25.What is the output of this code.
+public class StringLiterals 
+{
+    public static void main(String[] args) {
+        String s1 = "Hello Java"; 
+        String s2 = "";         
+        String s3 = null;       
+
+        System.out.println("s1 = " + s1);
+        System.out.println("s2 = \"" + s2 + "\" (empty string)");
+        System.out.println("s3 = " + s3);  
+    }
+}
