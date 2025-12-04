@@ -1,0 +1,77 @@
+DESCRIBE a table
+DESC table_name;
+DESC emp;
+DESC dual;
+
+2. SELECT from a table
+SELECT * FROM emp;
+SELECT * FROM dual;
+
+3. Formatting commands
+SET LINESIZE 100;
+SET LINESIZE 200;
+
+SET PAGESIZE 100;
+SET PAGESIZE 200;
+
+
+❌ Invalid (you typed this, SQL*Plus does NOT support it)
+
+SET LENGTHSIZE 100;   -- INVALID
+SET LENGTHSIZE 200;   -- INVALID
+
+✅ SQL Functions You Used
+1. Case Conversion
+SELECT UPPER(ename) FROM emp;
+SELECT LOWER(ename) FROM emp;
+SELECT INITCAP('ab cd ef') FROM dual;
+
+2. UPDATE
+UPDATE emp SET ename = UPPER(ename);
+
+3. LENGTH Function
+SELECT LENGTH(ename) FROM emp;
+SELECT ename, LENGTH(ename) AS length FROM emp;
+SELECT LENGTH('AB CD') FROM dual;
+
+4. WHERE with LENGTH
+SELECT * FROM emp WHERE LENGTH(ename) = 4;
+SELECT * FROM emp WHERE LENGTH(ename) > 5;
+
+
+❌ Invalid
+
+SELECT LENGTH(ename)=4 FROM emp;     -- WRONG
+SELECT LENGTH(ename)==4 FROM emp;    -- WRONG
+SELECT * FROM emp WHERE LENGTH(ename); -- WRONG
+
+✅ LPAD, RPAD Functions
+SELECT LPAD('kiran',10,'#') FROM dual;
+SELECT LPAD('gowtham',10,'#!') FROM dual;
+SELECT LPAD('x',4,'x') FROM dual;
+
+SELECT RPAD('AMCD',10,'#') FROM dual;
+SELECT RPAD('AMCD',10) || 'hello' FROM dual;
+SELECT RPAD('AMCD',10,'*') || 'hello' FROM dual;
+SELECT RPAD(ename,20) || sal FROM emp;
+SELECT RPAD(ename,20,'*') || sal FROM emp;
+
+❌ Invalid LPAD / RPAD Commands You Typed
+SQL> SELECT LPAD('kiran',10,'#");    -- INVALID QUOTES
+SELECT LPAD('kiran',10,'#') FRO dual; -- "FRO" typo
+
+✅ LTRIM, RTRIM, TRIM
+SELECT LTRIM('SSMISSTHSS','S') FROM dual;
+SELECT LTRIM('     GOWTHAM     ') FROM dual;
+
+SELECT RTRIM('SSMISSTHSS','S') FROM dual;
+
+SELECT TRIM('*' FROM '*****GOWTHAM*****') FROM dual;
+
+❌ Commands With Errors
+SELECT LENGTH(ename)==4 FROM emp;   -- Wrong operator
+SELECT LENGTH(ename)=4 FROM emp;    -- Wrong place for condition
+SET LENGTHSIZE 100;                 -- Not a real SQL*Plus setting
+SQL> SELECT ...                     -- You typed "SQL>" inside the query
+SELECT LPAD('kiran',10,'#")         -- Broken quotation
+SELECT LENGTH(ename)                -- Used without = or > or < operator
