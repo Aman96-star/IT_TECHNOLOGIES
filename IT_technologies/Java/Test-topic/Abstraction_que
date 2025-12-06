@@ -1,0 +1,141 @@
+1. ShapeCalculator
+Easy
+100 points
+• 130 min suggested
+Problem Description
+2) Write a java program to create an abstract class Shape with abstract methods area() & perimeter(). Create sub classes Square & Triangle
+that extend the Shape class & override area() and perimeter() methods to calculate the area and perimeter of each shape.
+
+Examples
+Example 1
+Input:
+Enter side of square: 5
+Enter sides of triangle (space separated): 3 4 5
+Output:
+Square Area: 25.0
+Square Perimeter: 20.0
+Triangle Area: 6.0
+Triangle Perimeter: 12.0
+Explanation:
+Square Area 𝐴 𝑟 𝑒 𝑎 = 𝑠 𝑖 𝑑 𝑒 2 = 7 × 7 = 49 Area=side 2 =7×7=49 Square Perimeter 𝑃 𝑒 𝑟 𝑖 𝑚 𝑒 𝑡 𝑒 𝑟 = 4 × 𝑠 𝑖 𝑑 𝑒 = 4 × 7 = 28 Perimeter=4×side=4×7=28 This is a right triangle (6² + 8² = 10²),
+so area can also be: 𝐴 𝑟 𝑒 𝑎 = 1 2 × 6 × 8 = 24 Area= 2 1​×6×8=24 Triangle Perimeter 𝑃 = 6 + 8 + 10 = 24 P=6+8+10=24
+
+//my soultion
+import java.util.*;
+
+public class ShapeCalculator{
+    public static void main(String[] args){
+        Scanner ob =new Scanner(System.in);
+        System. out.print("Enter side of square :");
+        int squareside =ob.nextInt();
+        ob.nextLine();
+        System.out.print("Enter side of triangle (space seperated): ");
+        int triangleside =ob.nextInt();
+       
+    }
+}
+
+class abstract Shape{
+    abstract area(){
+        int Areashape =
+    }
+    abstract perimeter(){
+
+    }
+}
+
+class Square extends Shape{
+    @overide
+
+}
+
+class Triangle extends Shape{
+    @overide
+
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+2. TypeReverseApp
+Easy
+100 points
+• 130 min suggested
+Problem Description
+3) Write a Java program to create an abstract class Type with an abstract method reverse(). Create subclasses StringType & IntegerType that
+Extend the Type class & override the reverse() method to reverse the given string & reverse the digits.
+
+Examples
+Example 1
+Input:
+hello
+1234
+Output:
+Reversed String: olleh
+Reversed Integer Digits: 4321
+Important Note
+Your code must be able to print the sample output from the provided sample input. However, your solution also runs against multiple hidden test cases. You must pass these hidden test cases to fully solve the problem.
+
+Limits
+Memory Limit: 1 MB
+Time Limit: 60 m
+//
+Solution
+import java. Util.*;
+
+public class TypeReverseApp{
+    public static void main(String[] args){
+        Scanner ob =new Scanner(System.in);
+        String str =ob.nextLine();
+        char arr[] =str.toCharArray();
+        int digit =ob.nextInt();
+`
+        StringType st1=new StringType(str,digit);
+        StringType st2=new StringType(str,digit);
+        
+    }
+
+}
+
+class abstract  Type{
+abstract reverse(String arr,int digi){
+    
+};
+
+}
+
+StringType extends Type{
+reverse(String arr){
+ for(int i=arr.length-1;i>0;i--){
+    System.out.print(arr[i]);
+}
+
+}
+   System.out.print("Reversed String: "+arr);
+}
+IntegerType extends Type{
+
+   reverse(int digi){ 
+for(int j=digi.length-1 ;j>0;j--){
+    System.out.print(digi[j]);
+
+}
+   }
+   System.out.print("Reversed Integer Digits: "+digi);
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+3. OverrideInputExample
+Easy
+100 points
+• 130 min suggested
+Problem Description
+Write a Java program to demonstrate method overriding where the subclass
+ method overrides the superclass method and processes user input differently.
+
+Examples
+Example 1
+Input:
+hello world
+Output:
+Superclass processing: HELLO WORLD
+Subclass processing: hello_world
