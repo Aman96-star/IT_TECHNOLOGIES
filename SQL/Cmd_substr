@@ -1,0 +1,54 @@
+instr():-it is used to check whether the substring exists 
+=======         in the given string or not.
+
+
+• If sub substring exists in the given string, it returns the position.
+
+• If sub substring does not exist in the given string, it returns 0.
+
+
+syntax: instr(columnname(or)string, sub string, searching position,
+======            No of occurrences from searching position);
+
+
+Searching position -> +ve or –ve
+Searching and No of occurrences -> must be numbers.
+
+
+         Always instr() returns the position based on the last 2 parameters. 
+But the Oracle server counts the number of characters from the left side first 
+position onwards.
+
+
+
+SQL> select instr('ABCDEFGHCDKMNBCDJ', 'CD',1,1) from dual;
+
+
+
+SQL> select instr('ABCDEFGHCDKMNBCDJ',' CD',5,2) from dual;
+
+
+
+SQL> select instr('ABCDEFGHCDKMNBCDJ', 'CD',-5,2) from dual;
+
+
+
+SQL> select instr('krishna stami lord krishna jai krishna','krishna',1,2) from dual;
+
+
+
+SQL> select instr('krishna stami lord krishna jai krishna','krishna',-1,3) from dual;
+
+
+
+SQL> select instr('gowtham raj','raj') from dual;
+
+
+
+SQL> select instr('gowtham raj','sai') from dual;
+
+
+
+SQL> select instr('ABC*D','*') from dual; // it returns the position of the 
+                                             delemiters(special characters)
+
