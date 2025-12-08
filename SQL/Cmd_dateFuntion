@@ -1,0 +1,114 @@
+    Date Functions Task
+                            =======================
+
+1. Write a query to display the current system date.
+
+SQL> SELECT SYSDATE FROM DUAL;
+
+SYSDATE
+---------
+08-DEC-25
+
+
+2. Write a  query to display the current system date and time.
+
+SQL> select systimestamp from dual;
+
+SYSTIMESTAMP
+---------------------------------------------------------------------------
+08-DEC-25 12.19.19.612000 PM +05:30
+
+
+3. Write a query to display the last date of the current month.
+
+SQL> SELECT SYSDATE-1 FROM DUAL;
+
+SYSDATE-1
+---------
+07-DEC-25
+
+
+4. Write a query to display the  last date of the month from the
+  Given date 16-APR-2024?
+
+SQL> SELECT last_day('16-APR-2024') FROM DUAL;
+
+LAST_DAY(
+---------
+30-APR-24
+
+
+5. Write a query to display month first date?
+
+
+SQL> SELECT last_day(sysdate)+1 from dual;
+
+LAST_DAY(
+---------
+01-JAN-26
+
+6. Write a query to display the  first date of the current month by using 
+  sysdate,add_months(),last_day() functions?
+
+SQL> SELECT LAST_DAY(ADD_MONTHS(SYSDATE, -1)) + 1 AS FIRST_DATE_CURRENT_MONTH
+  2  FROM DUAL;
+
+FIRST_DAT
+---------
+01-DEC-25
+
+
+7. Write a query to display next Friday's date?
+
+SQL>  SELECT NEXT_DAY(SYSDATE, 'FRIDAY') AS NEXT_FRIDAY
+  2  FROM DUAL;
+
+NEXT_FRID
+---------
+12-DEC-25
+
+8 . Write a query to display the next month's first Sunday date?
+SQL> SELECT NEXT_DAY(TRUNC(ADD_MONTHS(SYSDATE, 1), 'MM') - 1, 'SUNDAY') 
+  2         AS FIRST_SUNDAY_NEXT_MONTH
+  3  FROM DUAL;
+
+FIRST_SUN
+---------
+04-JAN-26
+
+
+
+9. Write a query that is used to display employee names and also number of years 
+  Those employees are working up to today's date from the emp table
+  by using months_between() function?
+
+SQL> SELECT
+  2      ENAME,
+  3      ROUND(MONTHS_BETWEEN(SYSDATE, HIREDATE) / 12, 2) AS YEARS_WORKED
+  4  FROM EMP;
+
+ENAME                          YEARS_WORKED
+------------------------------ ------------
+SMITH                                 44.98
+ALLEN                                  44.8
+WARD                                   44.8
+JONES                                 44.68
+MARTIN                                 44.2
+BLAKE                                  44.6
+CLARK                                  44.5
+SCOTT                                    43
+KING                                  44.06
+TURNER                                44.25
+ADAMS                                 42.91
+
+ENAME                          YEARS_WORKED
+------------------------------ ------------
+JAMES                                 44.01
+FORD                                  44.01
+MILLER                                43.88
+SIRIS                                 43.72
+
+15 rows selected.
+
+
+
