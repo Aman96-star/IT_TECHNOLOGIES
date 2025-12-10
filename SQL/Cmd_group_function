@@ -147,3 +147,79 @@ SQL> select count(comm) from emp;
 COUNT(COMM)
 -----------
           5
+
+15.Write a SQL query to display
+
+{here , Comparing dates as strings can give wrong results.}
+so use to_date() instead of to_char()?
+
+1. Count the number of shows(use alias NUMBER_OF_SHOWS) Scheduled after 1st February 2023.
+
+Your output should have a column as given below
+
+  NUMBER_OF_SHOWS
+
+SQL> select count(*) AS NUMBER_OF_SHOWS from flight where DEPATURE_DATE >to_date('01-FEB-23','DD-MON-YY');
+
+NUMBER_OF_SHOWS
+---------------
+              3
+
+
+NOTE:If a flight is scheduled on perticular date i.e considered as one show
+
+Number of shows=how many flights are scheduled after 01-feb-2023 
+
+
+CREATE TABLE FLIGHT 
+(
+FLIGHT_ID NUMBER(10),
+DEPATURE_DATE DATE
+);
+
+INSERT INTO FLIGHT VALUES (101, DATE '2023-01-10');
+INSERT INTO FLIGHT VALUES (102, DATE '2023-01-25');
+INSERT INTO FLIGHT VALUES (103, DATE '2023-02-02');
+INSERT INTO FLIGHT VALUES (104, DATE '2023-02-10');
+INSERT INTO FLIGHT VALUES (105, DATE '2023-03-05');
+
+COMMIT;
+
+
+
+
+
+16.What is the output of the following statement
+
+select Max(100,200) from dual;
+
+A. 100  
+   
+B. 100,200
+
+C. 200       
+    
+D. Error
+
+
+Answer:200  
+
+
+
+17.A table T_COUNT has 12 number values as 1,2,3,32,1,1,null,
+   24,12,null,null,32
+
+predict the output of the below query
+
+select count(*) from T_count;
+
+A. 6
+
+B. 12            
+    
+C. 9
+
+D. Throws exception because COUNT function doesn't work with null values
+
+
+Answer:12 
