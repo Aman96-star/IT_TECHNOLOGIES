@@ -1,0 +1,149 @@
+   GROUP FUNCTIONS Task
+                 =========================
+
+     oracle having following group functions.
+These are
+
+1)max()
+2)min()
+3)avg()
+4)sum()
+5)count(*)
+6)count(columnname)
+
+       all group functions are operate over no of values in a 
+table column and then returns single value.
+
+------------------------------------------------------------------------------------------------------
+1.Write a query to display total salary from emp table?
+
+SQL> select sum(sal) as TOTAL_SALARY FROM EMP;
+
+TOTAL_SALARY
+------------
+       31325
+
+2.Write a query to display total salaries of all managers
+  from emp table?
+
+SQL> select  SUM(sal) as manager_salary  from emp where job='MANAGER' ;
+
+MANAGER_SALARY
+--------------
+          8275
+
+3.Write a query to display total salaries of 10,30 departments 
+  from table?
+
+
+SQL> select  SUM(sal) as Specefic_deptno_salary  from emp where deptno='10' or deptno='30' ;
+
+SPECEFIC_DEPTNO_SALARY
+----------------------
+                 20450
+
+4.Write a query to display average salary of all employees from emp table?
+
+SQL> select avg(sal) as AVG_SALARY FROM EMP;
+
+AVG_SALARY
+----------
+2088.33333
+
+
+
+5.Write a query to display average salary of all clerks
+  from emp table?
+
+SQL> select avg(sal) as AVG_SALARY_clerk  FROM EMP where job='CLERK';
+
+AVG_SALARY_CLERK
+----------------
+          1037.5
+
+6.Write a query to display minimum salary from emp table? 
+
+
+SQL> select min(sal) as MIN_SALARY FROM EMP;
+
+MIN_SALARY
+----------
+       800
+
+7.Write a query to display maximum salary from emp table?
+
+SQL> select max(sal) as MAX_SALARY FROM EMP;
+
+MAX_SALARY
+----------
+      5000
+
+
+
+8.Write a query to display maximum and minimum salary from emp table?
+
+SQL> select max(sal) as Max_salary  , min(sal) as Min_Salary FROM EMP;
+
+MAX_SALARY MIN_SALARY
+---------- ----------
+      5000        800
+
+
+9.Write a query to display the total no of employees in emp table?
+
+SQL> select count(*) from emp;
+
+  COUNT(*)
+----------
+        15
+
+
+10.Write a query to display the no of managers in emp table?
+
+SQL> select count(*) from emp where job='MANAGER';
+
+  COUNT(*)
+----------
+         3
+
+
+
+11.Write a query to display the no of employees in 10,30 departments
+   from emp table?
+
+SQL> select count(*) from emp where deptno='10'or deptno='30';
+
+  COUNT(*)
+----------
+        10
+
+
+12.Write a query to display the no of employees in 4th quarter
+   from emp table?
+
+SQL> select count(*) from emp where to_char(hiredate,'Q')='4';
+
+  COUNT(*)
+----------
+         5
+
+
+13.Write a query to display the no of employees joined in 1981 year
+
+SQL> select count(*) from emp where to_char(hiredate,'yyyy')='1981';
+
+  COUNT(*)
+----------
+        10
+
+Count(column name):- It counts number of not null values within
+==================      a column. 
+
+14.Write a query to display how many employees are getting commission
+   from emp table?
+
+SQL> select count(comm) from emp;
+
+COUNT(COMM)
+-----------
+          5
