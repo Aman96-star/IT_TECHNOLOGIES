@@ -1,0 +1,128 @@
+1. BiPredicate AND Operation – Employee Eligibility Check
+Easy
+100 points
+• 120 min suggested
+Problem Description
+Write a Java program to demonstrate the use of the and() method of BiPredicate.
+The program should check whether an employee is eligible based on age and experience.
+
+Functional Interface Used
+
+Interface name : BiPredicate
+
+Type parameters :
+
+First parameter : Integer (age)
+
+Second parameter : Integer (experience in years)
+
+Return type : boolean
+
+ELC Class
+
+Class name : BiPredicateAndDemo
+
+Main Program
+
+Create a BiPredicate<Integer, Integer> to check whether the employee age is greater than or equal to 21.
+
+Create another BiPredicate<Integer, Integer> to check whether the employee experience is greater than or equal to 2 years.
+
+Combine both conditions using the and() method.
+
+Test the combined predicate with different scenarios.
+
+Display the eligibility result for each scenario.
+
+Eligibility Logic
+
+An employee is eligible if:
+
+Age ≥ 21 AND
+
+Experience ≥ 2 years
+
+Examples
+Example 1
+Input:
+Age: 25
+Experience: 3
+Output:
+true
+Explanation:
+Based on the test cases develop the program here two times BiPredicate required one for age and one for experience.
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+2. BiFunction with Lambda Expression and Widening Conversion
+Easy
+100 points
+• 120 min suggested
+Problem Description
+-1,000,000 ≤ input values ≤ 1,000,000
+
+Lambda expression must be used.
+
+Method reference is not allowed.
+
+Explicit type casting is not allowed.
+
+Examples
+Example 1
+Input:
+70
+50
+Output:
+125.4
+Explanation:
+Read the Question properly Everything mentioned in the Question.
+
+Constraints
+-1
+000
+000 ≤ input values ≤ 1
+000
+000
+Lambda expression must be used.
+Method reference is not allowed.
+Explicit type casting is not allowed.
+
+Constraints
+18 ≤ age ≤ 60
+0 ≤ experience ≤ 40
+Input values must be integers.
+Both conditions must be satisfied for eligibility.
+////////////////////////////////////////////////////////////////////////
+3. Display Prime Numbers Using Consumer and Lambda Expression
+Easy
+100 points
+• 120 min suggested
+Problem Description
+Use the Consumer<int[]> functional interface.
+
+Implement the logic using a lambda expression.
+
+The Consumer should:
+
+Take an integer array as input.
+
+Identify prime numbers from the array.
+
+Display all prime numbers.
+
+Do not create any extra methods for prime checking.
+
+Examples
+Example 1
+Input:
+First line: Integer N (number of elements)
+Second line: N space-separated integers
+Output:
+Prime numbers are: <list of prime numbers>
+Explanation:
+Read the number of elements from the user. Store the elements in an integer array. Create a Consumer<int[]> using a lambda expression. Inside the lambda: Traverse the array. Skip numbers less than or equal to 1. Check divisibility to determine whether a number is prime. Display the number if it is prime. Invoke the Consumer method.
+
+Constraints
+1 ≤ N ≤ 10⁵ (number of elements)
+-10⁶ ≤ array[i] ≤ 10⁶
+Prime numbers are defined only for integers greater than 1.
+Use only one Consumer.
+No return value from the lambda expression.
