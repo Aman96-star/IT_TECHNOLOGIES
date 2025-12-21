@@ -1,4 +1,5 @@
 What is a JOIN?
+// important concept
 
 JOIN is used when data is stored in more than one table and we want to see it together.
 
