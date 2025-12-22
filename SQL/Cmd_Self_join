@@ -1,0 +1,199 @@
+                          Self Join
+                         ============
+
+
+Self Join
+Joining a table with itself is called Self Join.
+
+Here, the joining columns must belong to the same data type.
+
+Why Self Join is Required?
+
+Self Join is used when:
+
+One row in a table is related to another row in the same table
+
+A table contains hierarchical (parent–child) data
+
+Common Use Case
+
+Employee → Manager relationship
+
+Manager is also an employee
+
+Both details are stored in the same table
+
+Example Table : EMP
+
+| EMPNO | ENAME | MGR  |
+| ----- | ----- | ---- |
+| 7369  | SMITH | 7902 |
+| 7499  | ALLEN | 7698 |
+| 7521  | WARD  | 7698 |
+| 7698  | BLAKE | 7839 |
+| 7839  | KING  | NULL |
+
+MGR column refers to EMPNO of the same table.
+
+Requirement
+
+Display Employee Name and their Manager Name
+
+Self Join Query
+
+SELECT 
+    E.ENAME AS Employee_Name,
+    M.ENAME AS Manager_Name
+FROM EMP E
+JOIN EMP M
+ON E.MGR = M.EMPNO;
+
+
+EMP E → Employee table
+
+EMP M → Manager table (same table again)
+
+E.MGR = M.EMPNO → Employee’s manager number matches manager’s employee number
+
+👉 Aliases are mandatory in self join to differentiate the same table.
+
+SELECT 
+    E.ENAME AS Employee,
+    M.ENAME AS Manager
+FROM EMP E
+LEFT JOIN EMP M
+ON E.MGR = M.EMPNO;
+
+
+Important Points
+
+✔ Self join uses same table multiple times
+✔ Aliases are compulsory
+✔ Mostly used with INNER JOIN / LEFT JOIN
+✔ Useful for parent–child relationships
+------------------------------------------------------------------------------------------------------
+ *
+*1*Write a query to display the employee names and their manager names
+ * from emp table by using self join(V.V.I.M.P)
+
+
+
+
+2.Write a query to display the employees who are reporting to BLAKE as a manager
+  from emp table by using self join?
+
+
+
+
+3.Write a query to display the employees who are getting more salary than their
+  manager salary from emp table using self join?
+
+
+
+
+4.Write a query to display BLAKE'S manager name from emp table 
+  by using self join?
+
+
+
+
+5.Write a query to display the employees who are joining
+         before their managers from emp table
+                by using self join?
+
+
+
+
+6. Write a query to display the employees who are getting same salary
+    as SCOTT salary from emp table using self join?
+
+
+NOTE:-when we are comparing one column any value with all other values in same column
+===== by using self join then we must display data from second alias table only.
+
+
+
+7.Describe in these two tables what is o/p of inner join, left outer
+   join ,right outer join, full outer join
+
+NOTE:- Guess the output with out executing queries in all cases
+
+SQL>select * from q1;
+
+         SNO
+       ------
+          1
+          2
+          3
+          4
+          5
+          6
+          8
+
+SQL>select * from q2;
+
+        SNO
+      -------
+         1
+         2
+         3
+         3
+         4
+         7
+         9
+
+
+
+8.What is the output when we are performing inner join on the following 
+  TEST01,TEST02 Tables.
+
+    SNO            SNO
+   ------         ------
+     1              1
+     1              2
+     1              3
+     null           null
+     null         
+     2
+
+
+a)  SNO           SNO
+   ------        ------
+     1             1
+     1             1
+     1             1
+     null          null
+     null          null
+     2              2
+
+
+
+b)   SNO           SNO
+    -----         -----
+      1             1
+      1             1
+      1             1
+      null          null
+      2             2
+
+
+
+c)    SNO          SNO
+     ------       ------
+       1            1
+       1            1
+       1            1
+       2            2
+
+
+
+d)    SNO          SNO
+     ------       ------
+       1            1
+       null        null
+       2            2
+
+
+Answer:-
+     
+
