@@ -1,0 +1,121 @@
+DBMS
+│
+├── Introduction to DBMS
+│   ├── Data
+│   ├── Database
+│   ├── DBMS
+│   ├── RDBMS
+│   └── Advantages of DBMS
+│
+├── Types of DBMS
+│   ├── Hierarchical DBMS
+│   ├── Network DBMS
+│   ├── Relational DBMS
+│   └── Object Oriented DBMS
+│
+└── RDBMS
+    │
+    ├── ORACLE
+    │   ├── Introduction to Oracle
+    │   ├── Oracle Architecture
+    │   │   ├── Instance
+    │   │   │   ├── SGA
+    │   │   │   └── Background Processes
+    │   │   └── Database
+    │   │       ├── Datafiles
+    │   │       ├── Control Files
+    │   │       └── Redo Log Files
+    │   │
+    │   ├── Users & Schemas
+    │   ├── Tablespaces
+    │   └── Oracle Objects
+    │       ├── Tables
+    │       ├── Views
+    │       ├── Indexes
+    │       ├── Sequences
+    │       └── Synonyms
+    │
+    └── SQL (Structured Query Language)
+        │
+        ├── SQL Categories
+        │   ├── DDL (CREATE, ALTER, DROP, TRUNCATE)
+        │   ├── DML (INSERT, UPDATE, DELETE)
+        │   ├── DQL (SELECT)
+        │   ├── TCL (COMMIT, ROLLBACK, SAVEPOINT)
+        │   └── DCL (GRANT, REVOKE)
+        │
+        ├── Datatypes
+        │   ├── Character Datatypes
+        │   │   ├── CHAR
+        │   │   └── VARCHAR2
+        │   │
+        │   ├── Numeric Datatypes
+        │   │   ├── NUMBER
+        │   │   └── FLOAT
+        │   │
+        │   ├── Date & Time
+        │   │   ├── DATE
+        │   │   └── TIMESTAMP
+        │   │
+        │   └── Large Object Datatypes
+        │       ├── CLOB
+        │       ├── BLOB
+        │       └── LONG
+        │
+        ├── Operators
+        │   ├── Arithmetic Operators (+, -, *, /)
+        │   ├── Relational Operators (=, !=, >, <, >=, <=)
+        │   ├── Logical Operators (AND, OR, NOT)
+        │   ├── Set Operators (UNION, UNION ALL, INTERSECT, MINUS)
+        │   └── Special Operators
+        │       ├── IN
+        │       ├── BETWEEN
+        │       ├── LIKE
+        │       └── IS NULL
+        │
+        ├── Functions
+        │   ├── Single Row Functions
+        │   │   ├── Character Functions
+        │   │   │   ├── UPPER
+        │   │   │   ├── LOWER
+        │   │   │   └── SUBSTR
+        │   │   │
+        │   │   ├── Numeric Functions
+        │   │   │   ├── ROUND
+        │   │   │   ├── MOD
+        │   │   │   └── TRUNC
+        │   │   │
+        │   │   └── Date Functions
+        │   │       ├── SYSDATE
+        │   │       ├── ADD_MONTHS
+        │   │       └── MONTHS_BETWEEN
+        │   │
+        │   └── Group Functions
+        │       ├── COUNT
+        │       ├── SUM
+        │       ├── AVG
+        │       ├── MAX
+        │       └── MIN
+        │
+        ├── Clauses
+        │   ├── WHERE
+        │   ├── GROUP BY
+        │   ├── HAVING
+        │   └── ORDER BY
+        │
+        ├── Joins
+        │   ├── Inner Join
+        │   ├── Equi Join
+        │   ├── Non-Equi Join
+        │   ├── Outer Joins
+        │   │   ├── Left Outer Join
+        │   │   ├── Right Outer Join
+        │   │   └── Full Outer Join
+        │   └── Self Join
+        │
+        └── Constraints
+            ├── NOT NULL
+            ├── UNIQUE
+            ├── PRIMARY KEY
+            ├── FOREIGN KEY
+            └── CHECK
