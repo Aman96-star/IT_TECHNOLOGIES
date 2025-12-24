@@ -1,0 +1,398 @@
+CONSTRAINTS (SQL)
+What is Data Integrity?
+
+Data integrity means maintaining proper, correct, and valid data in a database.
+
+To maintain data integrity, Oracle uses two mechanisms:
+
+            Data Integrity
+               /      \
+              /        \
+           SQL          PL/SQL
+       CONSTRAINTS     TRIGGERS
+
+
+SQL Constraints → Used to maintain valid data
+
+PL/SQL Triggers → Used to maintain business rules and logic
+
+What are Constraints?
+
+👉 Constraints are rules that prevent invalid data from being inserted, updated, or deleted in a table.
+
+Constraints are generally created on table columns
+
+They enforce client requirements and business rules
+
+Types of Constraints in Oracle
+
+Oracle supports 6 types of constraints:
+
+NOT NULL
+
+UNIQUE
+
+PRIMARY KEY
+
+FOREIGN KEY
+
+CHECK
+
+DEFAULT
+
+1) NOT NULL Constraint
+NOT NULL
+========
+
+Meaning:
+
+Does not allow NULL values
+
+Allows duplicate values
+
+Important Points:
+
+Applied only at column level
+
+Cannot be applied at table level
+
+Example:
+CREATE TABLE emp (
+  emp_id NUMBER NOT NULL,
+  name   VARCHAR2(50)
+);
+
+
+✔ emp_id cannot be NULL
+✔ Duplicate emp_id values are allowed
+
+2) UNIQUE Constraint
+UNIQUE
+======
+
+Meaning:
+
+Does not allow duplicate values
+
+Allows NULL values
+
+Important Points:
+
+Can be applied at:
+
+Column level
+
+Table level
+
+Multiple NULL values are allowed
+
+Example:
+CREATE TABLE users (
+  email VARCHAR2(50) UNIQUE
+);
+
+
+✔ Duplicate emails not allowed
+✔ NULL values allowed
+
+3) PRIMARY KEY Constraint
+PRIMARY KEY
+===========
+
+Meaning:
+
+Uniquely identifies each record in a table
+
+Important Points:
+
+Only one primary key per table
+
+Does not allow NULL
+
+Does not allow duplicate values
+
+Combination of:
+
+NOT NULL + UNIQUE
+
+Example:
+CREATE TABLE student (
+  roll_no NUMBER PRIMARY KEY,
+  name    VARCHAR2(50)
+);
+
+
+✔ roll_no must be unique
+✔ roll_no cannot be NULL
+
+4) FOREIGN KEY (Concept only – not written in your notes)
+
+Used to maintain relationship between two tables
+
+Refers to a primary key in another table
+
+5) CHECK Constraint
+CHECK
+=====
+
+Meaning:
+
+Used to apply logical conditions
+
+Enforces business rules given by the client
+
+Example:
+CREATE TABLE emp (
+  age NUMBER CHECK (age >= 18),
+  salary NUMBER CHECK (salary > 0)
+);
+
+
+✔ age must be 18 or above
+✔ salary must be greater than 0
+
+6) DEFAULT Constraint (Concept)
+
+Assigns a default value if no value is provided
+
+Example:
+CREATE TABLE orders (
+  status VARCHAR2(20) DEFAULT 'PENDING'
+);
+
+
+✔ If status is not given → 'PENDING' is stored
+
+1st que------------------------------------------------------------------
+1.Create a student123 table with constraints based on the following
+  conditions.
+
+---->after creating the table insert valid, invalid records 
+     and observe the outputs.
+
+SID          does not accept nulls values and duplicate values
+
+SNAME        does not accept nulls
+
+MARKS        Marks must be between 0 and 100
+
+MAILID       Must be unique
+
+/////////////////////////////////////////////////////////////
+SQL> create table student321(sid number(10) not null,sname varchar2(20) not null,marks number(15) check (marks between 0 and 100),mailid varchar2(20) unique not null );
+
+Table created.
+
+SQL> insert into student321 values(&sid, '&sname',&marks,'&mailid');
+Enter value for sid: null
+Enter value for sname: null
+Enter value for marks: 44
+Enter value for mailid: sdsdjnjds
+old   1: insert into student321 values(&sid, '&sname',&marks,'&mailid')
+new   1: insert into student321 values(null, 'null',44,'sdsdjnjds')
+insert into student321 values(null, 'null',44,'sdsdjnjds')
+                              *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("AMAN"."STUDENT321"."SID")
+
+
+SQL> desc student321;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SID                                       NOT NULL NUMBER(10)
+ SNAME                                     NOT NULL VARCHAR2(20)
+ MARKS                                              NUMBER(15)
+ MAILID                                    NOT NULL VARCHAR2(20)
+
+SQL> insert into student321 values(&sid, '&sname',&marks,'&mailid');
+Enter value for sid: 12
+Enter value for sname: amanv
+Enter value for marks: 34
+Enter value for mailid: av213@gmail.com
+old   1: insert into student321 values(&sid, '&sname',&marks,'&mailid')
+new   1: insert into student321 values(12, 'amanv',34,'av213@gmail.com')
+
+1 row created.
+
+SQL> select * from student321;
+
+       SID SNAME                     MARKS MAILID
+---------- -------------------- ---------- --------------------
+        12 amanv                        34 av213@gmail.com
+
+SQL> insert into student321 values(&sid, '&sname',&marks,'&mailid');
+Enter value for sid: 22
+Enter value for sname: janvi
+Enter value for marks: 99
+Enter value for mailid: av213@gmail.com
+old   1: insert into student321 values(&sid, '&sname',&marks,'&mailid')
+new   1: insert into student321 values(22, 'janvi',99,'av213@gmail.com')
+insert into student321 values(22, 'janvi',99,'av213@gmail.com')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (AMAN.SYS_C008336) violated
+
+SQL> insert into student321 values(&sid, '&sname',&marks,'&mailid');
+Enter value for sid: 22
+Enter value for sname: janvi
+Enter value for marks: 44
+Enter value for mailid: janvi2411@gmail.com
+old   1: insert into student321 values(&sid, '&sname',&marks,'&mailid')
+new   1: insert into student321 values(22, 'janvi',44,'janvi2411@gmail.com')
+
+1 row created.
+
+SQL> select * from student321;
+
+       SID SNAME                     MARKS MAILID
+---------- -------------------- ---------- --------------------
+        12 amanv                        34 av213@gmail.com
+        22 janvi                        44 janvi2411@gmail.com
+
+2nd que-----------------------------------------------------
+------------------------------------------------------------------------------------------------------
+2.Create a emp3 table with constraints based on the following
+  conditions.
+
+---->after creating the table insert valid, invalid records 
+     and observe the outputs.
+
+
+USERID       does not accept null values and duplicate values
+
+USERNAME     does not accept null values and duplicate values
+
+PWD          Password minimum 8 characters
+
+/////////////////////////////////////////////////
+SQL> create table emp3(userid number(14) primary key,username varchar2(20) unique not null,pwd varchar2(20) check(length(pwd)>=8));
+
+Table created.
+
+SQL> insert into emp3 values(&userid, '&username','&pwd');
+Enter value for userid: 1
+Enter value for username: Rehan
+Enter value for pwd: An#2242424
+old   1: insert into emp3 values(&userid, '&username','&pwd')
+new   1: insert into emp3 values(1, 'Rehan','An#2242424')
+
+1 row created.
+
+SQL> select * from emp3;
+
+    USERID USERNAME             PWD
+---------- -------------------- --------------------
+         1 Rehan                An#2242424
+
+SQL> insert into emp3 values(&userid, '&username','&pwd');
+Enter value for userid: 1
+Enter value for username: rehan
+Enter value for pwd: Dw1231
+old   1: insert into emp3 values(&userid, '&username','&pwd')
+new   1: insert into emp3 values(1, 'rehan','Dw1231')
+insert into emp3 values(1, 'rehan','Dw1231')
+*
+ERROR at line 1:
+ORA-02290: check constraint (AMAN.SYS_C008338) violated
+
+
+SQL> insert into emp3 values(&userid, '&username','&pwd');
+Enter value for userid: 2
+Enter value for username: sumesh
+Enter value for pwd: Sumeh12323
+old   1: insert into emp3 values(&userid, '&username','&pwd')
+new   1: insert into emp3 values(2, 'sumesh','Sumeh12323')
+
+1 row created.
+
+SQL> select * from emp3;
+
+    USERID USERNAME             PWD
+---------- -------------------- --------------------
+         1 Rehan                An#2242424
+         2 sumesh               Sumeh12323
+
+3rd que----------------------------------------------------------
+3.Create the emp4 table with constraints based on the following
+  conditions.
+
+--->after creating the table insert valid, invalid records 
+     and observe the outputs.
+
+
+EMPNO      should not be NULL and should not allow duplicate values
+
+ENAME      should not be NULL
+
+GENDER     Must be M or F
+
+SAL        Minimum 5000 (means 5000 or above it will accept)
+
+/////////////////////////////////////////////////////////////////////
+SQL> create table emp5(empno number(14) primary key,ename varchar2(20) not null,gender char(1) check(gender in('M','F')) ,sal number(20) check(sal>=5000));
+
+Table created.
+
+SQL> select * from emp5;
+
+no rows selected
+
+SQL> insert into emp5 values(&empno,'&ename','&gender',&sal);
+Enter value for empno: 1
+Enter value for ename: rishi
+Enter value for gender: M
+Enter value for sal: 70000
+old   1: insert into emp5 values(&empno,'&ename','&gender',&sal)
+new   1: insert into emp5 values(1,'rishi','M',70000)
+
+1 row created.
+
+SQL> select * from emp5;
+
+     EMPNO ENAME                G        SAL
+---------- -------------------- - ----------
+         1 rishi                M      70000
+5th------------------------------------------------------------
+5.Create table PROJECT table with constraints based on the following
+  conditions.
+
+--->after creating the table insert valid, invalid records 
+     and observe the outputs.
+
+PID              should not accept NULL values & duplicate values
+
+PNAME            should not accept nulls
+
+START_DATE
+
+END_DATE
+
+COST             Must be atleast 20000
+
+STATUS           Must be active,completed or on hold     
+
+//////////////////////////////////////////////////////////
+SQL> create table project(pid number(14) primary key,pname varchar2(20) not null,start_date Date ,end_date Date,cost number(20) check(cost>=20000),status varchar2(10) check(status in('active','completed','hold') )  );
+
+
+4.Create the ACCOUNTS table with constraints based on the following
+  conditions.
+
+--->after creating the table insert valid, invalid records 
+     and observe the outputs.
+
+
+ACCNO       should not be NULL and should not allow duplicate values
+
+ACCTYPE     Must be 'S' OR 'C'
+
+BAL         Must be minimum 1000
+
+------------------------------------------------------------------------------------------------------
+6.Create a table named test123 using table level constraints with the following conditions
+
+SNO        should not accept NULL values and duplicate values
+
+SNAME      should contain only capital letters
+
+SAL        more than 9000
