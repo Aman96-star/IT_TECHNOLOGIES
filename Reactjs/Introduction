@@ -1,0 +1,42 @@
+ReactJS – Complete Study Notes
+
+What is React?
+• React is a JavaScript Library
+• Used to build interactive User Interfaces (UI)
+• Mainly used for Frontend Web Development
+• Focuses only on the View layer
+• React does NOT control full application flow
+React = UI only
+
+Can React Alone Build an APK?
+No. React alone cannot build Android APK.
+For Mobile Apps, React Native is required.
+
+Why Does React Need a Framework?
+React does not provide routing, server-side rendering, or app flow management. Frameworks like
+Next.js and Remix provide these features.
+
+Angular vs React
+React:
+• JavaScript Library
+• Lightweight and fast
+• UI focused
+Angular:
+• Full Framework
+• Heavy but powerful
+• Controls full application flow
+
+Library vs Framework
+Library (React): Small, UI-focused, developer controls flow
+Framework (Angular/Next.js): Large, full app control
+
+SPA and PWA
+SPA (Single Page Application): One page, fast, smooth navigation
+PWA (Progressive Web App): App-like, offline support, better performance
+
+Final Conclusion
+• React is a UI Library
+• Angular is a full Framework
+• React alone cannot build APK
+• Companies expect knowledge of both
+• SPA & PWA solve modern web challenges
