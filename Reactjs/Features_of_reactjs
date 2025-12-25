@@ -1,0 +1,56 @@
+React Overview (Web & Mobile)
+• React is a JavaScript Library
+• Used to build User Interfaces (UI)
+• Mainly used for Web Applications
+• Focuses only on the View Layer
+React Native is used to build Android APK and iOS applications.
+
+Platforms
+Web Applications → React
+Mobile Applications (APK / iOS) → React Native
+
+Features of React
+1. Component-Based Architecture
+• UI is divided into reusable components
+• Easy to build and reuse UI
+• Easy to maintain and extend
+• Faster rendering and lightweight
+Examples: Navbar, Slider, Carousel
+
+2. JSX (JavaScript XML)
+• JSX allows writing HTML inside JavaScript
+• Makes code readable and shorter
+• Improves performance
+Example:
+let name = "Tom";
+<p>{name}</p>
+
+3. Virtual DOM
+• DOM stands for Document Object Model
+• Updating real DOM is slow
+• React uses Virtual DOM (lightweight copy)
+• Only changed parts are updated
+• Improves performance significantly
+
+4. Modular Architecture
+• Application is divided into modules
+• Only required modules are loaded
+Lazy Loading → Load only required data
+Eager Loading → Load everything at once
+
+5. One-Way Data Binding
+• Data flows from parent to child
+• Easy debugging
+• Better control and predictable behavior
+
+6. Reusability & Maintainability
+• Same component can be reused multiple times
+• Easy maintenance of large applications
+Final Summary
+• React is a UI Library
+• React Native builds mobile apps (APK & iOS)
+• JSX improves readability
+• Virtual DOM improves performance
+• Modular and component-based
+• Uses one-way data binding
+
