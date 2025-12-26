@@ -1,0 +1,105 @@
+creating a virtual DOM and rendering into actual DOM :
+1. upto react 17x version
+ReactDOM.render("markup  i component",
+						document.getelementByID("root")
+						)
+2. react18x & 19x version
+const root = ReactDOM.createRoot(documnet.getElementByID("root"));
+root.render("marhup i component");
+
+Download and install ibreary required for projet:
+1.run the following cmd in terminal
+>npm install  react@18 --save
+>npm install react-dom@18 --save
+>npm install @babel/standalone --save
+
+or 
+npm install  react@18 --save      npm install react-dom@18 --save    npm install @babel/standalone --save
+
+2. all liberaries are copied into "node modules" folder
+3. link the following files to your html page
+<script src="../node_modules/react/umd/react.devlopment.js"></script>
+<script src="../node_modules/react-dom/umd/react-dom.devlopment.js"></script>
+<script src="../node_modules/@babe/standalone/babel.js"></script>
+
+4.  ur Custom script is defined in <script> block with type as 
+    a) text/babel (or)
+	 b)text/jsx
+
+Syntax:
+<script type="text/babel">
+// write root variable
+</script>
+
+REACT COMPONENTS:
+- component is comprized into three elements
+a. design
+b. style
+c. logic
+ * design is defined is useing html
+ * styls are defined with css
+ * logic is defined with jsx or tsx
+ * technically component is  a javascript 
+a)class
+b)function
+*  classes are supoorted by react but not recommended in modern code 
+* react 19x version always recomended to design component with function
+
+component rules :
+1. a component must be a js function 
+2. u can create using declaration  or expression.
+3. name must start  with  uppercase latter
+
+Syntax: Declaration
+	function login(){
+	
+	}
+sysntax: Expression
+	const Login =function(){
+	}
+- component function  can't be void type
+- a component must return a jsx element
+
+<script>
+function Demo(){
+      return function(){
+           return function(){
+                // curring  called 
+        }
+     }
+}
+</script>
+
+//
+function Login(){
+return(
+<div>
+           // JSX element
+</div>
+)
+}
+
+* component function can return only one fragment
+return(
+<h1>widjo </h1>    // this is invalid 
+<p>sddk </p>
+)
+
+* correct way
+return(
+<div>or <header>
+<h1>widjo </h1>    // this is invalid 
+<p>sddk </p>
+</div> or</header>
+)
+
+* every jsx element must have a token
+<img> // invlaid
+<img> </img>
+<input> // invalid 
+<input> </input>
+
+* every jsx element can use only properties not attributes
+
+	<img class ="attribute">  // invalid
+	</img> </img> 
