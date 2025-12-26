@@ -1,0 +1,335 @@
+ 🔑 4. Foreign Key (FK)
+
+=================
+
+📌 What is a Foreign Key?
+
+A Foreign Key is a constraint used to create a relationship between two tables.
+
+👉 This relationship is called Referential Integrity
+👉 It ensures correct and related data between tables
+
+📘 Simple Meaning
+
+One table = Parent (Master) table
+
+Another table = Child table
+
+The child table’s column (Foreign Key) depends on the parent table’s Primary Key
+
+🔗 Relationship Rule
+
+Foreign Key column must refer to Primary Key column
+
+Both columns must have the SAME datatype
+
+🧠 Important Rules (Very Important for Exams)
+[Primary Key]	                [Foreign Key]
+Does NOT allow NULL	        Allows NULL
+Does NOT allow duplicate	Allows duplicate
+Uniquely identifies records	Uses values from Primary Key
+
+👉 Foreign Key values must already exist in Primary Key
+
+📌 Example (Easy to Understand)
+🔹 Parent / Master Table
+create table t5(
+  sno number(10) primary key,
+  name varchar2(10)
+);
+
+
+✔ sno is Primary Key
+✔ No NULL, No duplicates
+
+🔹 Child Table (Using Foreign Key)
+Method 1
+create table t7(
+  sno number(10) references t5
+);
+
+
+✔ t7.sno is Foreign Key
+✔ It refers to t5.sno
+
+Method 2 (Clear Reference)
+create table g4(
+  x number(10) references t5(sno)
+);
+
+
+✔ x is Foreign Key
+✔ Refers to Primary Key column sno in table t5
+
+📌 Column Level Foreign Key
+
+Foreign Key defined directly on column is called Column Level FK
+
+Syntax:
+column_name datatype references parent_table(parent_column)
+
+🧠 Real Life Example
+
+Students table → Primary Key: student_id
+
+Marks table → Foreign Key: student_id
+
+👉 Marks can be added only for existing students
+
+⭐ Final Summary (One Look Revision)
+
+✔ Foreign Key creates relationship between tables
+✔ Enforces referential integrity
+✔ FK → refers to PK
+✔ Same datatype required
+✔ FK allows NULL & duplicates
+✔ PK does NOT allow NULL & duplicates
+
+////////////////////////////////////////////////////
+Table Level: (Foreign key, references)
+===========
+Syntax:-
+========
+create table tablename(col1 datatype(size),col2 datatype(size),.........., foreign
+                       key(col1,col2,.......) references mastertablename(primarykeycolnames));
+
+
+
+------------------------------------------------------------------------------------------------------
+
+1.Establish the relationship between COURSES123 and STUDENTS123 table by using
+  Primary key, Foreign key with the following Rules
+
+
+--->after creating the tables insert the records and observe
+    the outputs.
+
+COURSES123 Table Rules:-
+
+1.cid does not accept null values and duplicate values
+
+2.cname does not accept null values
+
+
+STUDENTS123 Table Rules:-
+
+1.sid doesn't accept null values and duplicate values
+
+2.sname doesn't accept nulls
+
+3.cid should present in courses table cid column
+
+/////////////////////////////////////////////////////////////////////////////
+
+SQL> create table COURCES123(cid number(10) primary key,cname varchar2(20) not null);
+
+Table created.
+
+SQL> create table STUDENTS123(sid number(10) primary key ,sname varchar2(20) not null, cid number(10) references cources123);
+
+Table created.
+
+SQL> alter table COURCES123 modify cid to cid number(20);
+alter table COURCES123 modify cid to cid number(20)
+                                  *
+ERROR at line 1:
+ORA-00902: invalid datatype
+
+
+SQL> alter table COURCES123 modify  cid number(20);
+
+Table altered.
+
+SQL> desc COURCES123;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CID                                       NOT NULL NUMBER(20)
+ CNAME                                     NOT NULL VARCHAR2(20)
+
+SQL> desc STUDENTS123;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SID                                       NOT NULL NUMBER(10)
+ SNAME                                     NOT NULL VARCHAR2(20)
+ CID                                                NUMBER(10)
+
+SQL> alter table STUDENTS123 modify  cid number(15);
+
+Table altered.
+
+SQL> desc STUDENTS123;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SID                                       NOT NULL NUMBER(10)
+ SNAME                                     NOT NULL VARCHAR2(20)
+ CID                                                NUMBER(15)
+
+SQL> desc COURCES123;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CID                                       NOT NULL NUMBER(20)
+ CNAME                                     NOT NULL VARCHAR2(20)
+
+SQL> insert into cources123 values(&cid,'&cname');
+Enter value for cid: 11
+Enter value for cname: amisha
+old   1: insert into cources123 values(&cid,'&cname')
+new   1: insert into cources123 values(11,'amisha')
+
+1 row created.
+
+SQL> /
+Enter value for cid: 12
+Enter value for cname: astha
+old   1: insert into cources123 values(&cid,'&cname')
+new   1: insert into cources123 values(12,'astha')
+
+1 row created.
+
+SQL> /
+Enter value for cid: 13
+Enter value for cname: jewan
+old   1: insert into cources123 values(&cid,'&cname')
+new   1: insert into cources123 values(13,'jewan')
+
+1 row created.
+
+SQL> /
+Enter value for cid: 14
+Enter value for cname: ekta
+old   1: insert into cources123 values(&cid,'&cname')
+new   1: insert into cources123 values(14,'ekta')
+
+1 row created.
+
+SQL> select * from cources123;
+
+       CID CNAME
+---------- --------------------
+        11 amisha
+        12 astha
+        13 jewan
+        14 ekta
+
+SQL> insert into student123 values(&sid,'&sname');
+Enter value for sid: 1
+Enter value for sname: AI
+old   1: insert into student123 values(&sid,'&sname')
+new   1: insert into student123 values(1,'AI')
+insert into student123 values(1,'AI')
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> insert into students123 values(&sid,'&sname');
+Enter value for sid: 1
+Enter value for sname: AI
+old   1: insert into students123 values(&sid,'&sname')
+new   1: insert into students123 values(1,'AI')
+insert into students123 values(1,'AI')
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> insert into students123 values(&sid,'&sname',&cid);
+Enter value for sid: 1
+Enter value for sname: AI
+Enter value for cid: 12
+old   1: insert into students123 values(&sid,'&sname',&cid)
+new   1: insert into students123 values(1,'AI',12)
+
+1 row created.
+
+SQL> /
+Enter value for sid: 2
+Enter value for sname: CN
+Enter value for cid: 24
+old   1: insert into students123 values(&sid,'&sname',&cid)
+new   1: insert into students123 values(2,'CN',24)
+insert into students123 values(2,'CN',24)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (AMAN.SYS_C008359) violated - parent key not
+found
+
+
+SQL> /
+Enter value for sid: 2
+Enter value for sname: CN
+Enter value for cid: 14
+old   1: insert into students123 values(&sid,'&sname',&cid)
+new   1: insert into students123 values(2,'CN',14)
+
+1 row created.
+
+SQL> select * from students123;
+
+       SID SNAME                       CID
+---------- -------------------- ----------
+         1 AI                           12
+         2 CN                           14
+
+--------------------------------------------------------------------------------
+2.Establish the relationship between DOCTORS and PATIENTS table by using
+  Primary key, Foreign key
+
+
+DOCTORS                                        PATIENTS
+=======                                        ==========
+    PK                                                                FK
+ DOCTORID     DNAME    SPECIALTY                PATIENTID    PNAME    DOCTORID 
+
+ /////////////////////////////////////////////////////////////////////
+
+SQL> create table doctors(doctorid number(10) primary key,dname varchar2(20) not null,specialty varchar2(20) not null);
+
+Table created.
+
+SQL> create table patients(patientid number(10) not null,pname varchar2(20) not null,doctorid number(10) references doctors);
+
+Table created.
+
+SQL> insert into doctors values(&doctorid,'&dname','&specialty');
+Enter value for doctorid: 1211
+Enter value for dname: anoop jha
+Enter value for specialty: neurologist
+old   1: insert into doctors values(&doctorid,'&dname','&specialty')
+new   1: insert into doctors values(1211,'anoop jha','neurologist')
+
+1 row created.
+
+SQL> /
+Enter value for doctorid: 1212
+Enter value for dname: sunandna sharma
+Enter value for specialty: dentist
+old   1: insert into doctors values(&doctorid,'&dname','&specialty')
+new   1: insert into doctors values(1212,'sunandna sharma','dentist')
+
+1 row created.
+
+SQL> insert into patients values(&patientid,'&pname',&doctorid);
+Enter value for patientid: 12
+Enter value for pname: dheeru
+Enter value for doctorid: 1212
+old   1: insert into patients values(&patientid,'&pname',&doctorid)
+new   1: insert into patients values(12,'dheeru',1212)
+
+1 row created.
+
+SQL> /
+Enter value for patientid: 23
+Enter value for pname: reheena
+Enter value for doctorid: 1211
+old   1: insert into patients values(&patientid,'&pname',&doctorid)
+new   1: insert into patients values(23,'reheena',1211)
+
+1 row created.
+
+SQL> select * from patients;
+
+ PATIENTID PNAME                  DOCTORID
+---------- -------------------- ----------
+        12 dheeru                     1212
+        23 reheena                    1211
