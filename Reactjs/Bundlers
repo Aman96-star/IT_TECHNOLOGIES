@@ -1,0 +1,164 @@
+📌 FAQ: What are Bundlers?
+🔹 Bundler – Definition
+
+A bundler is a software tool used by developers to:
+
+Build applications
+
+Combine multiple files into optimized bundles
+
+Set up the development environment based on project requirements
+
+🔹 Popular Bundling Tools
+
+Some commonly used bundlers are:
+
+Webpack
+
+Parcel
+
+Vite
+
+🔹 What is Scaffolding?
+
+Scaffolding is the process of automatically generating files and folders
+
+It creates a ready-to-use project structure
+
+Saves development time
+
+📌 The concept of scaffolding was originally introduced by:
+
+Ruby / Ruby on Rails
+
+🚀 Creating a New React App using Vite Bundler
+Step 1️⃣ Open Terminal / Command Prompt
+
+Navigate to any location where you want to create the project.
+
+Step 2️⃣ Run the Command
+npm create vite@latest app-name
+
+Step 3️⃣ Select Options
+
+Select framework → React
+
+Select variant → JavaScript
+
+Experimental rollout → No
+
+Install dependencies → Yes
+
+📌 Note:
+
+After installation, the project may start automatically
+
+You can stop it using Ctrl + C
+
+node_modules
+  - Contains all installed dependency files
+
+public
+  - Contains static resources (images, documents, icons)
+
+src
+  - Contains dynamic resources (React components, logic)
+
+eslint.config.js
+  - JavaScript code quality & linting rules
+
+package-lock.json
+  - Dependency lock file (used in production, should not be modified)
+
+README.md
+  - Project documentation written by developers
+
+vite.config.js
+  - Vite bundler configuration file
+
+index.html
+  - Application startup (entry) page
+
+▶️ Running the React Application
+
+Command:
+npm run dev
+
+URL:
+http://localhost:5173
+
+
+Run the following command in terminal:
+
+npm run dev
+
+
+Open browser and visit:
+
+http://localhost:5173
+
+🔄 React Application Flow (High Level)
+Step-by-Step Flow
+
+1️⃣ Client requests the React application from browser
+
+http://localhost:5173
+
+
+2️⃣ Browser loads index.html
+
+Triggered using DOMContentLoaded event
+
+3️⃣ index.html loads Static DOM
+
+4️⃣ main.jsx loads all dependencies
+
+React
+
+ReactDOM
+
+App component
+
+5️⃣ React creates a Virtual DOM
+
+createRoot()
+
+
+6️⃣ React renders the App component
+
+App.jsx
+
+
+7️⃣ Virtual DOM updates the Actual DOM
+
+8️⃣ Static DOM is transformed into Dynamic DOM
+
+🧠 Key Points to Remember (Interview / Exam)
+
+Vite is a fast modern bundler
+
+Bundlers use scaffolding
+
+index.html is the entry point
+
+main.jsx connects React to the DOM
+
+React uses Virtual DOM for performance
+
+React 19 recommends function components
+
+createRoot() is mandatory in React 18+
+
+✅ Final Summary
+
+👉 React 19 + Vite provides:
+
+Faster development
+
+Clean project structure
+
+Better performance
+
+Modern tooling
+
+Easy scalability
