@@ -1,0 +1,228 @@
+1️⃣ Creating Virtual DOM & Rendering into Actual DOM
+
+React creates a Virtual DOM (lightweight copy of real DOM) and then renders it into the Actual DOM.
+
+🔹 React up to 17.x version
+ReactDOM.render(
+  <Component />,
+  document.getElementById("root")
+);
+
+
+📌 ReactDOM.render()
+
+Creates Virtual DOM
+
+Renders it into Actual DOM
+
+Used till React 17
+
+🔹 React 18.x & 19.x version (Modern Way)
+const root = ReactDOM.createRoot(
+  document.getElementById("root")
+);
+
+root.render(<Component />);
+
+
+📌 Why new method?
+
+Supports Concurrent Rendering
+
+Better performance
+
+Recommended for modern React
+
+2️⃣ Installing Required Libraries for React Project
+
+Run the following commands in terminal:
+
+npm install react@18 --save
+npm install react-dom@18 --save
+npm install @babel/standalone --save
+
+
+OR (single line):
+
+npm install react@18 --save react-dom@18 --save @babel/standalone --save
+
+📌 What happens after installation?
+
+All libraries are downloaded into:
+
+node_modules
+
+
+These libraries must be linked to HTML file (for non-build projects).
+
+3️⃣ Linking React Libraries in HTML
+<script src="../node_modules/react/umd/react.development.js"></script>
+<script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+<script src="../node_modules/@babel/standalone/babel.js"></script>
+
+4️⃣ Writing Custom React Script
+
+Your React code is written inside <script> tag.
+
+Script Types Supported:
+
+text/babel
+
+text/jsx
+
+<script type="text/babel">
+  // React code here
+</script>
+
+5️⃣ React Components
+🔹 What is a Component?
+
+A React Component is a reusable UI block.
+
+A component consists of:
+
+Design → HTML
+
+Style → CSS
+
+Logic → JSX / TSX
+
+📌 Technically, a component is a JavaScript:
+
+Function ✅ (recommended)
+
+Class ❌ (supported but not recommended)
+
+🔹 Recommended Component Type (React 18 / 19)
+
+✔ Function Component
+
+Class components are:
+
+Old
+
+Verbose
+
+Not recommended in modern React
+
+6️⃣ Component Rules (Very Important)
+
+A component must be a JavaScript function
+
+Can be created using:
+
+Function declaration
+
+Function expression
+
+Component name must start with Uppercase letter
+
+Component cannot be void
+
+Component must return JSX
+
+7️⃣ Component Syntax
+✅ Function Declaration
+function Login() {
+  return <h1>Login Page</h1>;
+}
+
+✅ Function Expression
+const Login = function () {
+  return <h1>Login Page</h1>;
+};
+
+8️⃣ Component Must Return JSX
+
+❌ Invalid (returns nothing)
+
+function Login() {
+}
+
+
+✔ Valid
+
+function Login() {
+  return <h1>Hello</h1>;
+}
+
+9️⃣ JSX Return Rules
+❌ Returning multiple elements directly (INVALID)
+return (
+  <h1>Hello</h1>
+  <p>Welcome</p>
+);
+
+✅ Correct Way (Single Parent Element)
+return (
+  <div>
+    <h1>Hello</h1>
+    <p>Welcome</p>
+  </div>
+);
+
+
+OR using semantic tags:
+
+return (
+  <header>
+    <h1>Hello</h1>
+    <p>Welcome</p>
+  </header>
+);
+
+🔟 JSX Self-Closing & Token Rules
+
+Every JSX element must have a closing tag.
+
+❌ Invalid
+<img>
+<input>
+
+✅ Valid
+<img />
+<input />
+
+
+OR
+
+<img></img>
+<input></input>
+
+1️⃣1️⃣ JSX Uses Properties, Not Attributes
+❌ Invalid (HTML style)
+<img class="logo">
+
+✅ Valid (JSX style)
+<img className="logo" />
+
+
+📌 JSX uses:
+
+className instead of class
+
+htmlFor instead of for
+
+1️⃣2️⃣ Important Notes (Interview Ready)
+
+JSX looks like HTML but is JavaScript
+
+React re-renders UI using Virtual DOM
+
+Function components are default choice
+
+JSX must return one root element
+
+Every JSX tag must be closed
+
+✅ Final Summary
+
+👉 Modern React (18/19):
+
+Uses createRoot
+
+Uses function components
+
+Uses JSX
+
+Uses Virtual DOM for performance
