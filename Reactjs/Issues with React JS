@@ -1,0 +1,224 @@
+1️⃣ Issues with React JS
+
+React has some limitations, so we use extensions / plugins.
+
+Problems:
+
+React is not designed to handle everything alone
+
+Needs many APIs
+
+Requires 3rd-party libraries
+
+Project setup and flow may be confusing for beginners
+
+👉 Because of this, we use Node.js, npm, bundlers, and tools
+
+2️⃣ Features of React
+
+JSX
+
+Reusability (Component-based architecture)
+
+3️⃣ Setting Up React Environment
+Step 1: Install Node.js
+
+Node.js is a JavaScript runtime
+
+Used to build:
+
+Web applications
+
+Servers
+
+APIs
+
+Node.js provides:
+
+Command Line tools
+
+npm (Node Package Manager)
+
+Other package managers:
+
+npm
+
+yarn
+
+bower
+
+composer
+
+ruby gems
+
+nuget
+
+Step 2: Check Installation
+node -v
+npm -v
+
+4️⃣ Tools for VS Code
+Recommended Extensions:
+
+Live Server – run web apps
+
+Live Preview
+
+IntelliSense – CSS & JS suggestions
+
+ESLint – JS code analysis
+
+Microsoft Copilot (GitHub account required)
+
+Enable Emmet
+
+Helps write HTML faster using abbreviations
+
+5️⃣ Project Files
+Important Files:
+
+README.md
+
+Project documentation
+
+.gitignore
+
+Files ignored by Git
+
+6️⃣ CSS Files
+File	Use
+home.css	Development
+home.min.css	Production (minified)
+7️⃣ Create New Web App (Manual)
+npm init -y
+
+
+✔ Generates package.json
+✔ package.json is a manifest file (metadata)
+
+8️⃣ JavaScript Module System
+What is a Module?
+
+A portion of code
+
+Each .js file is a module
+
+Makes app:
+
+Lightweight
+
+Reusable
+
+Organized
+
+Example:
+home.js  → Home Module
+index.js → Index Module
+
+Module Contains:
+
+Variables
+
+Functions
+
+Classes
+
+❌ Members are not accessible outside
+✔ Must use export
+
+9️⃣ Types of JS Module Systems
+
+CommonJS
+
+ES Module (ESM) ✅ (Used in React)
+
+UMD
+
+AMD
+
+🔟 Export in ES Modules
+Named Export
+export var title = "Welcome";
+
+export function login() {}
+
+export class User {}
+
+Default Export
+var title = "Welcome";
+export default title;
+
+
+✔ Only one default export per module
+
+1️⃣1️⃣ Import in ES Modules
+Import Named Members
+import { title, login } from "./home.js";
+
+Import Default Export
+import title from "./home.js";
+
+Invalid
+import { title } from "./home.js"; // ❌ if title is default export
+
+1️⃣2️⃣ Import All Members (Aliasing)
+import * as aliasName from "./home.js";
+
+aliasName.title;
+aliasName.login();
+aliasName.User;
+
+
+✔ Solves name conflicts
+✔ Useful when importing from multiple modules
+
+1️⃣3️⃣ Handling Name Conflicts
+import { title as homeTitle } from "./home.js";
+import { title as loginTitle } from "./login.js";
+
+1️⃣4️⃣ React Components (React 18 / 19)
+Rules:
+
+Every component is a function
+
+Must be inside a .jsx file
+
+Component Files:
+File	Purpose
+.jsx	UI + Logic
+.css	Styling
+.test.js / .spec.js	Testing
+1️⃣5️⃣ Folder Structure (Best Practice)
+src/
+ └── components/
+     ├── Login/
+     │   ├── Login.jsx
+     │   ├── Login.css
+     │   └── Login.test.js
+     └── Register/
+         ├── Register.jsx
+         ├── Register.css
+         └── Register.spec.js
+
+
+✔ One folder per component
+✔ Easy maintenance
+
+1️⃣6️⃣ CSS in React
+Rules:
+
+CSS is imported into .jsx
+
+import "./Login.css";
+
+
+⚠️ Type selectors affect all components
+✔ Use class or id selectors
+
+✅ Summary
+
+✔ React uses ES Modules
+✔ Components are functions
+✔ Each .js file is a module
+✔ Use export/import for reuse
+✔ Follow folder structure for scalability
