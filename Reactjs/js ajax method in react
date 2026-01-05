@@ -1,0 +1,97 @@
+JS Ajax method in React:
+
+1. XMLhttpRequest
+
+issues with  XMLhttpRequest
+- It is synchronous by default 
+- u have to make it asynchronous explicitly
+- it returns responses in text format 
+- It requires explicit conversions
+-It is not good in error handling 
+- It is not safe as it has issues with XSRF, CORS , and XSS
+            XSRF cross-site request forgery
+            CORS-cross-origin  sharing 
+            XSS -cross-site scripting attacks
+2. js "fetch()" api  
+     - fetch is a promise-based function
+     - It is sync by default
+     - It uses XMLHTTPRequestObject implicitly
+     -It is better in error handling
+ -syntax :
+ fetch("url)
+ .then(function(response){
+
+ }
+ .catch(function(error){
+ }
+ .finally(function){
+ }
+ )
+
+Problems with fetch api:
+- It is a DOM method 
+- It is not good for the direct virtual DOM
+- It returns every response in binary format 
+- explicit conversion is required 
+- binary conversion can be blocked by firewalls
+- not very good in security like CORS , XSRF, XSS etc
+
+
+Third-party library for handling AJAX requests
+- Reactan uses various 3rd party libraries for handling AJAX requests
+1. axios
+2. whatwg-fetch
+3.jQueryy Ajax [iquery-native] etc
+
+Axios for React
+- it uses XmlHttpRequest
+- It is is virtual DOM library
+- It is a promise-based library
+- iItreturns data in native format 
+- explicit conversion not required
+- It is good in error handling
+-It is good in security like CORS, XSRF....
+- imp---> it can cancel requests
+- it canhandlee multiple requestssimultaneouslyy at the same time
+			https://npmjs.com
+			// axios
+	 Axios features
+- **Browser Requests:** Make [XMLHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) directly from the browser.
+- **Node.js Requests:** Make [http](https://nodejs.org/api/http.html) requests from Node.js environments.
+- **Promise-based:** Fully supports the [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) API for easier asynchronous code.
+- **Interceptors:** Intercept requests and responses to add custom logic or transform data.
+- **Data Transformation:** Transform request and response data automatically.
+- **Request Cancellation:** Cancel requests using built-in mechanisms.
+- **Automatic JSON Handling:** Automatically serializes and parses [JSON](https://www.json.org/json-en.html) data.
+- **Form Serialization:** 🆕 Automatically serializes data objects to `multipart/form-data` or `x-www-form-urlencoded` formats.
+- **XSRF Protection:** Client-side support to protect against [Cross-Site Request Forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+
+install Axios for ur project 
+>  npm install axios --save
+import axios into component
+  import axios from "axios";
+configure axios request
+- axios.grt()
+- axios.post 
+- axios.push()
+- axios.patch),axios.delete() etc....
+
+Syntax: 
+axios.get()
+
+axios.get("url")
+ .then(function(response){
+		response. data, status, status code,e e...
+		// success block
+ }
+ .catch(function(error){
+ // error block
+ }
+ .finally(function){
+ // always runs
+ }
+ )
+ ![[Pasted image 20260105190623.png]]
+
+
+
