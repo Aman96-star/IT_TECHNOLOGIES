@@ -1,0 +1,198 @@
+
+🔹 Enabling Bootstrap in React App
+
+Bootstrap can be used in a React application to quickly design responsive UI.
+
+1️⃣ Install Required Libraries
+
+Run the following command in the project terminal:
+
+npm i bootstrap bootstrap-icons
+
+
+✔ Installs Bootstrap CSS, JS, and Icons inside node_modules
+
+2️⃣ Link Bootstrap Files in main.jsx
+
+Add the following imports at the top of main.jsx:
+
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/js/bootstrap.bundle.js";
+
+
+✔ CSS → Styling
+✔ JS bundle → Bootstrap components (modal, dropdown, etc.)
+
+3️⃣ Use Bootstrap Classes in Components
+
+You can use Bootstrap classes and components anywhere in the project.
+
+Example:
+<div className="alert alert-warning">
+  Warning Message
+</div>
+
+<input className="form-control" />
+
+<button className="btn btn-warning">
+  Submit
+</button>
+
+4️⃣ Bootstrap Dynamic Attributes
+
+Bootstrap uses data attributes for JavaScript-based components.
+
+Common Attributes:
+
+data-bs-target
+
+data-bs-toggle
+
+data-bs-dismiss
+
+Example:
+<button
+  className="btn btn-danger"
+  data-bs-toggle="modal"
+  data-bs-target="#myModal">
+  Open Modal
+</button>
+
+5️⃣ UI Design Help (Optional)
+
+To get UI ideas, you can use Google Stitch:
+
+🔗 http://stitch.withgoogle.com
+
+Sample Prompt:
+
+Create a shopping home page
+
+Navbar at top with brand name, search bar & social icons
+
+Featured product cards in 4×4 grid
+
+Footer with contact & services
+
+🔹 React Data Binding
+What is Data Binding?
+
+Data binding means connecting data (state/props) with the UI, so when data changes, the UI updates automatically.
+
+📌 React uses binding expressions {}
+
+Example:
+var name = "John";
+
+<p>Hello! {name}</p>
+
+<input type="text" value={name} />
+
+Key Points:
+
+JavaScript needs many DOM methods for binding
+
+React handles binding efficiently
+
+React supports one-way data binding by default
+
+🔹 One-Way vs Two-Way Binding
+One-Way Binding (Default)
+
+Data flows from state → UI
+
+UI cannot change data automatically
+
+Two-Way Binding
+
+Requires explicit implementation
+
+Mostly done using onChange + useState
+
+🔹 Handling Data in React Components
+Important Concepts:
+
+React apps use HTTP protocol
+
+HTTP is stateless
+
+Data is not remembered between requests
+
+❌ Not recommended:
+
+var name = "John"; // Bad practice
+
+
+✔ Recommended:
+
+Use component local state
+
+🔹 Local State in React
+What is Local State?
+
+Data that belongs to one component
+
+Created when component is created
+
+Used to store dynamic data
+
+🔹 useState() Hook
+What is a Hook?
+
+Hook is predefined business logic
+
+Provided by React
+
+Used to access component state
+
+useState() Definition
+const [getter, setter] = useState(initialValue);
+
+
+✔ Uses destructuring
+✔ Returns:
+
+Getter → reads state
+
+Setter → updates state
+
+Example:
+const [price, setPrice] = useState(40);
+
+🔹 FAQ on useState()
+1️⃣ Can we use var or let for state?
+
+✔ Yes
+❌ Not recommended
+
+2️⃣ Why use const for state?
+
+State should not allow reassignment
+
+var / let allow reassignment
+
+const protects state reference
+
+3️⃣ How can we update state if const is used?
+
+❌ Invalid:
+
+setPrice = 50; // ❌ Not allowed
+
+
+✔ Valid:
+
+setPrice(50); // ✅ Correct
+
+
+👉 State is updated through setter function, not assignment
+
+🔹 Summary
+
+✔ Bootstrap is enabled via npm & imports
+✔ React uses className, not class
+✔ Data binding uses {}
+✔ React supports one-way binding
+✔ Component data must be stored in state
+✔ useState() manages local state
