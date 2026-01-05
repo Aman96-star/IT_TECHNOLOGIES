@@ -1,0 +1,263 @@
+
+1️⃣ FAQ: When to Set State in React?
+
+👉 State should be set:
+
+When component data changes dynamically
+
+When UI needs to re-render based on data
+
+On component mount or user interaction
+
+❌ Do NOT set state directly while creating the component unless required.
+
+2️⃣ Component Mount Phase (useEffect)
+How to configure mount & unmount?
+
+React uses useEffect hook.
+
+Syntax:
+useEffect(() => {
+  // code runs on mount
+
+  return () => {
+    // cleanup on unmount
+  };
+}, []);
+
+Key Points:
+
+Empty dependency array [] → runs only once
+
+Component mounts on first render
+
+To re-run effect → add dependencies
+
+3️⃣ JavaScript Data Types in React
+
+React uses all JavaScript data types.
+
+4️⃣ Number Type
+
+JavaScript supports:
+
+Integer
+
+Float
+
+Decimal
+
+Exponential
+
+Binary
+
+Octal
+
+Hexadecimal
+
+BigInt
+
+Examples:
+10, -10, 3.14, 23.33, 2e3, 0b1010, 0o456, 0xABC
+
+Number Formatting Methods:
+
+toFixed()
+
+toPrecision()
+
+toLocaleString()
+
+Example:
+const price = 45000;
+price.toLocaleString("en-IN", { style: "currency", currency: "INR" });
+
+5️⃣ Parsing Numbers
+parseInt("10");
+parseFloat("10.5");
+isNaN("abc"); // true
+
+6️⃣ Boolean Type
+Boolean Values:
+
+true
+
+false
+
+Important Notes:
+
+JSX does NOT allow statements (if/else)
+
+Use expressions only
+
+Boolean can be treated as:
+
+0 → false
+
+1 → true
+
+Example:
+const [status] = useState(true);
+
+<p>{status === true ? "True" : "False"}</p>
+
+7️⃣ String Type
+
+React supports all JS string formats:
+
+Single Quotes ' '
+
+Double Quotes " "
+
+Backticks `` `
+
+Backticks (Template Literals)
+
+✔ Allow JS expression binding
+
+const name = "React";
+`Welcome ${name}`;
+
+Binding Difference:
+
+${} → JavaScript binding
+
+{} → React JSX binding
+
+8️⃣ Dynamic Class Binding
+const [styleClass] = useState("bg-danger text-white");
+
+<p className={`border p-2 ${styleClass}`}>Hello</p>
+
+9️⃣ String Methods (Same as JS)
+Common Methods:
+
+length
+
+charAt()
+
+charCodeAt()
+
+indexOf()
+
+lastIndexOf()
+
+slice()
+
+split()
+
+trim()
+
+startsWith()
+
+endsWith()
+
+includes()
+
+match()
+
+toUpperCase()
+
+toLowerCase()
+
+🔟 null & undefined
+Properties:
+
+Same meaning as JavaScript
+
+Defined using keywords null and undefined
+
+Example:
+const [name, setName] = useState();
+
+setName(prompt("Enter Name"));
+
+<p>{name === null ? "Name required" : name}</p>
+
+1️⃣1️⃣ Symbol Type
+
+New primitive data type
+
+Used to create unique object keys
+
+Helps in hiding object properties
+
+1️⃣2️⃣ Object Type in React
+Key Points:
+
+Object stores data + logic
+
+JS object with data = JSON
+
+Object is key-value pair collection
+
+Example:
+const [product] = useState({
+  id: 1,
+  name: "TV",
+  price: 45000
+});
+
+<p>{product.name}</p>
+
+Object Operations:
+
+Read keys → Object.keys(obj)
+
+Check key → "key" in obj
+
+Delete key → delete obj.key
+
+Hide key → Symbol
+
+1️⃣3️⃣ Array of Objects
+Definition:
+
+Array is a collection
+
+Can store object elements
+
+Example:
+const [data] = useState([
+  { id: 1, name: "A" },
+  { id: 2, name: "B" }
+]);
+
+1️⃣4️⃣ Array Type in React
+Declaration:
+
+[]
+
+new Array()
+
+Array Methods:
+
+forEach()
+
+map()
+
+toString()
+
+slice()
+
+find()
+
+filter()
+
+1️⃣5️⃣| Feature       | map() | forEach() |
+| ------------- | ----- | --------- |
+| Returns data  | ✅ Yes | ❌ No      |
+| Used in JSX   | ✅ Yes | ❌ No      |
+| Creates array | ✅     | ❌         |
+
+1️⃣6️⃣ Presentation in React
+
+Presentation is totally dependent on the requirement
+
+✅ Summary
+
+✔ React uses JS data types
+✔ JSX supports expressions only
+✔ useEffect handles lifecycle
+✔ map() is mandatory for rendering lists
+✔ State drives UI
