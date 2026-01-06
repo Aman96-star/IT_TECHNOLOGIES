@@ -1,0 +1,181 @@
+1️⃣ What is an API?
+
+API (Application Programming Interface)
+👉 It allows one application to communicate with another application.
+
+In React:
+
+React app acts as a Consumer
+
+Server / API acts as a Provider
+
+📌 Flow:
+
+Consumer (React App)  →  Request
+Provider (API Server) →  JSON Response
+
+2️⃣ REST API Basics
+
+REST = Representational State Transfer
+
+REST APIs use:
+
+HTTP methods (GET, POST, PUT, DELETE)
+
+URLs (Routes / Endpoints)
+
+JSON data format
+
+📌 REST Communication
+
+Client sends request
+
+Server sends response (mostly JSON)
+
+3️⃣ FakeStore API
+
+FakeStore API provides free REST APIs for practice with React.
+
+🔗 Base URL
+https://fakestoreapi.com/products
+
+| Method | Route                           | Description                   |
+| ------ | ------------------------------- | ----------------------------- |
+| GET    | `/products`                     | Get all products              |
+| GET    | `/products/categories`          | Get all categories            |
+| GET    | `/products/category/{category}` | Products of specific category |
+| GET    | `/products/{id}`                | Get product by ID             |
+
+5️⃣ Product Data Format (JSON)
+{
+  "id": 1,
+  "title": "Product Name",
+  "price": 109.95,
+  "description": "Product description",
+  "rating": {
+    "rate": 4.1
+  }
+}
+
+
+📌 Important Fields
+
+id → product id
+
+title → product name
+
+price → product price
+
+description → product details
+
+rating.rate → product rating
+
+6️⃣ Fetching API Data in React
+Common ways:
+
+fetch() (JavaScript)
+
+axios (library)
+
+📌 Usually done inside:
+
+useEffect() hook
+
+Stored using useState()
+
+7️⃣ UI Planning using Google Stitch
+
+Google Stitch helps in UI idea generation.
+
+📝 Prompt for Stitch:
+
+Create a shopping home screen
+
+Navbar at the top
+
+Brand name
+
+Search bar
+
+Shortcut icons (cart, profile)
+
+Featured products section
+
+Product cards in 4 × 4 grid
+
+Left panel filters
+
+4
+8️⃣ Suggested UI Structure (React)
+App
+ ├── Header (Navbar)
+ ├── Section
+ │    ├── Left Panel (Filters)
+ │    └── Product Grid (Cards)
+ └── Footer
+
+9️⃣ Filters in UI
+
+Left panel filters:
+
+Filter by Category
+
+Filter by Rating
+
+Filter by Price Range
+
+🔟 Style Binding in React (Inline Styling)
+
+React supports inline styles using the style attribute.
+
+Syntax:
+<div style={{ backgroundColor: "lightblue", padding: "10px" }}>
+  Product Card
+</div>
+
+Explanation:
+
+Outer { } → React binding
+
+Inner { } → JavaScript object
+
+Style property names must be camelCase
+
+1️⃣1️⃣ Style Rules in React
+
+❌ Wrong:
+
+background-color
+
+
+✅ Correct:
+
+backgroundColor
+
+Common Style Properties:
+
+backgroundColor
+
+color
+
+fontSize
+
+margin
+
+padding
+
+borderRadius
+
+✅ Summary
+
+React consumes APIs using REST
+
+FakeStore API is ideal for practice
+
+API returns JSON data
+
+UI should be planned before coding
+
+Inline styles use camelCase
+
+useEffect + useState are key for fetching data
