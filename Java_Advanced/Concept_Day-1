@@ -1,0 +1,311 @@
+=====================================================================
+ADVANCED JAVA CONCEPT: DATA STORAGE & PERSISTENCE
+=====================================================================
+
+WHAT IS STORAGE?
+
+Storage is a place where we store data so that it can be used again.
+Depending on the type of storage, data may or may not survive after
+the application is closed.
+
+Some storage is temporary, some is permanent (persistent).
+
+=====================================================================
+TYPES OF STORAGE IN JAVA
+=====================================================================
+
+
+There are 4 major types of storage in Java:
+
+Field Storage
+
+Object Storage
+
+File Storage
+
+Database Storage
+
+=====================================================================
+1) FIELD STORAGE
+=====================================================================
+
+Definition:
+
+Field storage refers to storing data inside class fields (variables).
+
+Example:
+
+class Student {
+    int id;
+    String name;
+}
+
+Characteristics:
+
+Data is stored in RAM
+
+Exists only while the object exists
+
+Data is lost when application stops
+
+Used for temporary storage
+
+Use case:
+
+Holding values during program execution
+
+Simple and fast access
+
+❌ Not persistent
+✔ Runtime storage only
+
+=====================================================================
+2) OBJECT STORAGE (SERIALIZATION)
+=====================================================================
+
+Definition:
+
+Object storage means saving entire objects permanently by converting
+them into a byte stream.
+
+This process is called Serialization.
+
+Example:
+
+ObjectOutputStream → writeObject()
+ObjectInputStream  → readObject()
+
+Characteristics:
+
+Stores complete object state
+
+Object must implement Serializable interface
+
+Stored usually in a file
+
+Data can be restored later (Deserialization)
+
+Use case:
+
+Storing application state
+
+Saving user session objects
+
+Lightweight persistence without database
+
+✔ Persistent
+✔ Object-level storage
+❌ Not suitable for complex querying
+
+=====================================================================
+3) FILE STORAGE (IO STREAMS)
+=====================================================================
+
+Definition:
+
+File storage means reading and writing data into files using
+Java IO or NIO APIs.
+
+Types of files:
+
+Text files (.txt, .csv, .log)
+
+Binary files (.dat, .bin)
+
+Examples:
+
+FileWriter / FileReader
+BufferedWriter / BufferedReader
+FileInputStream / FileOutputStream
+
+Characteristics:
+
+Data stored in file system
+
+Suitable for small to medium data
+
+Simple to implement
+
+No structure or relationships
+
+Use case:
+
+Logs
+
+Configuration files
+
+Reports
+
+Simple data storage
+
+✔ Persistent
+❌ No transactions
+❌ No relationships
+
+=====================================================================
+4) DATABASE STORAGE (JDBC)
+=====================================================================
+
+Definition:
+
+Database storage involves storing data in relational databases
+using JDBC (Java Database Connectivity).
+
+Examples of databases:
+
+MySQL
+
+Oracle
+
+PostgreSQL
+
+SQL Server
+
+Characteristics:
+
+Stores large structured data
+
+Supports relationships (tables)
+
+Supports transactions
+
+Supports indexing & querying
+
+Highly secure and reliable
+
+Use case:
+
+Enterprise applications
+
+Banking systems
+
+E-commerce
+
+ERP systems
+
+✔ Persistent
+✔ Scalable
+✔ Transaction-safe
+
+=====================================================================
+PERSISTENCE TERMINOLOGIES (VERY IMPORTANT)
+=====================================================================
+
+
+PERSISTENCE
+
+Persistence means storing data permanently so that it is available
+even after the application is closed.
+
+Example:
+
+Saving user details in DB
+
+Writing data into file
+
+PERSISTENCE STORE
+
+Persistence store is the location where data is stored.
+
+Examples:
+
+File system
+
+Database
+
+Object file
+
+PERSISTENT DATA
+
+Persistent data refers to which data should be saved permanently.
+
+Examples:
+
+User information
+
+Transaction records
+
+Orders
+
+PERSISTENCE OPERATIONS
+
+Operations performed on persistent data.
+
+CRUD Operations:
+
+Create → Insert
+Read → Select
+Update → Update
+Delete → Delete
+
+PERSISTENCE LOGIC
+
+Business logic applied while performing persistence operations.
+
+Example:
+
+Validations
+
+Calculations
+
+Transformations
+
+JDBC logic / SQL queries
+
+=====================================================================
+MEMORY TYPES IN JAVA (4 TYPES)
+=====================================================================
+
+
+Stack Memory
+
+Stores method calls
+
+Local variables
+
+Thread-specific
+
+Fast access
+
+Heap Memory
+
+Stores objects
+
+Shared among threads
+
+Used for dynamic allocation
+
+Method Area (MetaSpace)
+
+Stores class metadata
+
+Static variables
+
+Method bytecode
+
+Native Method Stack
+
+Used for native (C/C++) methods
+
+JVM internal usage
+
+=====================================================================
+FINAL SUMMARY (INTERVIEW ONE-LINERS)
+=====================================================================
+
+
+Field storage is temporary and exists only during runtime
+
+Object storage uses serialization to persist objects
+
+File storage stores data in files using IO streams
+
+Database storage uses JDBC for large structured data
+
+Persistence means storing data permanently
+
+CRUD operations are core persistence operations
+
+=====================================================================
+END
+=====================================================================
