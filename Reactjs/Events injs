@@ -1,0 +1,265 @@
+1️⃣ What is an Event?
+
+An event is a message sent by a sender to its subscriber
+👉 to notify that something has happened or changed.
+
+Examples of events:
+
+Button click
+
+Key press
+
+Mouse move
+
+Page load
+
+🔹 Event follows Observer Pattern
+
+Observer Pattern means:
+
+One object notifies
+
+Another object listens and reacts
+
+✔️ In events:
+
+Sender → sends notification
+
+Subscriber → receives notification and performs action
+
+🔹 Event uses Delegate Mechanism
+
+A delegate is a reference to a function
+
+When an event occurs, the function is called
+
+In JavaScript, functions act like function pointers
+
+🔹 Event Syntax
+function DeleteClick() {
+    // action
+} // Subscriber
+
+<button onclick="DeleteClick()">Delete</button>
+
+
+Subscriber → defines action
+
+Sender → triggers the action
+
+2️⃣ What is an Event Handler?
+
+An event handler is a function attached directly to an element in HTML.
+
+👉 Event is configured at design time.
+
+Example:
+<button onclick="DeleteClick()">Delete</button>
+
+
+on → handler
+
+click → event
+
+✔️ Simple but not recommended for dynamic elements
+
+3️⃣ What is an Event Listener?
+
+An event listener is a modern way to attach events using JavaScript.
+
+Why Event Listeners?
+
+Used for dynamic elements
+
+Cleaner code
+
+Multiple events possible
+
+No HTML mixing
+
+🔹 Syntax
+element.addEventListener("click", function () {
+    // action
+});
+
+
+✔️ Elements created dynamically must use event listeners
+
+4️⃣ What are Event Arguments?
+
+Event arguments carry payload (data) related to the event.
+
+👉 Payload = data transferred from one place to another.
+
+🔹 Default Event Arguments (2)
+
+Events provide two default arguments:
+
+a) this
+
+Refers to the current element
+
+Contains element details
+
+this.id
+this.name
+this.className
+this.value
+this.src
+this.href
+this.width
+this.height
+
+b) event
+
+Refers to the current event
+
+Contains event details
+
+event.clientX
+event.clientY
+event.keyCode
+event.charCode
+event.shiftKey
+
+🔹 Syntax with Default Arguments
+<button onclick="Name(this, event)">Click</button>
+
+function Name(element, e) {
+    element.id;
+    element.value;
+
+    e.clientX;
+    e.clientY;
+}
+
+5️⃣ Custom Arguments
+
+You can also pass custom arguments.
+
+Custom only:
+<button onclick="details(10, 20)">Click</button>
+
+function details(a, b) {
+    console.log(a, b);
+}
+
+Custom + Default:
+<button onclick="details(this, event, 100)">Click</button>
+
+function details(el, e, value) {
+    console.log(el.id);
+    console.log(e.type);
+    console.log(value);
+}
+
+6️⃣ Event Listener Argument Rule
+
+👉 Event listener accepts only ONE argument, which is event.
+
+Syntax:
+element.addEventListener("click", function (e) {
+    e.clientX;
+    e.clientY;
+
+    e.target.id;
+    e.target.name;
+    e.target.value;
+});
+
+
+✔️ e.target gives element details
+✔️ e gives event details
+
+7️⃣ What is Event Propagation?
+
+Event propagation is a mechanism where
+👉 child events trigger parent events.
+
+Meaning:
+
+Event moves from child → parent
+
+Child simulates parent behavior
+
+This is called Event Bubbling.
+
+🔹 Example:
+
+Clicking a button inside a div triggers:
+
+Button event
+
+Div event
+
+🔹 Stop Event Propagation
+
+You can stop this using:
+
+e.stopPropagation();
+
+Example:
+function ChildEvent(e) {
+    e.stopPropagation();
+}
+
+
+✔️ Event stops at child only
+
+8️⃣ Prevent Default Events
+
+Some elements have default browser behavior:
+
+Form submit
+
+Link navigation
+
+👉 Use:
+
+e.preventDefault();
+
+9️⃣ Event Loop
+
+The event loop manages asynchronous events.
+
+👉 It decides:
+
+When an event runs
+
+After call stack is empty
+
+Used in:
+
+setTimeout
+
+Promises
+
+Async code
+
+🔟 Event Profiling
+
+Event profiling means:
+
+Measuring performance of event handlers
+
+Finding slow events
+
+👉 Done using Browser DevTools
+
+🔑 Final One-Line Summary (Exam Ready)
+
+Event → Notification of action
+
+Handler → HTML-based event binding
+
+Listener → JavaScript-based dynamic binding
+
+Event Arguments → Data carried with event
+
+Custom Arguments → User-defined data
+
+Event Propagation → Child → Parent
+
+stopPropagation() → Stops bubbling
+
+preventDefault() → Stops browser action
