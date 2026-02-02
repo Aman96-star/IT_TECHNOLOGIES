@@ -155,3 +155,38 @@ Common Terminal Operations:
 =====================================================
                 END OF STREAM API
 =====================================================
+
+Most-Asked Java Stream API Interview Question
+
+1️⃣ Find the First Non-Repeating Character from a Given String
+
+✅ Step-by-step Explanation
+
+1️⃣ Convert the string into a stream of characters
+ We start by turning the string into an IntStream using str.chars() and then convert each value into a Character.
+
+2️⃣ Count how many times each character appears
+ Using Collectors.groupingBy, we group the characters and count their occurrences.
+ A LinkedHashMap is used so the original order of characters is preserved.
+
+3️⃣ Convert the map into a stream again
+ Now we stream over the entrySet() of the map, where each entry contains a character and its count.
+
+4️⃣ Filter characters that appear only once
+ We keep only the entries where the count is exactly 1, meaning the character is non-repeating.
+
+5️⃣ Pick the first match
+ Since order is maintained, findFirst() gives us the first non-repeating character, wrapped in an Optional.
+
+⚙️ Key Stream Operations Used
+
+🔹 filter() → Select elements based on a condition (Intermediate)
+ ➡️ Used to keep only characters whose count is 1.
+🔹 map() → Transform elements from one form to another (Intermediate)
+ ➡️ Used to extract the character (key) from the map entry.
+🔹 collect() → Convert the stream into a collection (Terminal)
+ ➡️ Used to group characters and count their occurrences.
+🔹 findFirst() → Get the first element from the stream (Terminal)
+ ➡️ Returns the first non-repeating character while maintaining order.
+
+💡 Java’s Stream API turns complex logic into clean, readable, and expressive code.
