@@ -1,0 +1,265 @@
+============================================================
+        ADVANTAGES OF WORKING WITH FRAMEWORKS
+============================================================
+
+=> Frameworks provide abstraction on one or more technologies
+   and simplify the application development process
+
+=> In framework-based application development:
+   - There is NO boilerplate code problem
+
+=> APIs/Libraries of frameworks are designed by keeping
+   real-time use cases/scenarios in mind
+
+=> Developing projects using frameworks is:
+   - Faster
+   - Easier
+   - More maintainable
+
+=> Frameworks have become the industry de-facto standard
+   to develop applications
+
+
+============================================================
+   TYPES OF JAVA FRAMEWORKS (BASED ON APPLICATION TYPE)
+============================================================
+
+a) ORM Frameworks
+b) Web MVC Frameworks
+c) Web Service Frameworks
+d) JEE / Application Frameworks
+
+
+============================================================
+                 ORM FRAMEWORKS
+============================================================
+
+ORM = Object Relational Mapping
+
+
+------------------------------------------------------------
+1. PERSISTENCE
+------------------------------------------------------------
+
+=> The process of storing and managing data for a long time
+   is called PERSISTENCE
+
+=> The place where data is stored for a long time
+   is called PERSISTENCE STORE
+
+Examples of Persistence Stores:
+- Files
+- Databases (DB)
+
+
+------------------------------------------------------------
+2. PERSISTENT DATA
+------------------------------------------------------------
+
+=> Data that is stored in persistence stores is called
+   PERSISTENT DATA
+
+Examples:
+- Files  -> File data
+- DB     -> Table records
+
+
+------------------------------------------------------------
+3. PERSISTENCE OPERATIONS (CRUD)
+------------------------------------------------------------
+
+Operations performed on persistent data are called
+PERSISTENCE OPERATIONS
+
+CRUD Operations:
+C -> Create (Insert)
+R -> Read   (Select)
+U -> Update (Modify)
+D -> Delete (Remove)
+
+
+------------------------------------------------------------
+4. PERSISTENCE LOGIC
+------------------------------------------------------------
+
+=> Logic written to perform persistence operations
+   is called PERSISTENCE LOGIC
+
+Examples:
+- IO Streams code
+- JDBC code
+- Hibernate code
+
+
+------------------------------------------------------------
+5. JAVA APP + PERSISTENCE STORES
+------------------------------------------------------------
+
+Java App
+  |
+  |-- IO Streams logic  --> Files
+  |
+  |-- JDBC logic        --> DB (Oracle, MySQL, PostgreSQL)
+
+
+=> Since files have many limitations, databases are preferred
+   as persistence stores
+
+
+============================================================
+LIMITATIONS OF JDBC-BASED PERSISTENCE DEVELOPMENT
+============================================================
+
+a) JDBC persistence logic is DB-dependent
+   - Uses DB-specific SQL queries
+
+b) JDBC code is NOT portable across multiple databases
+   - Changing DB increases complexity
+
+c) ResultSet object is NOT serializable
+   - Cannot be sent over network easily
+
+d) JDBC programming uses checked exceptions
+   - Programmer must handle exceptions explicitly
+
+e) JDBC code has boilerplate code problem
+   - Same logic repeated in multiple projects
+   - Minor changes affect many files
+
+
+============================================================
+       SOLUTION – ORM FRAMEWORKS
+============================================================
+
+=> To overcome JDBC problems, ORM frameworks are used
+
+=> ORM frameworks provide:
+   - DB-independent persistence logic
+   - Abstraction over JDBC
+   - Automatic SQL generation
+
+
+Examples of ORM Frameworks:
+- Hibernate
+- iBatis
+- TopLink
+- EclipseLink
+
+
+============================================================
+            WHAT IS ORM (O/R MAPPING)?
+============================================================
+
+=> Mapping Java classes with DB tables is called ORM
+
+=> Mapping Java object properties with DB table columns
+   is called O/R Mapping
+
+=> Synchronization between:
+   - Java objects
+   - DB table records
+   is called ORM
+
+
+------------------------------------------------------------
+SYNCHRONIZATION
+------------------------------------------------------------
+
+=> Synchronization means:
+   - Changes in object reflect in DB
+   - Changes in DB reflect in object
+
+
+============================================================
+           ENTITY CLASS (PERSISTENCE CLASS)
+============================================================
+
+=> A Java class that represents a DB table
+   is called ENTITY CLASS or PERSISTENCE CLASS
+
+Example:
+- Student class  -> student_table
+
+Fields Mapping:
+- Java variables -> DB columns
+
+
+============================================================
+      ORM FRAMEWORK WORKING (HIGH LEVEL)
+============================================================
+
+Java App
+  |
+  |-- Create Java objects
+  |
+ORM Framework (Hibernate)
+  |
+  |-- Converts objects to SQL queries
+  |
+JDBC
+  |
+  |-- Executes SQL queries
+  |
+Database
+
+
+=> ORM framework internally uses JDBC
+=> Programmer does NOT write JDBC code directly
+
+
+============================================================
+   ORM FRAMEWORKS IN JAVA (SOURCE)
+============================================================
+
+Hibernate     -> From JBoss
+iBatis        -> From Apache
+TopLink       -> From Oracle
+EclipseLink   -> From Eclipse
+
+
+============================================================
+ ORM IN SPRING / SPRING BOOT
+============================================================
+
+=> Spring does NOT have its own ORM framework
+
+=> Spring provides ORM / Data JPA modules that provide
+   abstraction over existing ORM frameworks
+
+Examples:
+- Spring ORM (Hibernate / iBatis)
+- Spring Data JPA
+
+
+------------------------------------------------------------
+SPRING DATA JPA FLOW
+------------------------------------------------------------
+
+Developer
+  |
+Spring / Spring Boot ORM or Data JPA
+  |
+Hibernate / iBatis
+  |
+JDBC
+  |
+Database
+
+
+=> DB understands only SQL queries
+=> JDBC is required internally
+=> Developer never writes JDBC code directly
+=> Indirect usage of JDBC happens via ORM frameworks
+
+
+============================================================
+               KEY ADVANTAGES OF ORM
+============================================================
+
+- No DB-dependent SQL
+- No boilerplate code
+- DB portability
+- Faster development
+- Cleaner persistence logic
+- Better maintainability
+
