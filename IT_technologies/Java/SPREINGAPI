@@ -1,0 +1,157 @@
+=====================================================
+                JAVA STREAM API NOTES
+=====================================================
+
+-----------------------------------------------------
+1. What is Stream API?
+-----------------------------------------------------
+- Stream API is introduced in Java 8.
+- It is used for fast processing of data.
+- It works on Collection and Array.
+- Stream does NOT store data.
+- It processes data from a source in pipeline style.
+
+-----------------------------------------------------
+2. Why Stream API?
+-----------------------------------------------------
+- Reduces code length
+- Improves readability
+- Supports functional programming
+- Supports parallel execution
+- Avoids complex loops
+
+-----------------------------------------------------
+3. Stream Definition
+-----------------------------------------------------
+- Stream is a predefined interface
+- Package : java.util.stream
+- Represents a sequence of elements
+- Used to perform aggregate operations
+
+-----------------------------------------------------
+4. Types of Streams
+-----------------------------------------------------
+1) Stream<T>     -> Object stream
+2) IntStream    -> int primitive stream
+3) LongStream   -> long primitive stream
+4) DoubleStream -> double primitive stream
+
+-----------------------------------------------------
+5. forEach() Method
+-----------------------------------------------------
+Used to iterate elements.
+
+Interfaces providing forEach():
+1) java.lang.Iterable
+   forEach(Consumer<T>)
+
+2) java.util.Map
+   forEach(BiConsumer<K,V>)
+
+3) java.util.stream.Stream
+   forEach(Consumer<T>)
+
+-----------------------------------------------------
+6. How to Create Stream
+-----------------------------------------------------
+There are multiple ways to create a Stream:
+
+1) Arrays.stream()
+2) Collection.stream()
+3) Collection.parallelStream()
+4) Stream.of()
+5) Stream.generate()
+6) Stream.iterate()
+
+-----------------------------------------------------
+7. Creating Stream using Arrays.stream()
+-----------------------------------------------------
+Arrays.stream() converts array into Stream.
+
+Overloaded methods:
+1) Stream<T> stream(T[] array)
+2) IntStream stream(int[] array)
+3) LongStream stream(long[] array)
+4) DoubleStream stream(double[] array)
+
+-----------------------------------------------------
+8. Creating Stream using Collection
+-----------------------------------------------------
+- stream()          -> Single-threaded
+- parallelStream()  -> Multi-threaded
+- Output of parallelStream() is unpredictable
+
+-----------------------------------------------------
+9. Stream.of() Method
+-----------------------------------------------------
+- Used to create Stream of values
+- Can create Stream of objects, numbers, strings
+
+Syntax:
+Stream.of(value1, value2, value3)
+
+-----------------------------------------------------
+10. Infinite Streams
+-----------------------------------------------------
+Infinite streams generate unlimited data.
+
+Methods:
+1) Stream.generate(Supplier<T>)
+2) Stream.iterate(seed, UnaryOperator<T>)
+
+Note:
+- limit() must be used to avoid infinite loop
+
+-----------------------------------------------------
+11. Types of Operations in Stream API
+-----------------------------------------------------
+There are TWO types of operations:
+
+1) Intermediate Operation
+2) Terminal Operation
+
+-----------------------------------------------------
+12. Intermediate Operation
+-----------------------------------------------------
+- Returns a new Stream
+- Lazy in nature
+- Can be chained (Method Chaining)
+- Data remains unchanged
+
+Common Intermediate Operations:
+1) filter(Predicate<T>)
+2) map(Function<T,R>)
+3) flatMap(Function<T,Stream<R>>)
+4) distinct()
+5) sorted()
+6) sorted(Comparator<T>)
+
+-----------------------------------------------------
+13. Terminal Operation
+-----------------------------------------------------
+- Produces final result
+- Ends the Stream
+- Stream becomes closed after terminal operation
+
+Common Terminal Operations:
+1) forEach()
+2) collect()
+3) count()
+4) reduce()
+5) min()
+6) max()
+7) anyMatch()
+8) allMatch()
+9) noneMatch()
+
+-----------------------------------------------------
+14. Important Points
+-----------------------------------------------------
+- Without terminal operation, stream will not execute
+- Once consumed, stream cannot be reused
+- Stream supports lazy evaluation
+- Stream operations are non-mutating
+
+=====================================================
+                END OF STREAM API
+=====================================================
