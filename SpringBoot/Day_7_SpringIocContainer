@@ -1,0 +1,205 @@
+====================================================
+            SPRING IOC CONTAINER – NOTES
+====================================================
+
+IOC (Inversion of Control)
+--------------------------
+• IOC means Spring controls object creation and dependency injection.
+• Objects are called Spring Beans.
+• IOC container manages:
+  - Object creation
+  - Dependency Injection
+  - Bean lifecycle
+
+----------------------------------------------------
+WHY SPRING IOC CONTAINERS ARE LIGHTWEIGHT?
+----------------------------------------------------
+a) Can be created and used without heavy web/application servers  
+b) Runs directly on top of JRE/JVM  
+c) Suitable for any type of Java application
+
+----------------------------------------------------
+TYPES OF SPRING IOC CONTAINERS
+----------------------------------------------------
+1) BeanFactory          → Basic IOC container
+2) ApplicationContext   → Advanced IOC container
+
+Relationship:
+ApplicationContext
+        |
+   BeanFactory
+
+====================================================
+1) BEANFACTORY IOC CONTAINER
+====================================================
+
+• Basic IOC container
+• Uses XML-driven configuration only
+• Not recommended for modern applications
+• Mostly used internally by Spring
+
+----------------------------------------------------
+CREATION OF BEANFACTORY
+----------------------------------------------------
+• Implement BeanFactory interface (directly/indirectly)
+• Recommended class: XmlBeanFactory
+
+Important hierarchy:
+BeanFactory
+  ↓
+ListableBeanFactory
+  ↓
+ConfigurableListableBeanFactory
+  ↓
+DefaultListableBeanFactory
+  ↓
+XmlBeanFactory
+
+----------------------------------------------------
+SAMPLE CODE
+----------------------------------------------------
+FileSystemResource res =
+   new FileSystemResource(".../applicationContext.xml");
+
+XmlBeanFactory factory =
+   new XmlBeanFactory(res);
+
+----------------------------------------------------
+NOTES
+----------------------------------------------------
+• Only XML configuration supported
+• No annotation or Java config support
+• Not preferred in real projects
+
+====================================================
+2) APPLICATIONCONTEXT IOC CONTAINER
+====================================================
+
+• Extension of BeanFactory
+• Provides enterprise-level features
+• Supports multiple configuration styles
+
+----------------------------------------------------
+CONFIGURATION APPROACHES
+----------------------------------------------------
+a) XML-based configuration
+b) XML + Annotation-based configuration
+c) Java-based (@Configuration) configuration
+
+----------------------------------------------------
+APPLICATIONCONTEXT INTERFACE
+----------------------------------------------------
+Super Interfaces:
+• BeanFactory
+• ListableBeanFactory
+• ResourceLoader
+• ApplicationEventPublisher
+• EnvironmentCapable
+• MessageSource
+
+----------------------------------------------------
+IMPORTANT IMPLEMENTATION CLASSES
+----------------------------------------------------
+1) FileSystemXmlApplicationContext
+2) ClassPathXmlApplicationContext
+3) XmlWebApplicationContext
+4) AnnotationConfigApplicationContext
+5) AnnotationConfigWebApplicationContext
+
+====================================================
+IMPORTANT APPLICATIONCONTEXT TYPES
+====================================================
+
+----------------------------------------------------
+(a) FileSystemXmlApplicationContext
+----------------------------------------------------
+• Loads XML from filesystem path
+• Suitable for standalone applications
+
+Example:
+FileSystemXmlApplicationContext ctx =
+  new FileSystemXmlApplicationContext(".../applicationContext.xml");
+
+----------------------------------------------------
+(b) ClassPathXmlApplicationContext
+----------------------------------------------------
+• Loads XML from classpath
+• Best for standalone apps using XML
+
+Example:
+ClassPathXmlApplicationContext ctx =
+  new ClassPathXmlApplicationContext("applicationContext.xml");
+
+----------------------------------------------------
+(c) XmlWebApplicationContext
+----------------------------------------------------
+• Used in web applications
+• XML file placed inside WEB-INF folder
+• Configured using web.xml
+
+----------------------------------------------------
+(d) AnnotationConfigApplicationContext
+----------------------------------------------------
+• Uses Java-based configuration
+• Configuration class must use @Configuration
+• Suitable for standalone apps
+
+Example:
+AnnotationConfigApplicationContext ctx =
+  new AnnotationConfigApplicationContext(AppConfig.class);
+
+----------------------------------------------------
+(e) AnnotationConfigWebApplicationContext
+----------------------------------------------------
+• Used in web applications
+• Uses @Configuration class
+• Supports embedded servers (Tomcat, Jetty)
+
+====================================================
+CONCLUSION / BEST PRACTICES
+====================================================
+
+• ❌ Do NOT use BeanFactory directly
+• ✅ Use ClassPathXmlApplicationContext for:
+     - Standalone apps
+     - XML configuration
+• ✅ Use XmlWebApplicationContext for:
+     - Web apps
+     - XML configuration
+• ✅ Use AnnotationConfigApplicationContext for:
+     - Standalone apps
+     - Java config (@Configuration)
+• ✅ Use AnnotationConfigWebApplicationContext for:
+     - Web apps
+     - Java config
+
+====================================================
+SPRING CONFIGURATION INCLUDES
+====================================================
+• Declaring Java classes as Spring Beans
+• Dependency Injection
+• Bean lifecycle methods
+• Alias naming for beans
+• Property file configuration
+
+====================================================
+HOW TO GET SPRING BEAN OBJECT?
+====================================================
+
+Method:
+• getBean("beanId")
+
+----------------------------------------------------
+Example 1 (BeanFactory)
+----------------------------------------------------
+Object obj = factory.getBean("wmg");
+
+----------------------------------------------------
+Example 2 (XML ApplicationContext)
+----------------------------------------------------
+Object obj = ctx.getBean("wmg");
+
+----------------------------------------------------
+Example 3 (Annotation ApplicationContext)
+----------------------------------------------------
+Object obj = ctx.getBean("wmg");
