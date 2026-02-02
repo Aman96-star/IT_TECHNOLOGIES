@@ -1,0 +1,223 @@
+============================================================
+        SPRING / JEE FRAMEWORKS & ARCHITECTURE NOTES
+============================================================
+
+
+============================================================
+PAYMENT FLOW – WEB & DISTRIBUTED APPLICATIONS
+============================================================
+
+Browser (Web App – B2C)
+   |
+   v
+Myntra / Amazon Website
+   |
+   v
+Payment Broker App (B2B)
+   |
+   v
+Payment Gateway App (B2B)
+   |
+   v
+Bank Application
+
+
+------------------------------------------------------------
+MOBILE APP FLOW
+------------------------------------------------------------
+
+End User
+   |
+   v
+Mobile App (Myntra / Amazon)
+   |
+   v
+Payment Broker App
+   |
+   v
+Payment Gateway App
+   |
+   v
+Bank App
+
+
+------------------------------------------------------------
+PAYMENT BROKER APPS
+------------------------------------------------------------
+
+=> Acts as a bridge between:
+   - E-commerce apps
+   - Payment gateways
+
+=> Takes card details from e-commerce apps
+=> Routes payment to appropriate payment gateway
+
+Examples:
+- PayU Money
+- PayTM
+- Razorpay
+- PhonePe
+
+
+------------------------------------------------------------
+PAYMENT GATEWAY APPS
+------------------------------------------------------------
+
+=> Provide worldwide infrastructure for payments
+=> Issue debit/credit cards via banks
+
+Examples:
+- VISA
+- MasterCard
+- Maestro
+- RuPay
+- Cirrus
+
+
+============================================================
+JEE FRAMEWORKS / APPLICATION FRAMEWORKS
+============================================================
+
+=> Provide abstraction on:
+   - Java language
+   - JEE technologies
+   - Java frameworks
+
+=> Used to develop:
+   - Standalone applications
+   - Web applications
+   - Distributed applications
+   - Enterprise applications
+
+
+------------------------------------------------------------
+SPRING FRAMEWORK
+------------------------------------------------------------
+
+Spring -> From Interface21 (Pivotal team)
+Spring Boot -> From Interface21 (Pivotal team)
+
+
+=> Using Spring / Spring Boot we can develop:
+   - Standalone apps
+   - Web apps
+   - Distributed apps
+   - Enterprise apps
+
+
+============================================================
+ARCHITECTURE TYPES USING SPRING
+============================================================
+
+1) Monolith Architecture
+2) Microservice Architecture
+
+
+============================================================
+MONOLITH ARCHITECTURE
+============================================================
+
+=> All services of a project are developed and packaged
+   into a SINGLE unit (jar / war file)
+
+Example:
+BankApp.jar
+  |
+  |-- Daily Transactions Module
+  |-- Loans Module
+  |-- Insurance Module
+  |-- Payroll Module
+
+
+Analogy:
+=> Like buying TV with built-in:
+   - Home Theatre
+   - PlayStation
+   - DTH
+
+
+------------------------------------------------------------
+LIMITATIONS OF MONOLITH ARCHITECTURE
+------------------------------------------------------------
+
+a) If one module/service goes down,
+   entire application is affected
+
+b) All modules must use:
+   - Same language
+   - Same technology
+   - Same framework
+
+c) Code base becomes complex and tightly coupled
+
+d) Other projects cannot reuse individual services easily
+
+
+============================================================
+MICROSERVICE ARCHITECTURE
+============================================================
+
+=> Different services are developed as DIFFERENT projects
+
+=> Each project represents ONE SERVICE
+=> Each service is called a MICROSERVICE
+
+=> Microservices are integrated using:
+   - Third-party tools
+   - Network communication
+
+
+------------------------------------------------------------
+MICROSERVICE EXAMPLE
+------------------------------------------------------------
+
+Daily Transactions (Microservice #1) -> jar/war
+Loans              (Microservice #2) -> jar/war
+Insurance          (Microservice #3) -> jar/war
+Payroll            (Microservice #4) -> jar/war
+
+
+Analogy:
+=> Like ordering food separately
+=> Like purchasing TV, speaker, console independently
+   and integrating as needed
+
+
+------------------------------------------------------------
+IMPORTANT NOTE
+------------------------------------------------------------
+
+Microservices = Web Services ++
+
+
+============================================================
+ADVANTAGES OF MICROSERVICE ARCHITECTURE
+============================================================
+
+=> Failure of one service does NOT affect other services
+
+=> Modifications in one service do NOT impact others
+
+=> Different microservices can be developed using:
+   - Different languages
+   - Different technologies
+   - Different frameworks
+
+=> Other projects can reuse any microservice easily
+
+=> Better scalability
+=> Easier maintenance
+=> Faster development cycles
+
+
+============================================================
+SPRING BOOT + MICROSERVICES
+============================================================
+
+=> Spring Boot is widely used to develop microservices
+
+=> Each microservice is:
+   - Independent
+   - Deployable separately
+   - Scalable individually
+
