@@ -1,0 +1,171 @@
+==================================================
+            SPRING FRAMEWORK NOTES
+==================================================
+
+1. WHAT IS SPRING?
+--------------------------------------------------
+Spring is a lightweight Java framework
+used to develop enterprise applications.
+
+Purpose:
+- Simplifies Java development
+- Provides loose coupling
+- Manages object creation automatically
+
+
+2. WHY SPRING?
+--------------------------------------------------
+Problems before Spring:
+- Tight coupling
+- Manual object creation
+- Difficult maintenance and testing
+
+Spring solves using:
+- IOC
+- DI
+- AOP
+
+
+3. CORE CONCEPTS
+--------------------------------------------------
+
+3.1 Inversion of Control (IOC)
+--------------------------------
+- Spring controls object creation
+- Developer does not use 'new' keyword
+- Objects are managed by Spring container
+
+Example:
+Car object is created by Spring, not by programmer
+
+
+3.2 Dependency Injection (DI)
+--------------------------------
+- Injecting dependent objects automatically
+
+Types of DI:
+1. Constructor Injection
+2. Setter Injection
+3. Field Injection
+
+
+3.3 Bean
+--------------------------------
+- Bean is an object managed by Spring
+- Bean lifecycle is controlled by Spring
+
+
+3.4 Spring Container
+--------------------------------
+Responsible for:
+- Creating beans
+- Managing lifecycle
+- Injecting dependencies
+
+Types:
+1. BeanFactory
+2. ApplicationContext (most used)
+
+
+4. SPRING MODULES
+--------------------------------------------------
+
+1. Spring Core
+- IOC
+- DI
+- Bean management
+
+2. Spring Context
+- ApplicationContext
+- Event handling
+- Internationalization
+
+3. Spring AOP
+- Aspect Oriented Programming
+- Cross-cutting concerns
+
+4. Spring JDBC
+- Simplifies JDBC code
+- Removes boilerplate code
+
+5. Spring ORM
+- Hibernate / JPA integration
+
+6. Spring MVC
+- Web application framework
+- MVC architecture
+
+
+5. AOP (ASPECT ORIENTED PROGRAMMING)
+--------------------------------------------------
+
+Purpose:
+- Separate common logic from business logic
+
+Cross-cutting concerns:
+- Logging
+- Security
+- Transactions
+
+AOP Terms:
+- Aspect     : Extra functionality
+- Advice     : When logic executes
+- JoinPoint  : Where logic executes
+- Pointcut   : Expression to match join points
+
+
+6. SPRING CONFIGURATION TYPES
+--------------------------------------------------
+
+1. XML Configuration
+- Uses XML files to define beans
+
+2. Annotation Configuration
+- Uses annotations like:
+  @Component
+  @Autowired
+  @Service
+
+3. Java Based Configuration
+- Uses @Configuration and @Bean
+
+
+7. IMPORTANT ANNOTATIONS
+--------------------------------------------------
+
+@Component    -> Marks class as Spring bean
+@Service      -> Service layer
+@Repository   -> DAO layer
+@Controller   -> Controller layer
+@Autowired    -> Inject dependency
+@Configuration-> Configuration class
+@Bean         -> Define bean method
+
+
+8. SPRING BOOT (OVERVIEW)
+--------------------------------------------------
+Spring Boot is built on Spring framework
+
+Features:
+- Auto configuration
+- Embedded server
+- No XML configuration
+- Faster development
+
+
+9. ADVANTAGES OF SPRING
+--------------------------------------------------
+- Loose coupling
+- Easy testing
+- Modular framework
+- Scalable applications
+- Industry standard
+
+
+10. INTERVIEW ONE-LINERS
+--------------------------------------------------
+IOC  -> Control of object creation by Spring
+DI   -> Automatic dependency injection
+Bean -> Object managed by Spring
+AOP  -> Separation of cross-cutting concerns
+
