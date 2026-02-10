@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"1e63698f83f98b1f","type":"text","text":"Default Constructor Added by Compiler","x":-317,"y":-179,"width":250,"height":102},
+		{"id":"e65f6c4666a99fee","type":"text","text":"Types of Variables","x":-317,"y":70,"width":207,"height":107},
+		{"id":"ce14f0c6ff621a2b","type":"text","text":"`this` Keyword","x":-7,"y":-268,"width":250,"height":60},
+		{"id":"2725e567d14441bf","type":"text","text":"Role of Instance Variables While Creating an Object","x":-7,"y":-178,"width":250,"height":161},
+		{"id":"98192e0a4669f558","type":"text","text":"Oops_features","x":-317,"y":-357,"width":207,"height":60},
+		{"id":"f5315c81a4c48873","type":"text","text":"Core oops Concept\n","x":-321,"y":-267,"width":250,"height":60},
+		{"id":"bf199fda63e5e977","type":"text","text":"Part-1","x":-569,"y":-231,"width":126,"height":68},
+		{"id":"7dd4d75b9f927416","type":"text","text":"Abstraction","x":320,"y":-197,"width":250,"height":60},
+		{"id":"5f575827e386141f","type":"text","text":"Encapsulation","x":320,"y":-77,"width":250,"height":60},
+		{"id":"1ffbdd873fbe7f12","type":"text","text":"Printing Object Properties (Instance Variable Values)","x":320,"y":53,"width":250,"height":177},
+		{"id":"2f18cef8bc63a9f0","type":"text","text":"Data Hiding","x":-12,"y":297,"width":250,"height":60},
+		{"id":"24acbae20b9f19dc","type":"text","text":"Declaring Variables: Instance vs Static","x":-14,"y":177,"width":250,"height":106},
+		{"id":"f687141f30ea4f6b","type":"text","text":"Working with Static Variables While Creating an Object","x":-14,"y":15,"width":250,"height":129},
+		{"id":"158a3705cfcc35bc","type":"text","text":"User-Defined Values for Instance Variables","x":-321,"y":283,"width":250,"height":131},
+		{"id":"06a8f02de0fcb583","type":"text","text":"Variable Types Based on Scope","x":-321,"y":187,"width":250,"height":86},
+		{"id":"412d1d68ecb7d714","type":"text","text":"Why Compiler Adds Default Constructor","x":-321,"y":-47,"width":250,"height":96},
+		{"id":"a297a8537463e896","type":"text","text":"JAVA SEASION-2/OOPS\n","x":-588,"y":-128,"width":202,"height":139,"color":"1"}
+	],
+	"edges":[
+		{"id":"bbb22726f8d7e7b6","fromNode":"a297a8537463e896","fromSide":"right","toNode":"2f18cef8bc63a9f0","toSide":"left","color":"1"},
+		{"id":"1297f3cff9b1a2e6","fromNode":"a297a8537463e896","fromSide":"right","toNode":"24acbae20b9f19dc","toSide":"left","color":"1"},
+		{"id":"846a8a00d0980314","fromNode":"a297a8537463e896","fromSide":"right","toNode":"158a3705cfcc35bc","toSide":"left","color":"1"},
+		{"id":"19d549a514eb0c7e","fromNode":"a297a8537463e896","fromSide":"right","toNode":"06a8f02de0fcb583","toSide":"left","color":"1"},
+		{"id":"050cf5cc46ab4b31","fromNode":"a297a8537463e896","fromSide":"right","toNode":"1e63698f83f98b1f","toSide":"left","color":"1"},
+		{"id":"6876e067c333d9ff","fromNode":"a297a8537463e896","fromSide":"right","toNode":"e65f6c4666a99fee","toSide":"left","color":"1"},
+		{"id":"c0298bd0d0dbba08","fromNode":"a297a8537463e896","fromSide":"right","toNode":"f687141f30ea4f6b","toSide":"left","color":"1"},
+		{"id":"10d64ae01e4c47ff","fromNode":"a297a8537463e896","fromSide":"right","toNode":"ce14f0c6ff621a2b","toSide":"left","color":"1"},
+		{"id":"f315e93cf4b6893d","fromNode":"a297a8537463e896","fromSide":"right","toNode":"2725e567d14441bf","toSide":"left","color":"1"},
+		{"id":"183349a9d3c8e3e5","fromNode":"a297a8537463e896","fromSide":"right","toNode":"98192e0a4669f558","toSide":"left","color":"1"},
+		{"id":"23ba922c1bca3605","fromNode":"a297a8537463e896","fromSide":"right","toNode":"f5315c81a4c48873","toSide":"left","color":"1"},
+		{"id":"a68ab69ff173b4be","fromNode":"a297a8537463e896","fromSide":"right","toNode":"bf199fda63e5e977","toSide":"left","color":"1"},
+		{"id":"01c605573fa75f2c","fromNode":"a297a8537463e896","fromSide":"right","toNode":"412d1d68ecb7d714","toSide":"left","color":"1"},
+		{"id":"8b4a142c1a8311a7","fromNode":"a297a8537463e896","fromSide":"right","toNode":"7dd4d75b9f927416","toSide":"left","color":"1"},
+		{"id":"e5252739bfd9ac5f","fromNode":"a297a8537463e896","fromSide":"right","toNode":"5f575827e386141f","toSide":"left","color":"1"},
+		{"id":"4a48c880f2c83888","fromNode":"a297a8537463e896","fromSide":"right","toNode":"1ffbdd873fbe7f12","toSide":"left","color":"1"}
+	]
+}

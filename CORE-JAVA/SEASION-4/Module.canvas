@@ -1,0 +1,41 @@
+{
+	"nodes":[
+		{"id":"8c8ea8ed6e714071","type":"text","text":"CORE__JAVA\n","x":-198,"y":-248,"width":165,"height":50,"color":"2"},
+		{"id":"1aafce107bac5cc3","type":"text","text":"JAVA SEASION-4","x":-235,"y":-390,"width":240,"height":60,"color":"4"},
+		{"id":"1a5ae89ef0cd6f69","type":"text","text":"OBJECT_ORIENTED_PROGRAMING\n[Design Concepts\nit tells how to design a program]\nSeasion-2,3","x":-830,"y":-129,"width":456,"height":161},
+		{"id":"0a669973e19a6015","type":"text","text":"METHOD_OVERLOADING","x":-344,"y":-7,"width":250,"height":79},
+		{"id":"253e14f6d2c6be44","type":"text","text":"MULTITHREADING","x":-137,"y":139,"width":241,"height":76},
+		{"id":"708571c823bbed90","type":"text","text":"EXCEPTION_HANDELING","x":181,"y":108,"width":250,"height":107},
+		{"id":"d0aa468c412da65c","type":"text","text":"COLLECTION_FRAMEWORK","x":383,"y":-7,"width":250,"height":79},
+		{"id":"5fcf49add249daaf","type":"text","text":"FEATURES-JAVA","x":82,"y":-198,"width":198,"height":68},
+		{"id":"18790e21edb6ebfd","type":"text","text":"Interface","x":687,"y":4,"width":143,"height":68},
+		{"id":"d142cf2baf2483f6","type":"text","text":"Default Methods","x":468,"y":108,"width":209,"height":60},
+		{"id":"20dda218eaa1aaa6","type":"text","text":"Static Methods in Interface","x":460,"y":179,"width":250,"height":72},
+		{"id":"a8ba40fe531ed8c2","type":"text","text":"Functional Interfaces","x":104,"y":248,"width":250,"height":60},
+		{"id":"3625ea49ff5d4e70","type":"text","text":"Lambda Expressions","x":104,"y":330,"width":250,"height":60},
+		{"id":"24b6be85ab300254","type":"text","text":"Built-in Functional Interfaces","x":448,"y":278,"width":250,"height":103},
+		{"id":"5864a3e5fb2fc81e","type":"text","text":"JVM Architecture","x":-700,"y":102,"width":227,"height":60},
+		{"id":"c2f8c50ab74cac91","type":"text","text":"Class Loader Subsystem","x":-365,"y":139,"width":197,"height":109},
+		{"id":"9d87adeb19806912","type":"text","text":"Runtime Data Areas","x":-331,"y":256,"width":267,"height":60},
+		{"id":"1c2c508e70c228a3","type":"text","text":"Execution Engine","x":-329,"y":330,"width":220,"height":60}
+	],
+	"edges":[
+		{"id":"db4521669542342f","fromNode":"8c8ea8ed6e714071","fromSide":"bottom","toNode":"1a5ae89ef0cd6f69","toSide":"top"},
+		{"id":"0702dcf85e1cf865","fromNode":"8c8ea8ed6e714071","fromSide":"bottom","toNode":"5fcf49add249daaf","toSide":"top"},
+		{"id":"9683f6f235cf6b44","fromNode":"1aafce107bac5cc3","fromSide":"bottom","toNode":"8c8ea8ed6e714071","toSide":"bottom"},
+		{"id":"78c7711479811b97","fromNode":"5fcf49add249daaf","fromSide":"bottom","toNode":"0a669973e19a6015","toSide":"top","color":"1"},
+		{"id":"0a922a9b3a4f414d","fromNode":"253e14f6d2c6be44","fromSide":"top","toNode":"5fcf49add249daaf","toSide":"bottom","color":"1"},
+		{"id":"6e6cef31368df080","fromNode":"708571c823bbed90","fromSide":"top","toNode":"5fcf49add249daaf","toSide":"bottom","color":"1"},
+		{"id":"ecc50f1252b8c71e","fromNode":"d0aa468c412da65c","fromSide":"top","toNode":"5fcf49add249daaf","toSide":"bottom","color":"1"},
+		{"id":"9932243c06329024","fromNode":"5fcf49add249daaf","fromSide":"bottom","toNode":"18790e21edb6ebfd","toSide":"top","color":"1"},
+		{"id":"0b92cec3bf3db114","fromNode":"5fcf49add249daaf","fromSide":"bottom","toNode":"5864a3e5fb2fc81e","toSide":"top","color":"1"},
+		{"id":"15c620dc956f59c3","fromNode":"18790e21edb6ebfd","fromSide":"bottom","toNode":"d142cf2baf2483f6","toSide":"right","color":"3"},
+		{"id":"9b0c29e9a55eb679","fromNode":"18790e21edb6ebfd","fromSide":"bottom","toNode":"20dda218eaa1aaa6","toSide":"right","color":"3"},
+		{"id":"8b94c201ebbb8341","fromNode":"18790e21edb6ebfd","fromSide":"bottom","toNode":"a8ba40fe531ed8c2","toSide":"right","color":"3"},
+		{"id":"c321938c91910096","fromNode":"18790e21edb6ebfd","fromSide":"bottom","toNode":"3625ea49ff5d4e70","toSide":"right","color":"3"},
+		{"id":"e2193a663bdea0a9","fromNode":"18790e21edb6ebfd","fromSide":"bottom","toNode":"24b6be85ab300254","toSide":"right","color":"3"},
+		{"id":"0e4d49c87a529034","fromNode":"5864a3e5fb2fc81e","fromSide":"right","toNode":"c2f8c50ab74cac91","toSide":"left","color":"3"},
+		{"id":"b58a1a782e023a63","fromNode":"5864a3e5fb2fc81e","fromSide":"right","toNode":"9d87adeb19806912","toSide":"left","color":"3"},
+		{"id":"5eb2b8b1222d538b","fromNode":"5864a3e5fb2fc81e","fromSide":"right","toNode":"1c2c508e70c228a3","toSide":"left","color":"3"}
+	]
+}
