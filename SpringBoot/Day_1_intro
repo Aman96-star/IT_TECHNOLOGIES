@@ -21,9 +21,29 @@ Problems before Spring:
 - Difficult maintenance and testing
 
 Spring solves using:
-- IOC
-- DI
-- AOP
+- IOC-Inversion of Control
+👉 Control of object creation is given to the Spring container
+👉 Not handled by the developer manually
+
+- DI-Dependency Injection 
+👉 Injecting dependent object into another object.
+
+If Car needs Engine → Engine is dependency.
+
+Spring injects it automatically.
+
+- AOP-Aspect Oriented Programming
+👉 Cross-cutting concerns
+
+These are common functionalities used in many classes:
+
+Logging
+
+Security
+
+Transactions
+
+Exception handling
 
 
 3. CORE CONCEPTS
