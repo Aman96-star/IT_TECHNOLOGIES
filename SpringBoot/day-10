@@ -1,0 +1,202 @@
+Using XML and Annotation driven
+
+1) What is Spring?
+------------------
+Spring is a lightweight Java framework used to build
+enterprise applications.
+
+Main features:
+- IOC (Inversion of Control)
+- DI (Dependency Injection)
+- AOP
+- Loose coupling
+- Modular design
+
+
+==================================================
+2) IOC (Inversion of Control)
+--------------------------------------------------
+IOC means object creation control is given to Spring
+container instead of programmer.
+
+Without Spring:
+    Engine e = new Engine();
+    Car c = new Car(e);
+
+With Spring:
+    Spring container creates and injects objects.
+
+
+==================================================
+3) DI (Dependency Injection)
+--------------------------------------------------
+Injecting one object into another object.
+
+If Car needs Engine → Engine is dependency.
+
+Types of DI:
+-------------
+1) Constructor Injection  (BEST)
+2) Setter Injection
+3) Field Injection (Not recommended)
+
+
+Constructor Injection Example:
+--------------------------------
+public class Car {
+    private Engine engine;
+
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+}
+
+
+Setter Injection Example:
+--------------------------
+public void setEngine(Engine engine) {
+    this.engine = engine;
+}
+
+
+Field Injection Example:
+-------------------------
+@Autowired
+private Engine engine;
+
+
+==================================================
+4) Spring Bean
+--------------------------------------------------
+Any Java class managed by Spring IOC container is called Bean.
+
+Ways to create Bean:
+1) XML configuration
+2) Annotation
+3) Java Config (Best)
+
+
+XML Bean Example:
+------------------
+<bean id="date"
+      class="java.time.LocalDate"
+      factory-method="now"/>
+
+
+Annotation Bean Example:
+-------------------------
+@Component
+public class SeasonFinder {
+}
+
+
+Enable component scanning:
+---------------------------
+<context:component-scan base-package="com.nt.beans"/>
+
+
+==================================================
+5) Important Annotations
+--------------------------------------------------
+@Component   → Marks class as Spring Bean
+@Service     → Service layer bean
+@Repository  → DAO layer bean
+@Controller  → Web controller
+@Autowired   → Inject dependency
+@Qualifier   → Specify exact bean
+@Configuration → Java config class
+@Bean        → Define bean in Java config
+
+
+==================================================
+6) IOC Container Types
+--------------------------------------------------
+1) BeanFactory
+2) ApplicationContext (Most used)
+
+Common implementations:
+- ClassPathXmlApplicationContext
+- FileSystemXmlApplicationContext
+- AnnotationConfigApplicationContext
+
+
+==================================================
+7) Bean Scope
+--------------------------------------------------
+singleton  → One object per container (Default)
+prototype  → New object every time
+request    → One per HTTP request
+session    → One per HTTP session
+
+
+==================================================
+8) Bean Lifecycle
+--------------------------------------------------
+1) Object created
+2) Dependencies injected
+3) init method called
+4) Bean ready
+5) destroy method called
+
+Use:
+@PostConstruct
+@PreDestroy
+
+
+==================================================
+9) Example: SeasonFinder
+--------------------------------------------------
+
+@Component("sf")
+public class SeasonFinder {
+
+    private LocalDate date;
+
+    @Autowired
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String showSeasonName() {
+        int month = date.getMonthValue();
+
+        if(month >=3 && month <=6)
+            return "Summer";
+        else if(month >=7 && month <=10)
+            return "Rainy";
+        else
+            return "Winter";
+    }
+}
+
+
+Main Class:
+------------
+
+public static void main(String[] args) {
+
+    ClassPathXmlApplicationContext ctx =
+        new ClassPathXmlApplicationContext("applicationContext.xml");
+
+    SeasonFinder sf = ctx.getBean("sf", SeasonFinder.class);
+
+    System.out.println(sf.showSeasonName());
+
+    ctx.close();
+}
+
+
+==================================================
+10) Important Interview Points
+--------------------------------------------------
+- IOC = Concept
+- DI = Implementation of IOC
+- Constructor Injection = Best Practice
+- Java Config > XML
+- Avoid Field Injection
+- Bean = Managed object
+- ApplicationContext = Spring container
+
+==================================================
+                END OF NOTES
+==================================================
