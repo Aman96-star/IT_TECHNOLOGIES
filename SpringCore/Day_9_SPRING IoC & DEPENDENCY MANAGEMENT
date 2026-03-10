@@ -1,0 +1,214 @@
+===============================
+SPRING IoC & DEPENDENCY MANAGEMENT NOTES
+===============================
+
+The IoC (Inversion of Control) container in Spring is used for TWO main operations:
+
+1) Spring Bean Life Cycle Management
+2) Dependency Management
+
+--------------------------------
+DEPENDENCY MANAGEMENT
+--------------------------------
+
+Dependency Management means:
+Arranging dependent Java class objects for a target Java class object
+so that interaction between them can happen.
+
+Target Class:
+- The Java class that USES services of another class.
+
+Dependent Class:
+- The Java class whose services are USED by the target class.
+
+--------------------------------
+EXAMPLES
+--------------------------------
+
+Target Class        Dependent Class
+------------        ----------------
+Flipkart            DTDC
+Student             CourseMaterial
+Cricketer           CricketBall
+
+Meaning:
+- Flipkart uses DTDC courier services
+- Student uses CourseMaterial for preparation
+- Cricketer uses CricketBall for playing
+
+--------------------------------
+WAYS TO IMPLEMENT DEPENDENCY MANAGEMENT
+--------------------------------
+
+Dependency Management can be implemented in TWO ways:
+
+1) Dependency Lookup (DL)
+2) Dependency Injection (DI)
+
+================================
+1) DEPENDENCY LOOKUP (DL)
+================================
+
+Definition:
+Dependency Lookup means the TARGET class itself searches and gets
+the dependent class object from different resources.
+
+Important Point:
+- Logic to get dependent object is written inside the target class.
+- Target class PULLS the dependent object.
+
+--------------------------------
+REAL LIFE EXAMPLES
+--------------------------------
+
+Example 1:
+Student (target) requests CourseMaterial (dependent)
+from institute manually.
+
+Example 2:
+Java Application (target) gets required object (dependent)
+from JNDI registry by searching it.
+
+--------------------------------
+JNDI (Java Naming and Directory Interface)
+--------------------------------
+
+JNDI is used to:
+- Store objects
+- Search objects
+- Retrieve objects using a name (nickname)
+
+Example JNDI Registries:
+- RMI Registry
+- COS Registry
+- Tomcat Registry
+- WebLogic Registry
+
+--------------------------------
+JNDI OPERATIONS
+--------------------------------
+
+bind     -> Add object reference to registry
+rebind   -> Replace existing object reference
+unbind   -> Remove object reference
+lookup   -> Search and get object reference
+
+--------------------------------
+KEY NOTES
+--------------------------------
+
+- Object created inside method -> Local scope
+- Object created inside class (non-static) -> Object scope
+- Object created as static -> Class scope
+
+To make an object GLOBAL and ACCESSIBLE:
+- Place its reference inside JNDI registry
+
+--------------------------------
+JDBC vs JNDI
+--------------------------------
+
+JDBC:
+Java App ---> JDBC API ---> Database
+Used for CRUD operations
+
+JNDI:
+Java App ---> JNDI API ---> JNDI Registry
+Used for lookup operations
+
+--------------------------------
+PROBLEM WITH DEPENDENCY LOOKUP
+--------------------------------
+
+- Target class is tightly coupled with dependent class
+- Programmer has extra burden to write lookup logic
+- Not flexible
+
+================================
+2) DEPENDENCY INJECTION (DI)
+================================
+
+Definition:
+Dependency Injection means the SERVER / CONTAINER / FRAMEWORK
+creates and injects dependent objects into the target object
+AUTOMATICALLY at runtime.
+
+Important Point:
+- Target class does NOT create or search dependent object
+- Container PUSHES the dependency
+
+--------------------------------
+EXAMPLES
+--------------------------------
+
+Example 1:
+Student object is created → CourseMaterial is injected automatically.
+
+Example 2:
+Servlet Container injects ServletConfig into Servlet.
+
+--------------------------------
+ADVANTAGES OF DEPENDENCY INJECTION
+--------------------------------
+
+- Loose coupling
+- Less programmer burden
+- Easy maintenance
+- Easy testing
+
+--------------------------------
+DISADVANTAGES OF DEPENDENCY INJECTION
+--------------------------------
+
+- Wrong configuration may inject unwanted objects
+- Requires correct configuration
+
+================================
+SPRING FRAMEWORK & DEPENDENCY MANAGEMENT
+================================
+
+Spring Framework supports:
+- Dependency Lookup (DL)
+- Dependency Injection (DI)
+
+But in REAL-TIME PROJECTS:
+👉 Dependency Injection is preferred over Dependency Lookup
+
+--------------------------------
+SPRING DEPENDENCY INJECTION TYPES
+--------------------------------
+
+Spring supports DI in 7 ways:
+
+BASIC INJECTIONS:
+1) Setter Injection
+2) Constructor Injection
+3) Field Injection (Best)
+
+ADVANCED INJECTIONS:
+4) Aware Injection
+5) Interface Injection
+6) Lookup Method Injection
+7) Method Replacer Injection
+
+--------------------------------
+XML BASED CONFIGURATION
+--------------------------------
+
+In XML configuration, Spring mainly supports:
+
+- Setter Injection
+- Constructor Injection
+
+XML Tags:
+<property>        -> Setter Injection
+<constructor-arg> -> Constructor Injection
+
+--------------------------------
+FINAL EXAM POINT
+--------------------------------
+
+In most real-time scenarios,
+Dependency Injection is preferred over Dependency Lookup
+because it provides loose coupling and better maintainability.
+

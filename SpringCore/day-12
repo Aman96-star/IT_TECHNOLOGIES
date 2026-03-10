@@ -1,0 +1,229 @@
+============================================================
+        SPRING – CONSTRUCTOR INJECTION NOTES
+============================================================
+
+1) WHAT IS CONSTRUCTOR INJECTION?
+------------------------------------------------------------
+IOC container uses parameterized constructor
+to inject dependent beans into target bean.
+
+It injects dependencies while creating object.
+
+
+Example:
+
+@Component
+public class WeekDayAnalyzer {
+
+    private LocalDate date;
+    private LocalTime time;
+
+    @Autowired
+    public WeekDayAnalyzer(LocalDate date, LocalTime time) {
+        this.date = date;
+        this.time = time;
+    }
+}
+
+
+============================================================
+2) IMPORTANT RULES
+------------------------------------------------------------
+
+1) @Autowired can be placed on constructor.
+
+2) Only ONE constructor should be annotated with @Autowired.
+
+3) If class has only one parameterized constructor,
+   @Autowired is OPTIONAL (Spring uses it automatically).
+
+4) If multiple constructors exist →
+   we must use @Autowired on required constructor.
+
+5) Constructor Injection is:
+   ✔ Fastest
+   ✔ Best Practice
+   ✔ Prevents Null values
+   ✔ Recommended in real projects
+
+
+============================================================
+3) COMPARE ALL DEPENDENCY INJECTIONS
+------------------------------------------------------------
+
+1) Setter Injection
+   - Uses setter method
+   - Object created first, then dependency injected
+   - Supports optional dependencies
+
+2) Field Injection
+   - Uses @Autowired on field
+   - Direct injection
+   - Not recommended
+
+3) Arbitrary Method Injection
+   - Uses custom method
+   - Rarely used
+
+4) Constructor Injection (BEST)
+   - Uses parameterized constructor
+   - Object created with dependencies
+   - No Null problems
+   - Recommended
+
+
+============================================================
+4) AUTOWIRING MODES
+------------------------------------------------------------
+
+Spring matches dependency in 2 ways:
+
+1) ByType  (Default)
+   → Matches based on class type
+
+2) ByName
+   → Matches based on bean id
+
+
+Example:
+If LocalDate type matches → injected by type.
+
+
+============================================================
+5) WHAT IS AMBIGUITY PROBLEM?
+------------------------------------------------------------
+
+Definition:
+If multiple beans of SAME TYPE exist,
+Spring gets confused which one to inject.
+
+Example:
+
+@Bean
+public LocalDate createDate1() {
+    return LocalDate.now();
+}
+
+@Bean
+public LocalDate createDate2() {
+    return LocalDate.of(2024,10,20);
+}
+
+Now if:
+
+@Autowired
+private LocalDate date;
+
+Spring finds 2 LocalDate beans →
+ERROR: NoUniqueBeanDefinitionException
+
+
+============================================================
+6) HOW TO SOLVE AMBIGUITY PROBLEM?
+------------------------------------------------------------
+
+There are 3 solutions:
+
+
+------------------------------------------------------------
+SOLUTION 1: Use @Primary
+------------------------------------------------------------
+
+Mark one bean as primary.
+
+@Primary
+@Bean
+public LocalDate createDate1() {
+    return LocalDate.now();
+}
+
+Now Spring injects this bean by default.
+
+
+IMPORTANT:
+Only ONE bean should be marked @Primary.
+
+
+------------------------------------------------------------
+SOLUTION 2: Use @Qualifier (BEST METHOD)
+------------------------------------------------------------
+
+Specify exact bean name.
+
+@Autowired
+@Qualifier("createDate2")
+private LocalDate date;
+
+Now Spring injects only that bean.
+
+
+------------------------------------------------------------
+SOLUTION 3: Match Bean Name with Property Name
+------------------------------------------------------------
+
+If property name == bean id,
+Spring injects by name.
+
+
+Example:
+
+@Bean(name="date")
+public LocalDate createDate() {
+    return LocalDate.now();
+}
+
+@Autowired
+private LocalDate date;   // matches by name
+
+
+============================================================
+7) COMPLETE WORKING FLOW (Constructor Injection)
+------------------------------------------------------------
+
+1) IOC container starts
+2) Scans @Component classes
+3) Finds parameterized constructor
+4) Searches dependent beans
+5) Injects dependencies
+6) Creates target bean
+7) Stores in internal cache
+8) Returns bean when getBean() called
+
+
+============================================================
+8) INTERVIEW IMPORTANT POINTS
+------------------------------------------------------------
+
+Q) Best injection type?
+→ Constructor Injection
+
+Q) Why constructor injection is best?
+→ Ensures mandatory dependencies
+→ Prevents NullPointerException
+→ Immutable design possible
+
+Q) Default autowiring mode?
+→ ByType
+
+Q) What causes ambiguity problem?
+→ Multiple beans of same type
+
+Q) Best way to solve ambiguity?
+→ @Qualifier
+
+
+============================================================
+9) FINAL SUMMARY
+------------------------------------------------------------
+
+Constructor Injection = Best Practice
+Only one @Autowired constructor
+Ambiguity occurs when multiple same-type beans
+Solve using:
+    ✔ @Primary
+    ✔ @Qualifier
+    ✔ Matching bean name
+
+============================================================
+        END OF NOTES
+============================================================

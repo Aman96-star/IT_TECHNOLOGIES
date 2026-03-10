@@ -1,0 +1,232 @@
+============================================================
+                 JAVA → SPRING FRAMEWORK NOTES
+============================================================
+
+1. JAVA DOMAIN – 3 CATEGORIES
+------------------------------------------------------------
+
+In the Java domain, there are 3 categories of subjects to learn:
+
+------------------------------------------------------------
+a) JAVA LANGUAGE
+------------------------------------------------------------
+- Core Java course
+- Acts as raw material for Java programming
+- Like rice/wheat (raw items)
+
+Using the Java language:
+- We develop only standalone applications
+- 80% programmer written code
+- 20% ready-made libraries
+
+Examples:
+- Core Java
+- OOPs
+- Exception Handling
+- Multithreading
+
+
+------------------------------------------------------------
+b) JAVA TECHNOLOGIES
+------------------------------------------------------------
+- Advanced Java course
+- Acts as semi-finished products
+- Like rice flour / wheat flour
+
+Using Java technologies:
+- We develop web applications / websites
+- 40% ready-made facilities
+- 60% programmer written code
+
+Examples:
+- JDBC
+- Servlet
+- JSP
+- JNDI
+- JTA
+
+
+------------------------------------------------------------
+c) JAVA FRAMEWORKS
+------------------------------------------------------------
+- Spring, Spring Boot course
+- Acts as fully finished products
+- Like instant foods (Maggi / noodles)
+
+Using Java frameworks:
+- Standalone applications
+- Web applications
+- Distributed applications
+- Enterprise applications
+
+Code usage:
+- 80% ready-made facilities
+- 20% programmer written code
+
+Examples:
+- Struts
+- JSF
+- Spring
+- Spring Boot
+- Hibernate
+- WebWork
+
+
+------------------------------------------------------------
+2. LAYERED VIEW
+------------------------------------------------------------
+
+Developer
+   |
+Java Application / Project
+   |
+Java Framework (Spring / Spring Boot)
+   |
+Java Technologies (JDBC, Servlet, JSP, ...)
+   |
+Java Language
+
+
+------------------------------------------------------------
+3. RELATIONSHIP BETWEEN THEM
+------------------------------------------------------------
+
+- Java Frameworks are built on top of Java Technologies
+  Examples:
+  -> Struts, JSF, Spring, Spring Boot, Hibernate, iBatis
+
+- Java Technologies are built on top of Java Language
+  Examples:
+  -> JDBC, Servlet, JSP, JNDI, JTA
+
+- Java Language defines:
+  -> Syntax (rules)
+  -> Semantics (structure)
+  -> Compilers and Interpreters
+
+
+============================================================
+4. FRAMEWORK – DEFINITION
+============================================================
+
+Definition 1:
+Framework is a special installable software that provides
+abstraction on one or more technologies and lets developers
+write only application specific logic.
+
+Definition 2:
+Framework hides unnecessary details and exposes only
+necessary details to simplify application development.
+
+This concept is called ABSTRACTION.
+
+
+------------------------------------------------------------
+5. WHAT IS ABSTRACTION?
+------------------------------------------------------------
+
+- Hiding unnecessary implementation details
+- Exposing only required features to developers
+- Every framework internally uses technologies
+- Programmer does NOT need to know internal logic
+
+
+------------------------------------------------------------
+6. FRAMEWORK EXAMPLES
+------------------------------------------------------------
+
+Java Frameworks:
+- Struts
+- JSF
+- Spring
+- Spring Boot
+- WebWork
+- Hibernate
+- iBatis
+
+.NET Frameworks:
+- ASP.NET
+- .NET Core
+
+Python Frameworks:
+- Django
+- Flask
+
+JavaScript Frameworks:
+- Angular
+- ExpressJS
+
+
+============================================================
+7. TECHNOLOGY BASED APP – JDBC EXAMPLE
+============================================================
+
+Sample JDBC Application (Technology App)
+
+------------------------------------------------------------
+COMMON LOGICS:
+------------------------------------------------------------
+- Load JDBC driver
+- Establish DB connection
+- Create JDBC Statement
+- Handle Exceptions
+- Close DB connection
+
+------------------------------------------------------------
+APPLICATION-SPECIFIC LOGICS:
+------------------------------------------------------------
+- Send SQL query to DB
+- Execute query
+- Get results
+- Process results
+
+
+Problems:
+- Developer must write both common and application logic
+- Code repetition across projects
+- Boilerplate code problem
+
+
+------------------------------------------------------------
+8. BOILERPLATE CODE PROBLEM
+------------------------------------------------------------
+
+Definition:
+- Code that repeats in multiple projects
+- Code that changes very little or not at all
+- Increases developer burden
+- Reduces productivity
+
+
+============================================================
+9. SPRING JDBC APP (FRAMEWORK BASED)
+============================================================
+
+Spring JDBC App uses:
+- JdbcTemplate class
+
+Spring takes care of:
+- Driver loading
+- Connection handling
+- Statement creation
+- Exception handling
+- Resource closing
+
+Developer writes only:
+- SQL queries
+- Business logic
+- Result processing
+
+
+------------------------------------------------------------
+10. ADVANTAGE OF SPRING FRAMEWORK
+------------------------------------------------------------
+
+- No boilerplate code
+- Framework generates common logic dynamically
+- Developer focuses only on application-specific logic
+- Faster development
+- Cleaner code
+- Better maintainability
+
+

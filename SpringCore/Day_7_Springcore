@@ -1,0 +1,279 @@
+============================================================
+SPRING CORE MODULE
+============================================================
+
+=> Spring Core is the BASE module of Spring Framework
+
+=> All other Spring modules depend on Spring Core
+
+=> Using Spring Core alone, we can develop ONLY
+   standalone applications
+
+=> Spring Core provides:
+   - IOC Containers
+   - Dependency Management
+   - Bean Life Cycle Management
+
+
+============================================================
+SPRING BEAN LIFE CYCLE MANAGEMENT
+============================================================
+
+Spring Bean Life Cycle Management means:
+
+=> IOC Container performs:
+   1) Loading the class
+   2) Creating the object
+   3) Managing the object
+   4) Destroying the object
+
+
+============================================================
+SPRING DEPENDENCY MANAGEMENT
+============================================================
+
+=> Dependency Management means arranging one Spring Bean
+   class object for another Spring Bean class object
+   so they can communicate with each other
+
+Examples:
+- CourseMaterial (dependent) → Student (target)
+- Courier (dependent) → Myntra (target)
+- CricketBat (dependent) → Cricketer (target)
+
+
+============================================================
+SPRING IOC CONTAINERS
+============================================================
+
+In entire Spring Framework, we use TWO IOC containers:
+
+a) BeanFactory IOC Container        (Basic Container)
+b) ApplicationContext IOC Container (Advanced Container)
+
+
+============================================================
+APPROACHES TO DEVELOP SPRING APPLICATION
+============================================================
+
+Spring application can be developed using THREE approaches:
+
+------------------------------------------------------------
+a) XML Driven Configuration
+------------------------------------------------------------
+=> All inputs and instructions to IOC container
+   are given using XML file
+
+
+------------------------------------------------------------
+b) Annotation Driven Configuration
+------------------------------------------------------------
+=> Inputs and instructions are given using:
+   - XML file
+   - Annotations
+
+
+------------------------------------------------------------
+c) Java Config Approach (Code Driven)  [BEST]
+------------------------------------------------------------
+=> Inputs and instructions are given using:
+   - Annotations
+   - Java statements (NO XML)
+
+
+============================================================
+WHAT IS CONFIGURATION?
+============================================================
+
+=> Configuration means providing information about:
+   - Java code
+   - Spring container
+   - Framework behavior
+
+=> Configuration helps Spring recognize Java code
+   for a specific purpose
+
+
+Examples:
+- Configuring Java class as Servlet (web.xml / WebServlet)
+- Configuring Java class as Spring Bean (XML / @Component)
+
+
+============================================================
+SPRING BEAN
+============================================================
+
+=> A Java class whose object is created and managed
+   by Spring IOC container is called SPRING BEAN
+
+=> Using XML / Annotations / Java Config:
+   - We configure Java classes as Spring Beans
+
+=> Spring Bean can be:
+   - User-defined class
+   - Pre-defined class
+   - Third-party supplied class
+
+=> We CANNOT configure abstract class, interface
+   or private class as Spring Bean
+
+
+============================================================
+XML DRIVEN CONFIGURATION
+============================================================
+
+=> Using <bean> tag in XML, we can configure
+   any Java class as Spring Bean
+
+=> Java class can be:
+   - User-defined
+   - Pre-defined
+   - Third-party supplied
+
+
+------------------------------------------------------------
+SPRING BEAN XML FILE
+------------------------------------------------------------
+
+=> Any XML file can be used as Spring Bean config file
+
+=> Recommended file name:
+   applicationContext.xml
+
+
+------------------------------------------------------------
+EXAMPLE (XML CONFIG)
+------------------------------------------------------------
+
+<bean id="wmg" class="com.nt.cbeans.WishMessageGenerator"/>
+<bean id="dt"  class="java.util.Date"/>
+
+
+------------------------------------------------------------
+WHAT HAPPENS INTERNALLY?
+------------------------------------------------------------
+
+=> Once configuration is given to IOC container:
+   - Container creates objects
+   - Container assigns bean ids
+   - Container manages objects
+   - Classes become Spring Beans
+
+
+============================================================
+ANNOTATION DRIVEN / JAVA CONFIG APPROACH
+============================================================
+
+=> We can configure USER-DEFINED Java classes
+   as Spring Beans using annotations
+
+
+------------------------------------------------------------
+@Component
+------------------------------------------------------------
+
+=> @Component is a class-level annotation
+
+=> Used to configure a Java class as Spring Bean
+
+Example:
+@Component("wmg")
+public class WishMessageGenerator {
+   ...
+}
+
+
+=> IOC container creates object with bean id "wmg"
+
+
+============================================================
+@CONFIGURATION AND @BEAN
+============================================================
+
+=> Used when we want to configure:
+   - Pre-defined classes
+   - Third-party supplied classes
+
+=> Because we cannot modify their source code
+   and cannot use @Component
+
+
+------------------------------------------------------------
+@Configuration
+------------------------------------------------------------
+
+=> Any class annotated with @Configuration
+   is called Configuration Class
+
+
+------------------------------------------------------------
+@Bean
+------------------------------------------------------------
+
+=> @Bean is a method-level annotation
+
+=> Each @Bean method returns an object
+=> Returned object becomes Spring Bean
+
+
+------------------------------------------------------------
+EXAMPLE (JAVA CONFIG)
+------------------------------------------------------------
+
+@Configuration
+public class AppConfig {
+
+   @Bean(name="dt")
+   public Date createDate() {
+      return new Date();
+   }
+
+   @Bean(name="ld")
+   public LocalDate createLD() {
+      return LocalDate.now();
+   }
+}
+
+
+------------------------------------------------------------
+INTERNAL WORKING
+------------------------------------------------------------
+
+=> IOC container:
+   - Calls @Bean methods automatically
+   - Takes returned objects
+   - Registers them as Spring Beans
+   - Assigns given bean ids
+
+
+============================================================
+LIMITATIONS OF XML DRIVEN CONFIGURATION
+============================================================
+
+=> XML is a separate language to learn
+
+=> Separate XML file reduces code readability
+
+=> Requires XML parser software (heavy)
+
+=> XML-based configuration reduces performance
+
+
+============================================================
+ADVANTAGES OF ANNOTATION / JAVA CONFIG
+============================================================
+
+=> Annotations are part of Java language
+
+=> No need to learn separate language
+
+=> Configuration stays near Java code
+   → Better readability
+
+=> No XML parsing → Lightweight execution
+
+=> Better performance
+
+=> Annotation driven configuration
+   is INDUSTRY STANDARD
+

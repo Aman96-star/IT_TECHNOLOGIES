@@ -1,0 +1,317 @@
+============================================================
+      SPRING FRAMEWORK – INVASIVE, CONTAINERS & IOC
+============================================================
+
+
+============================================================
+TYPES OF JAVA FRAMEWORKS (BASED ON DEVELOPMENT MODE)
+============================================================
+
+Based on the mode of application development, Java frameworks
+are divided into TWO types:
+
+a) Invasive Java Frameworks
+b) Non-Invasive Java Frameworks
+
+
+============================================================
+a) INVASIVE JAVA FRAMEWORKS
+============================================================
+
+Invasive = Tightly Coupled
+
+
+------------------------------------------------------------
+CHARACTERISTICS
+------------------------------------------------------------
+
+=> While developing projects using these frameworks:
+   - Classes must EXTEND or IMPLEMENT
+     framework-specific APIs or interfaces
+
+=> Application code becomes tightly coupled with framework
+
+=> Code cannot be easily moved to another framework
+
+=> Programmer must follow framework rules strictly
+
+
+------------------------------------------------------------
+EXAMPLES
+------------------------------------------------------------
+
+- Struts
+- Old generation frameworks
+
+
+------------------------------------------------------------
+ANALOGY
+------------------------------------------------------------
+
+=> Joining a company with LIFE-TIME BOND
+=> Or entering a MARRIAGE relationship
+
+
+============================================================
+b) NON-INVASIVE JAVA FRAMEWORKS
+============================================================
+
+Non-Invasive = Loosely Coupled
+
+
+------------------------------------------------------------
+CHARACTERISTICS
+------------------------------------------------------------
+
+=> Application classes do NOT need to extend or implement
+   framework APIs or interfaces
+
+=> Application code is loosely coupled with framework
+
+=> Code can be easily moved to another framework if needed
+
+=> Framework executes the code without forcing inheritance
+
+
+------------------------------------------------------------
+EXAMPLES
+------------------------------------------------------------
+
+- Spring
+- Spring Boot
+- Hibernate
+
+
+------------------------------------------------------------
+ANALOGY
+------------------------------------------------------------
+
+=> Joining a company WITHOUT bond
+=> Or entering FRIENDSHIP / LIVING relationship
+
+
+============================================================
+CONTAINER – INTRODUCTION
+============================================================
+
+=> Container is a software program that takes care of
+   given resource (class/file) life cycle END to END
+
+=> Responsibilities:
+   - Load class
+   - Create object
+   - Manage object
+   - Destroy object
+
+
+------------------------------------------------------------
+TYPES OF CONTAINERS
+------------------------------------------------------------
+
+Servlet Container
+- Manages lifecycle of Servlet components
+
+JSP Container
+- Manages lifecycle of JSP components
+
+EJB Container
+- Manages lifecycle of EJB components
+
+Spring Container
+- Manages lifecycle of Spring Beans
+
+
+============================================================
+SPRING CONTAINERS
+============================================================
+
+Spring provides TWO containers:
+
+a) BeanFactory Container   (Basic Container)
+b) ApplicationContext      (Advanced Container)
+
+NOTE:
+ApplicationContext = BeanFactory ++
+
+
+============================================================
+SPRING BEAN
+============================================================
+
+=> A Spring Bean is a Java class whose object is:
+   - Created
+   - Managed
+   - Destroyed
+   by Spring Container
+
+=> Bean can be:
+   - User-defined class
+   - Pre-defined class
+   - Third-party library class
+
+
+------------------------------------------------------------
+SPRING BEAN LIFE CYCLE
+------------------------------------------------------------
+
+Once we give any resource (class file) to Spring container:
+
+1) Loading the class
+2) Creating the object
+3) Managing the object
+4) Calling life-cycle methods
+5) Destroying the object
+
+
+============================================================
+CONTAINER ANALOGY
+============================================================
+
+=> Container is like an AQUARIUM
+=> Resources (beans) are like FISHES
+=> Container manages their entire lifecycle
+
+JRE/JVM
+  |
+Container
+  |
+Resources (Beans)
+
+
+============================================================
+IOC CONTAINERS
+============================================================
+
+=> Spring containers are also called IOC containers
+
+IOC = Inversion Of Control
+
+
+------------------------------------------------------------
+WHY IOC?
+------------------------------------------------------------
+
+Normal Java Application:
+- Programmer loads class
+- Programmer creates object
+- Programmer manages object
+- Programmer assigns dependencies
+- Programmer handles garbage collection
+
+=> Control is with PROGRAMMER
+
+
+Spring Application:
+- Container loads classes
+- Container creates objects
+- Container manages objects
+- Container assigns dependencies
+- Container destroys objects
+
+=> Control is with CONTAINER
+=> Control is INVERTED
+
+Hence, Spring containers are called IOC containers
+
+
+============================================================
+CORE JAVA vs SPRING
+============================================================
+
+CORE JAVA APP:
+- Load classes
+- Create objects
+- Manage objects
+- Assign dependencies
+- Keep objects ready for GC
+
+Control: PROGRAMMER
+
+
+SPRING / SPRING BOOT APP:
+- IOC Container loads classes
+- IOC Container creates objects
+- IOC Container manages objects
+- IOC Container assigns dependencies
+- IOC Container destroys objects
+
+Control: CONTAINER
+
+
+============================================================
+WEB SERVER / APPLICATION SERVER
+============================================================
+
+=> Web/Application Server provides:
+   - Servlet Container
+   - JSP Container
+   - EJB Container (only in app servers)
+
+Examples:
+Web Servers:
+- Tomcat
+- Jetty
+- Undertow
+- Resin
+
+Application Servers:
+- WebLogic
+- WebSphere
+- GlassFish
+
+
+------------------------------------------------------------
+SPRING IOC CONTAINER EXECUTION
+------------------------------------------------------------
+
+=> Spring IOC containers run DIRECTLY on JRE/JVM
+
+=> They are NOT part of web server or application server
+
+=> They are independent containers
+
+
+============================================================
+IMPORTANT INTERVIEW QUESTION
+============================================================
+
+Q) Are IOC containers an alternative for Servlet/JSP containers?
+
+Ans: NO
+
+Reason:
+- Servlet/JSP containers manage servlet & jsp lifecycle
+- IOC containers manage Spring Bean lifecycle
+
+=> Both are used together in web applications
+=> IOC container cannot replace Servlet/JSP container
+
+
+============================================================
+LIGHTWEIGHT vs HEAVYWEIGHT CONTAINERS
+============================================================
+
+IOC Container (Lightweight):
+- Requires only JRE/JVM
+- No web/application server required
+- Used for Spring applications
+
+Servlet/JSP Container (Heavyweight):
+- Requires web/application server installation
+- Used for web components
+
+
+------------------------------------------------------------
+IOC CONTAINER CREATION
+------------------------------------------------------------
+
+Example 1: BeanFactory IOC Container
+
+XmlBeanFactory factory =
+    new XmlBeanFactory(resource);
+
+
+Example 2: ApplicationContext IOC Container
+
+ApplicationContext context =
+    new FileSystemXmlApplicationContext("beans.xml");

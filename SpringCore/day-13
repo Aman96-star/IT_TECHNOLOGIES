@@ -1,0 +1,233 @@
+============================================================
+        SPRING – ADVANCED CONSOLE NOTES
+============================================================
+
+
+1) USING @QUALIFIER (BEST SOLUTION FOR AMBIGUITY)
+------------------------------------------------------------
+
+Problem:
+Multiple beans of same type → ambiguity error.
+
+Solution:
+Use @Qualifier to specify exact bean id.
+
+Example:
+
+@Component("wda")
+public class WeekDayAnalyzer {
+
+    @Autowired
+    @Qualifier("ldate1")
+    private LocalDate date;
+
+    @Autowired
+    private LocalTime time;
+}
+
+@Configuration
+public class AppConfig {
+
+    @Bean(name="ldate")
+    public LocalDate createDate() {
+        return LocalDate.now();
+    }
+
+    @Bean(name="ldate1")
+    public LocalDate createDate1() {
+        return LocalDate.of(2024,10,20);
+    }
+
+    @Bean(name="time")
+    public LocalTime createTime() {
+        return LocalTime.now();
+    }
+}
+
+Result:
+Bean with id "ldate1" will be injected.
+
+
+============================================================
+2) USING @PRIMARY
+------------------------------------------------------------
+
+Mark one bean as default.
+
+@Primary
+@Bean(name="ldate")
+public LocalDate createDate() {
+    return LocalDate.now();
+}
+
+Now Spring injects this bean by default.
+
+IMPORTANT:
+Only ONE bean of same type should be marked @Primary.
+
+
+============================================================
+3) MATCHING PROPERTY NAME WITH BEAN ID (ByName Mode)
+------------------------------------------------------------
+
+If property name == bean id,
+Spring injects by name.
+
+Example:
+
+@Bean(name="date")
+public LocalDate createDate() { ... }
+
+@Autowired
+private LocalDate date;
+
+Here injection happens by name.
+
+
+============================================================
+4) BEST SOLUTION FOR AMBIGUITY?
+------------------------------------------------------------
+
+Answer:
+@Qualifier is BEST solution.
+
+Reasons:
+1) Explicit control over injection.
+2) Works even if multiple @Primary exist.
+3) Can be configured from external config.
+4) Avoids confusion.
+
+
+============================================================
+5) ORDER OF INJECTION
+------------------------------------------------------------
+
+If ALL injection types exist:
+
+Constructor Injection
+Field Injection
+Setter Injection
+Arbitrary Method Injection
+
+Order:
+
+1) Constructor Injection (first)
+2) Field Injection
+3) Setter Injection
+4) Arbitrary Method Injection
+
+NOTE:
+If setter appears after arbitrary method in code,
+then arbitrary executes first, then setter.
+
+
+============================================================
+6) CAN WE USE PRIVATE CONSTRUCTORS?
+------------------------------------------------------------
+
+YES ✅
+
+Spring uses Reflection API
+to access private constructors.
+
+Example:
+
+private WeekDayAnalyzer() { }
+
+Spring still creates object using reflection.
+
+
+============================================================
+7) CAN WE USE PRIVATE SETTERS?
+------------------------------------------------------------
+
+YES ✅
+
+Spring uses Reflection API
+to access private setter methods.
+
+
+============================================================
+8) IOC vs DI
+------------------------------------------------------------
+
+IOC (Inversion of Control)
+---------------------------
+Concept.
+Rules to manage dependencies.
+
+DI (Dependency Injection)
+--------------------------
+Implementation of IOC.
+
+Two Implementation Models:
+
+1) Dependency Injection (DI)
+   → Using @Autowired
+   → Container injects dependencies
+
+2) Dependency Lookup (DL)
+   → Using ctx.getBean()
+   → Programmer asks container for object
+
+
+============================================================
+9) CAN SPRING BEAN CLASS BE PRIVATE?
+------------------------------------------------------------
+
+NO ❌
+
+Top-level Spring bean class must be PUBLIC.
+
+Reason:
+Java compiler does not allow outer class as private.
+
+NOTE:
+Inner class can be private,
+but generally Spring beans should be public.
+
+
+============================================================
+10) REFLECTION API WORKING (SIMPLIFIED)
+------------------------------------------------------------
+
+Spring internally does:
+
+Class cls = Class.forName("WeekDayAnalyzer");
+
+Constructor[] cons = cls.getDeclaredConstructors();
+
+cons[0].setAccessible(true);
+
+Object obj = cons[0].newInstance();
+
+This is how private constructors are accessed.
+
+
+============================================================
+11) FINAL QUICK REVISION
+------------------------------------------------------------
+
+Ambiguity occurs:
+→ Multiple beans of same type
+
+Solve using:
+→ @Qualifier (BEST)
+→ @Primary
+→ Matching bean name
+
+Best Injection:
+→ Constructor Injection
+
+Default Autowiring:
+→ ByType
+
+Spring uses:
+→ Reflection API internally
+
+IOC = Concept
+DI  = Implementation
+
+============================================================
+                END OF NOTES
+============================================================

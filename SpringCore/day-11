@@ -1,0 +1,245 @@
+============================================================
+            SPRING FRAMEWORK – MASTER CONSOLE NOTES
+============================================================
+
+1) SPRING APPLICATION DEVELOPMENT APPROACHES
+------------------------------------------------------------
+a) XML Driven Configuration
+b) XML + Annotation Driven Configuration
+c) 100% Java Config (Best & Modern)
+
+Preferred Order:
+Annotations → If complex → XML → Best: Java Config
+
+
+============================================================
+2) IOC (Inversion of Control)
+------------------------------------------------------------
+Definition:
+Control of object creation is given to Spring Container.
+
+Without Spring:
+    Engine e = new Engine();
+    Car c = new Car(e);
+
+With Spring:
+    Spring creates and injects objects automatically.
+
+
+============================================================
+3) DI (Dependency Injection)
+------------------------------------------------------------
+Definition:
+Injecting dependent object into target object.
+
+Example:
+Car needs Engine → Engine is dependency.
+
+Types of DI:
+-------------
+1) Constructor Injection  (BEST)
+2) Setter Injection
+3) Field Injection (Not recommended)
+
+
+Constructor Injection:
+-----------------------
+public class Car {
+    private Engine engine;
+
+    public Car(Engine engine){
+        this.engine = engine;
+    }
+}
+
+
+Setter Injection:
+-----------------
+public void setEngine(Engine engine){
+    this.engine = engine;
+}
+
+
+Field Injection:
+----------------
+@Autowired
+private Engine engine;
+
+
+============================================================
+4) SPRING BEAN
+------------------------------------------------------------
+Definition:
+Any Java class managed by Spring IOC container.
+
+Ways to Declare Bean:
+---------------------
+1) <bean> tag in XML
+2) @Component annotation
+3) @Bean method in @Configuration class
+
+
+XML Example:
+------------
+<bean id="ldate"
+      class="java.time.LocalDate"
+      factory-method="now"/>
+
+
+Annotation Example:
+-------------------
+@Component("sf")
+public class SeasonFinder { }
+
+
+Enable Component Scan:
+----------------------
+<context:component-scan base-package="com.nt.sbeans"/>
+
+
+============================================================
+5) @AUTOWIRED INJECTION TYPES
+------------------------------------------------------------
+On Field        → Field Injection
+On Setter       → Setter Injection
+On Constructor  → Constructor Injection
+On Method       → Arbitrary Method Injection
+
+Wiring:
+--------
+Spring links dependent bean with target bean
+based on type (or name).
+
+
+============================================================
+6) IOC CONTAINER TYPES
+------------------------------------------------------------
+1) BeanFactory (Basic)
+2) ApplicationContext (Advanced & Most Used)
+
+Common Implementations:
+------------------------
+ClassPathXmlApplicationContext
+FileSystemXmlApplicationContext
+AnnotationConfigApplicationContext
+
+
+============================================================
+7) XML + ANNOTATION EXAMPLE
+------------------------------------------------------------
+
+@Component("sf")
+public class SeasonFinder {
+
+    @Autowired
+    private LocalDate date;
+
+    public String showSeasonName(){
+
+        int month = date.getMonthValue();
+
+        if(month>=3 && month<=6)
+            return "Summer";
+        else if(month>=7 && month<=10)
+            return "Rainy";
+        else
+            return "Winter";
+    }
+}
+
+
+applicationContext.xml
+----------------------
+<bean id="ldate"
+      class="java.time.LocalDate"
+      factory-method="now"/>
+
+<context:component-scan base-package="com.nt.sbeans"/>
+
+
+Main:
+-----
+ClassPathXmlApplicationContext ctx =
+    new ClassPathXmlApplicationContext("applicationContext.xml");
+
+SeasonFinder sf = ctx.getBean("sf", SeasonFinder.class);
+
+System.out.println(sf.showSeasonName());
+
+ctx.close();
+
+
+============================================================
+8) 100% JAVA CONFIG (BEST APPROACH)
+------------------------------------------------------------
+
+@Configuration
+@ComponentScan(basePackages="com.nt.sbeans")
+public class AppConfig {
+
+    @Bean("ldate")
+    public LocalDate createDate(){
+        return LocalDate.now();
+    }
+}
+
+
+IOC Creation:
+-------------
+AnnotationConfigApplicationContext ctx =
+    new AnnotationConfigApplicationContext(AppConfig.class);
+
+
+============================================================
+9) IOC INTERNAL WORKING
+------------------------------------------------------------
+1) Load config file
+2) Validate configuration
+3) Create Bean metadata
+4) Instantiate singleton beans
+5) Perform Dependency Injection
+6) Store bean objects in internal cache (Map)
+7) Return object when getBean() is called
+
+
+Internal Cache Structure:
+-------------------------
+Key   → Bean ID
+Value → Bean Object Reference
+
+
+============================================================
+10) BEAN SCOPE
+------------------------------------------------------------
+singleton  → Default (one object per container)
+prototype  → New object every time
+request    → Per HTTP request
+session    → Per HTTP session
+
+
+============================================================
+11) BEAN LIFECYCLE
+------------------------------------------------------------
+1) Object created
+2) Dependency injected
+3) init method called
+4) Bean ready
+5) destroy method called
+
+
+============================================================
+12) IMPORTANT INTERVIEW POINTS
+------------------------------------------------------------
+IOC = Concept
+DI  = Implementation of IOC
+Constructor Injection = Best Practice
+Default scope = Singleton
+Java Config > XML
+Avoid Field Injection
+Bean = Managed object
+ApplicationContext = Spring container
+
+
+============================================================
+                SPRING CORE COMPLETED
+============================================================

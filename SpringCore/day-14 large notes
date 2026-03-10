@@ -1,0 +1,322 @@
+==============================================================
+      STRATEGY DESIGN PATTERN USING SPRING FRAMEWORK
+==============================================================
+
+1) LIMITATIONS OF STRATEGY DP USING CORE JAVA
+--------------------------------------------------------------
+
+1) We must manually create factory class.
+2) We must manually create dependent class objects.
+3) No internal cache management.
+4) Programmer must remember all rules.
+5) Tight coupling risk.
+6) More burden on developer.
+
+To overcome these problems → use SPRING FRAMEWORK.
+
+
+==============================================================
+2) HOW SPRING SOLVES STRATEGY DP
+--------------------------------------------------------------
+
+Spring IOC Container:
+✔ Creates objects
+✔ Injects dependencies
+✔ Maintains internal cache
+✔ Manages lifecycle
+✔ Reduces burden
+
+
+==============================================================
+3) STRATEGY DP STRUCTURE USING SPRING
+--------------------------------------------------------------
+
+Step 1: Create Common Interface
+
+public interface ICourier {
+    public String deliver(int oid);
+}
+
+
+--------------------------------------------------------------
+Step 2: Create Dependent Classes (Strategies)
+--------------------------------------------------------------
+
+@Component("dtdc")
+public class DTDC implements ICourier {
+
+    public DTDC() {
+        System.out.println("DTDC :: constructor");
+    }
+
+    public String deliver(int oid) {
+        return "DTDC delivering order " + oid;
+    }
+}
+
+
+@Component("bDart")
+public class BlueDart implements ICourier {
+
+    public BlueDart() {
+        System.out.println("BlueDart :: constructor");
+    }
+
+    public String deliver(int oid) {
+        return "BlueDart delivering order " + oid;
+    }
+}
+
+
+--------------------------------------------------------------
+Step 3: Create Target Class
+--------------------------------------------------------------
+
+@Component("fpkt")
+public class Flipkart {
+
+    @Autowired
+    @Qualifier("bDart")     // BEST way to select strategy
+    private ICourier courier;
+
+    public Flipkart() {
+        System.out.println("Flipkart :: constructor");
+    }
+
+    public String shopping(String[] items, double[] prices) {
+
+        double billAmount = 0;
+
+        for(double p : prices)
+            billAmount += p;
+
+        int oid = new Random().nextInt(10000);
+
+        String msg = courier.deliver(oid);
+
+        return Arrays.toString(items)
+                + " Bill: " + billAmount
+                + " " + msg;
+    }
+}
+
+
+--------------------------------------------------------------
+Step 4: Configuration Class
+--------------------------------------------------------------
+
+@Configuration
+@ComponentScan(basePackages="com.nt.sbeans")
+public class AppConfig {
+}
+
+
+--------------------------------------------------------------
+Step 5: Client App
+--------------------------------------------------------------
+
+public class StrategyDPTest {
+
+    public static void main(String[] args) {
+
+        AnnotationConfigApplicationContext ctx =
+            new AnnotationConfigApplicationContext(AppConfig.class);
+
+        Flipkart fpkt =
+            ctx.getBean("fpkt", Flipkart.class);
+
+        String result =
+            fpkt.shopping(
+                new String[]{"shirt","trouser"},
+                new double[]{9000,5000}
+            );
+
+        System.out.println(result);
+
+        ctx.close();
+    }
+}
+
+
+==============================================================
+4) INTERNAL WORKING OF IOC CONTAINER
+--------------------------------------------------------------
+
+1) Container starts.
+2) Scans @Component classes.
+3) Creates Bean metadata.
+4) Performs eager instantiation of singleton beans.
+5) Finds @Autowired.
+6) Searches matching bean (by type).
+7) If multiple → checks @Qualifier.
+8) Injects selected dependent bean.
+9) Stores bean objects in internal cache.
+10) Returns bean when getBean() called.
+
+Internal Cache Structure:
+
+Key       → Bean ID
+Value     → Bean Object Reference
+
+
+==============================================================
+5) WHAT IS NoUniqueBeanDefinitionException?
+--------------------------------------------------------------
+
+If multiple beans of same type exist
+and Spring cannot decide which one to inject,
+it throws:
+
+NoUniqueBeanDefinitionException
+
+Example:
+Two ICourier beans:
+- DTDC
+- BlueDart
+
+@Autowired
+private ICourier courier;
+
+Spring gets confused → throws exception.
+
+
+==============================================================
+6) HOW TO SOLVE AMBIGUITY PROBLEM?
+--------------------------------------------------------------
+
+There are 3 ways:
+
+
+(a) Using @Primary
+
+@Component("dtdc")
+@Primary
+public class DTDC implements ICourier { }
+
+Now DTDC becomes default bean.
+
+
+--------------------------------------------------------------
+
+(b) Using @Qualifier (BEST METHOD)
+
+@Autowired
+@Qualifier("bDart")
+private ICourier courier;
+
+Spring injects only bDart.
+
+
+--------------------------------------------------------------
+
+(c) Matching Property Name with Bean ID
+
+private ICourier dtdc;
+
+If bean id is "dtdc",
+Spring injects by name.
+
+
+==============================================================
+7) WHY @QUALIFIER IS BEST?
+--------------------------------------------------------------
+
+1) Explicit control.
+2) More flexible.
+3) Avoids accidental injection.
+4) Works even if multiple @Primary exist.
+5) Easy to change strategy.
+
+
+==============================================================
+8) ADVANTAGES OF STRATEGY DP USING SPRING
+--------------------------------------------------------------
+
+1) No need to implement Factory separately.
+2) IOC container acts as Factory.
+3) Internal caching provided.
+4) Lifecycle managed automatically.
+5) Loose coupling achieved.
+6) Easy to switch strategies.
+7) Code becomes reusable.
+8) Developer burden reduced.
+
+
+==============================================================
+9) EAGER vs LAZY INSTANTIATION
+--------------------------------------------------------------
+
+Default scope = singleton
+
+Singleton beans are created at container startup.
+This is called Eager Instantiation.
+
+If we use:
+
+@Lazy(true)
+
+Bean will be created only when required.
+This is called Lazy Instantiation.
+
+
+==============================================================
+10) MAVEN ROLE IN SPRING PROJECT
+--------------------------------------------------------------
+
+Maven is a Build Tool.
+
+It helps:
+✔ Manage dependencies (jar files)
+✔ Handle transitive dependencies
+✔ Manage project structure
+✔ Automate build process
+
+Transitive Dependency:
+If we add one main dependency,
+Maven automatically downloads its dependent jars.
+
+
+==============================================================
+11) FINAL COMPLETE FLOW
+--------------------------------------------------------------
+
+Core Java Strategy:
+Client → Factory → Strategy → Manual wiring
+
+Spring Strategy:
+Client → IOC Container → Automatic wiring
+
+Spring handles:
+✔ Object creation
+✔ Dependency injection
+✔ Bean selection
+✔ Lifecycle
+✔ Caching
+
+
+==============================================================
+12) QUICK INTERVIEW REVISION
+--------------------------------------------------------------
+
+Q) What pattern is used here?
+→ Strategy Design Pattern
+
+Q) What replaces Factory?
+→ IOC Container
+
+Q) Default autowiring mode?
+→ ByType
+
+Q) Best solution for ambiguity?
+→ @Qualifier
+
+Q) Default scope?
+→ Singleton
+
+Q) Why Spring for Strategy?
+→ Reduces manual coding & improves loose coupling
+
+
+==============================================================
+                 END OF NOTES
+==============================================================

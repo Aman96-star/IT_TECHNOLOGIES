@@ -1,0 +1,279 @@
+============================================================
+   JAVA FRAMEWORKS – BASED ON APPLICATION TYPE
+============================================================
+
+Different types of Java frameworks based on the kind of
+applications we develop:
+
+a) ORM Frameworks
+b) Web MVC Frameworks
+c) Web Service Frameworks
+d) JEE / Application Frameworks
+
+
+============================================================
+                 WEB MVC FRAMEWORKS
+============================================================
+
+=> MVC is an architecture to develop applications as
+   LAYERED applications
+
+=> Layered applications keep different logics in
+   different classes/files and make them interact
+
+=> MVC is like 3/4 BHK Flat (separate rooms for work)
+
+
+------------------------------------------------------------
+MVC COMPONENTS
+------------------------------------------------------------
+
+M -> Model Layer
+V -> View Layer
+C -> Controller Layer
+
+
+------------------------------------------------------------
+MODEL LAYER
+------------------------------------------------------------
+=> Represents business logic
+=> Performs:
+   - Calculations
+   - Validations
+   - Analysis
+   - Persistence logic (CRUD operations on DB)
+
+Example:
+- Account balance calculation
+- Saving data into DB
+
+(Like: Accounts Officer)
+
+
+------------------------------------------------------------
+VIEW LAYER
+------------------------------------------------------------
+=> Represents presentation logic
+=> Responsibilities:
+   - Provide GUI
+   - Take user inputs
+   - Display outputs
+
+Examples:
+- JSP
+- HTML
+- Thymeleaf
+
+(Like: Beautician – presentation)
+
+
+------------------------------------------------------------
+CONTROLLER LAYER
+------------------------------------------------------------
+=> Represents controlling / monitoring logic
+=> Responsibilities:
+   - Control entire flow of application
+   - Coordinate between Model and View
+
+(Like: Supervisor)
+
+
+============================================================
+WHY WEB MVC FRAMEWORKS?
+============================================================
+
+=> Web MVC frameworks provide abstraction over:
+   - Servlet
+   - JSP
+   - Other web technologies
+
+=> They simplify web application development
+=> Reduce boilerplate code
+
+
+------------------------------------------------------------
+EXAMPLES OF WEB MVC FRAMEWORKS
+------------------------------------------------------------
+
+Struts           -> From Apache
+JSF (JavaServer Faces) -> From Sun Microsystems (now Oracle)
+WebWork          -> From OpenSymphony
+Spring MVC       -> From Interface21
+
+
+============================================================
+SPRING MVC
+============================================================
+
+=> Spring MVC is a MODULE of Spring / Spring Boot framework
+
+=> It provides abstraction on:
+   - Servlet
+   - JSP
+
+=> Acts as a sub-framework ONLY to develop
+   MVC-based web applications
+
+
+------------------------------------------------------------
+SPRING AS APPLICATION / JEE FRAMEWORK
+------------------------------------------------------------
+
+=> Spring is NOT only a web framework
+=> Spring is a complete Application / JEE framework
+
+Spring provides modules like:
+- Spring Core
+- Spring MVC
+- Spring Boot
+- Spring JDBC
+- Spring ORM
+- Spring Data JPA
+- Spring Cloud
+
+
+------------------------------------------------------------
+SPRING BOOT USAGE
+------------------------------------------------------------
+
+=> Few Spring Boot modules are used to develop:
+   - MVC architecture projects
+   - Microservice architecture projects
+
+
+============================================================
+EXAMPLES OF WEB APPLICATIONS
+============================================================
+
+- NareshIT
+- Flipkart
+- Amazon
+- IRCTC
+- etc.
+
+
+============================================================
+WEB APPLICATION – DEFINITION
+============================================================
+
+=> Web application is a CLIENT–SERVER application
+
+=> Mostly B2C (Business to Customer)
+
+=> Browser acts as client
+=> Server hosts web application
+
+=> Communication happens using:
+   - HTTP Request
+   - HTTP Response
+
+
+------------------------------------------------------------
+CLIENT – SERVER FLOW
+------------------------------------------------------------
+
+Browser
+   |
+   |--- HTTP Request --->
+   |
+Web Server / Application Server
+   |
+   |--- HTTP Response --->
+   |
+Browser
+
+
+============================================================
+WEB SERVER vs APPLICATION SERVER
+============================================================
+
+=> Web/Application Server:
+   - Listens to client requests continuously
+   - Maps requests to appropriate applications
+   - Executes web components dynamically
+   - Gathers results and sends response to client
+
+Examples of Web Servers:
+- Tomcat
+- Jetty
+- Undertow
+
+Examples of Application Servers:
+- WebLogic
+- WebSphere
+- GlassFish
+
+
+============================================================
+IMPORTANT INTERVIEW QUESTION
+============================================================
+
+Q) Why do we need Web Server / Application Server to execute
+   web applications and distributed apps?
+
+Ans:
+- Standalone applications are executed by a single user
+- Manual execution is sufficient
+
+- Web applications are accessed by:
+  -> Multiple users
+  -> Multiple requests
+  -> 24/7 availability
+
+- Manual execution is:
+  -> Error-prone
+  -> Not effective
+
+=> Web Server / Application Server:
+   - Automates execution
+   - Manages multiple requests
+   - Provides scalability and reliability
+
+
+============================================================
+             WEB SERVICE FRAMEWORKS
+============================================================
+
+=> Web Service is a mechanism to develop
+   DISTRIBUTED APPLICATIONS
+
+=> Distributed App:
+   - Services are consumed from different apps
+   - Apps can run on different machines remotely
+
+
+------------------------------------------------------------
+B2C vs B2B
+------------------------------------------------------------
+
+B2C:
+- Client is browser
+- Example: Web applications
+
+B2B:
+- Client is another software application
+- Example: Distributed applications
+
+
+------------------------------------------------------------
+EXAMPLES OF DISTRIBUTED APPLICATIONS
+------------------------------------------------------------
+
+- UPI Payment Server App (PhonePe)
+- Swiggy / Zomato backend services
+- Banking Applications
+- Currency Converter APIs
+- E-commerce services
+
+
+------------------------------------------------------------
+CLIENTS IN DISTRIBUTED APPS
+------------------------------------------------------------
+
+Clients can be:
+- Web applications (Flipkart.com)
+- Mobile apps (Android / iOS)
+- Embedded systems (ATM, Switch machines)
+- Voice assistants (Alexa, Google Home)
+- Other server applications (Bank apps)
+
