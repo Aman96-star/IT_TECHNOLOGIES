@@ -1,0 +1,1 @@
+ involve understanding core on-demand cloud computing services, including compute (EC2), storage (S3, EBS), databases (RDS, DynamoDB), and networking (VPC), all powered by a pay-as-you-go model. Essential concepts for beginners include global infrastructure, security via IAM, and designing for reliability using the AWS Well-Architected Framework.
