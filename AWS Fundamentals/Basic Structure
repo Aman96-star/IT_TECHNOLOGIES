@@ -1,0 +1,15 @@
+User
+   |
+Internet
+   |
+Route 53 (DNS)
+   |
+CloudFront (CDN)
+   |
+Load Balancer
+   |
+EC2 Instances
+   |
+RDS Database
+   |
+S3 Storage
