@@ -1,1 +1,130 @@
- involve understanding core on-demand cloud computing services, including compute (EC2), storage (S3, EBS), databases (RDS, DynamoDB), and networking (VPC), all powered by a pay-as-you-go model. Essential concepts for beginners include global infrastructure, security via IAM, and designing for reliability using the AWS Well-Architected Framework.
+===============================
+CLOUD COMPUTING – BASIC CONCEPTS
+===============================
+
+1. What is Cloud Computing
+--------------------------
+Cloud computing is the delivery of computing services
+(servers, storage, databases, networking, software)
+over the internet instead of using local computers.
+
+Example:
+Instead of storing data on your laptop,
+you store it on cloud servers like AWS.
+
+Key Idea:
+Access resources anytime using the internet.
+
+
+2. Advantages of Cloud
+----------------------
+
+1. Scalability
+   Resources can increase or decrease based on demand.
+
+2. Cost Saving
+   Pay only for what you use (Pay-as-you-go model).
+
+3. High Availability
+   Cloud services run on multiple servers,
+   so systems remain available even if one server fails.
+
+4. Flexibility
+   Access applications from anywhere.
+
+5. Backup & Disaster Recovery
+   Data can be recovered easily if a system crashes.
+
+
+3. Traditional IT vs Cloud
+--------------------------
+
+Traditional IT Infrastructure
+- Company buys physical servers.
+- High hardware cost.
+- Maintenance required.
+- Limited scalability.
+
+Cloud Computing
+- Servers are provided by cloud providers.
+- No hardware purchase needed.
+- Easy scaling of resources.
+- Pay only for usage.
+
+
+4. Cloud Service Models
+-----------------------
+
+IaaS – Infrastructure as a Service
+----------------------------------
+Provides basic computing infrastructure like
+virtual machines, storage, and networking.
+
+Example:
+AWS EC2
+
+User controls:
+- Operating system
+- Applications
+- Data
+
+Provider controls:
+- Physical servers
+- Networking
+- Data center
+
+
+PaaS – Platform as a Service
+----------------------------
+Provides a platform to develop and deploy applications.
+
+Example:
+AWS Elastic Beanstalk
+
+User manages:
+- Application code
+
+Provider manages:
+- OS
+- Servers
+- Runtime environment
+
+
+SaaS – Software as a Service
+----------------------------
+Software applications delivered through the internet.
+
+Example:
+Google Docs, Gmail
+
+User only uses the software.
+Provider manages everything else.
+
+
+5. Cloud Deployment Models
+--------------------------
+
+Public Cloud
+------------
+Cloud resources are owned and operated by
+third-party providers and shared with many users.
+
+Example:
+AWS, Microsoft Azure
+
+
+Private Cloud
+-------------
+Cloud infrastructure used by a single organization.
+
+Example:
+Company's internal cloud system.
+
+
+Hybrid Cloud
+------------
+Combination of public cloud and private cloud.
+
+Example:
+Sensitive data in private cloud,
+applications in public cloud.
