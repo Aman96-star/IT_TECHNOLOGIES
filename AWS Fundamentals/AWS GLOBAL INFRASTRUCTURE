@@ -1,0 +1,61 @@
+==================================
+AWS GLOBAL INFRASTRUCTURE
+==================================
+
+1. AWS Regions
+----------------------------------
+An AWS Region is a geographical area
+where AWS has data centers.
+
+Each region contains multiple
+Availability Zones.
+
+Examples:
+- us-east-1  (North Virginia)
+- us-west-2  (Oregon)
+- ap-south-1 (Mumbai)
+
+Purpose:
+Regions help keep data close to users
+and improve performance.
+
+
+2. Availability Zones (AZ)
+----------------------------------
+Availability Zones are isolated
+data centers inside a region.
+
+Each region has multiple AZs.
+
+Example:
+ap-south-1a
+ap-south-1b
+ap-south-1c
+
+Purpose:
+If one AZ fails, another AZ continues
+running the application.
+
+
+3. Edge Locations
+----------------------------------
+Edge Locations are smaller data centers
+used for fast content delivery.
+
+They store cached copies of data
+closer to users.
+
+Example service:
+Amazon CloudFront
+
+Purpose:
+- Faster website loading
+- Reduced latency
+
+
+4. AWS Global Infrastructure Benefits
+----------------------------------
+- High availability
+- Fault tolerance
+- Low latency
+- Global scalability
