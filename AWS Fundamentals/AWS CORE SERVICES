@@ -1,0 +1,78 @@
+==================================
+AWS CORE SERVICES
+==================================
+
+1. EC2 (Elastic Compute Cloud)
+----------------------------------
+EC2 provides virtual servers in the cloud.
+
+Uses:
+- Run applications
+- Host websites
+- Deploy backend systems
+
+Features:
+- Scalable computing
+- Custom machine configuration
+
+
+2. S3 (Simple Storage Service)
+----------------------------------
+S3 is an object storage service
+used to store files.
+
+Examples:
+- Images
+- Videos
+- Documents
+- Backups
+
+Features:
+- Unlimited storage
+- Highly durable
+- Secure storage
+
+
+3. RDS (Relational Database Service)
+----------------------------------
+RDS is a managed database service.
+
+Supported databases:
+- MySQL
+- PostgreSQL
+- Oracle
+- SQL Server
+
+Benefits:
+- Automatic backups
+- Easy scaling
+- Managed maintenance
+
+
+4. VPC (Virtual Private Cloud)
+----------------------------------
+VPC allows you to create a private
+network inside AWS.
+
+Components:
+- Subnets
+- Route tables
+- Internet Gateway
+- Security Groups
+
+Purpose:
+Secure network for cloud resources.
+
+
+5. IAM (Identity and Access Management)
+----------------------------------
+IAM controls access to AWS resources.
+
+Components:
+- Users
+- Groups
+- Roles
+- Policies
+
+Purpose:
+Security and permission management.
