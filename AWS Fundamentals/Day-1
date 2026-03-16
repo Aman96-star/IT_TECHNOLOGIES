@@ -1,0 +1,134 @@
+AWS Global Infrastructure is the worldwide network of data centers, regions, availability zones, and edge locations that power the services of Amazon Web Services.
+It allows applications to run reliably, securely, and with low latency from different parts of the world.
+
+AWS designed this infrastructure so that companies can deploy applications close to their users and ensure high availability and fault tolerance.
+
+2. Main Components of AWS Global Infrastructure
+1️⃣ Regions
+
+A Region is a geographical area where AWS has multiple data centers.
+
+Each region is independent and isolated from other regions.
+
+This isolation increases security and reliability.
+
+Examples of AWS Regions:
+
+Asia Pacific (Mumbai) – India
+
+Asia Pacific (Hyderabad) – India
+
+US East (N. Virginia) – USA
+
+Europe (London) – UK
+
+Developers choose a region depending on:
+
+User location
+
+Compliance requirements
+
+Latency
+
+2️⃣ Availability Zones (AZs)
+
+An Availability Zone is one or more separate data centers within a region.
+
+Features:
+
+Physically separated
+
+Connected with high-speed low-latency network
+
+Designed for high availability
+
+Example:
+A region may contain 3–6 Availability Zones.
+
+If one AZ fails, the application can still run in another AZ.
+
+3️⃣ Edge Locations
+
+Edge Locations are smaller data centers used for content delivery and caching.
+
+They are mainly used by services like:
+
+Amazon CloudFront
+
+AWS Shield
+
+AWS WAF
+
+Purpose:
+
+Deliver content faster
+
+Reduce latency for users
+
+Improve application performance
+
+3. Benefits of AWS Global Infrastructure
+
+High Availability
+Multiple AZs ensure applications keep running even if one data center fails.
+
+Low Latency
+Applications run closer to users through global regions and edge locations.
+
+Scalability
+AWS infrastructure can scale resources globally.
+
+Security and Compliance
+AWS data centers follow strict security standards.
+
+Disaster Recovery
+Data can be replicated across multiple regions.
+
+4. Example Scenario
+
+Suppose a company deploys an application in the Mumbai region.
+
+Architecture may look like:
+
+Application Server → AZ-1
+
+Backup Server → AZ-2
+
+Database replication → AZ-3
+
+If one data center fails, the application continues running in another AZ.
+
+5. Conclusion
+
+AWS Global Infrastructure is the foundation of cloud computing in AWS.
+It consists of Regions, Availability Zones, and Edge Locations, which together provide high availability, scalability, security, and low latency for applications deployed on the cloud.
+
+✅ If you want, I can also give you a short exam-ready answer (5–6 lines) or a simple diagram explanation that teachers usually expect in AWS/cloud interviews.
+
+yes
+AWS Global Infrastructure (Short Exam Answer)
+4
+
+AWS Global Infrastructure is the worldwide network of data centers that supports cloud services provided by Amazon Web Services.
+
+It is designed to provide high availability, scalability, security, and low latency for applications running in the cloud.
+
+AWS Global Infrastructure mainly consists of three components:
+
+1️⃣ Regions
+A Region is a geographical location where AWS operates multiple data centers. Each region is independent and helps users deploy applications closer to their customers.
+
+2️⃣ Availability Zones (AZs)
+Availability Zones are separate data centers within a region connected by high-speed networks. They ensure fault tolerance and high availability.
+
+3️⃣ Edge Locations
+Edge locations are used for content delivery and caching to reduce latency and improve performance through services like Amazon CloudFront.
+
+Conclusion:
+AWS Global Infrastructure enables organizations to build reliable, scalable, and globally accessible applications using cloud technology.
+
+✅ Ultra-short (Interview / 3 lines)
+
+AWS Global Infrastructure is the worldwide network of Regions, Availability Zones, and Edge Locations provided by Amazon Web Services.
+It allows applications to run with high availability, security, and low latency across the globe.
+This infrastructure forms the foundation of AWS cloud services.
