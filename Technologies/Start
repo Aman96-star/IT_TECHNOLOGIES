@@ -1,1 +1,120 @@
+# 📚 Readly Bookstore – Architecture Options
 
+This document outlines different architecture approaches for building the **Readly Bookstore** application.
+
+---
+
+## 🧩 Overview
+
+| Option           | Frontend | Backend                     | Database            | Description                          |
+| ---------------- | -------- | --------------------------- | ------------------- | ------------------------------------ |
+| **A (Current)**  | Next.js  | Supabase (BaaS)             | Supabase PostgreSQL | Fully managed backend using Supabase |
+| **B**            | Next.js  | Spring Boot REST API        | MySQL / PostgreSQL  | Custom backend with Java             |
+| **C (Overkill)** | Next.js  | Spring Boot + Supabase Auth | PostgreSQL          | Hybrid architecture with both        |
+
+---
+
+## ✅ Option A – Next.js + Supabase (Current)
+
+### 📌 Stack
+
+* Frontend: Next.js (App Router)
+* Backend: Supabase (Auth, APIs, Storage)
+* Database: PostgreSQL (managed by Supabase)
+
+### 👍 Advantages
+
+* Fast development
+* No backend setup required
+* Built-in authentication & database
+* Ideal for MVP and portfolio projects
+
+### 👎 Limitations
+
+* Less backend control
+* Business logic tied to Supabase
+* Not ideal for complex enterprise systems
+
+---
+
+## ⚙️ Option B – Next.js + Spring Boot
+
+### 📌 Stack
+
+* Frontend: Next.js
+* Backend: Spring Boot (REST APIs)
+* Database: MySQL / PostgreSQL
+
+### 👍 Advantages
+
+* Full control over backend logic
+* Strong architecture (Controller → Service → Repository)
+* Industry-standard for enterprise apps
+* Better for interviews (Java + Spring Boot)
+
+### 👎 Limitations
+
+* More development time
+* Requires backend deployment & management
+* Need to implement authentication manually (JWT, OAuth)
+
+---
+
+## 🚀 Option C – Hybrid (Overkill)
+
+### 📌 Stack
+
+* Frontend: Next.js
+* Backend: Spring Boot (Business Logic)
+* Auth: Supabase Authentication
+* Database: PostgreSQL
+
+### 👍 Advantages
+
+* Combines best of both worlds
+* Supabase handles authentication
+* Spring Boot handles business logic
+
+### 👎 Limitations
+
+* Increased complexity
+* Harder to maintain
+* Not recommended for beginners or small projects
+
+---
+
+## 🎯 Recommendation
+
+For this project:
+
+👉 **Use Option A (Next.js + Supabase)**
+
+* Best for speed, simplicity, and portfolio projects
+
+👉 **Upgrade to Option B if:**
+
+* You want strong backend skills
+* You are preparing for Java/Spring Boot interviews
+
+---
+
+## 🧠 Interview Tip
+
+You can say:
+
+> “I initially built the project using Supabase for rapid development.
+> Then I explored a scalable architecture using Spring Boot REST APIs
+> to demonstrate backend expertise and separation of concerns.”
+
+---
+
+## 📌 Final Verdict
+
+| Use Case                | Best Option |
+| ----------------------- | ----------- |
+| Portfolio / MVP         | ✅ Option A  |
+| Backend Learning        | ✅ Option B  |
+| Enterprise-level system | ⚙️ Option B |
+| Experimentation         | 🚫 Option C |
+
+---
