@@ -1,0 +1,60 @@
+⏱️ Realistic Time Breakdown (Fresher Roadmap)
+📌 Week 1–2 → Core QA Concepts
+SDLC, STLC
+Testing types (Functional, Regression, Smoke)
+Bug Life Cycle
+Black Box Testing
+
+👉 Time: 10–14 days
+👉 Goal: Understand how testing works in real projects
+
+📌 Week 3 → Manual Testing Practice
+Writing Test Cases & Test Scenarios
+Finding bugs in sample websites
+Practicing edge cases
+
+👉 Time: 5–7 days
+👉 Goal: Think like a tester (this is very important)
+
+📌 Week 4 → Tools + Basic Tech
+Learn JIRA (bug reporting)
+Learn Postman basics
+Learn SQL basics (SELECT, WHERE, JOIN)
+
+👉 Time: 7–10 days
+👉 Goal: Become job-ready for fresher roles
+
+📌 Week 5–6 (Optional but Powerful 🚀)
+Basics of Selenium
+Basic Java / JavaScript
+API testing deeper concepts
+
+👉 Time: 10–15 days
+👉 Goal: Stand out from other freshers
+
+📊 Final Timeline Summary
+Basic Job-Ready QA Skills: → 4 weeks
+Strong Fresher Profile: → 6–8 weeks
+⚠️ Important Reality Check
+
+Many people learn theory fast, but fail in interviews because:
+
+They can’t write test cases properly
+They don’t know real-world scenarios
+They can’t explain clearly
+
+👉 So focus on:
+
+Practice on real websites (Amazon, Flipkart, etc.)
+Write test cases daily
+Try to find real bugs
+💡 Smart Strategy (What actually works)
+
+Instead of only studying:
+
+Pick 1 website
+Test it like a QA engineer
+Write:
+Test cases
+Bug reports
+API checks
